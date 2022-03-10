@@ -20,6 +20,7 @@ namespace piBodeWar
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
         {
+            lstPartidas.Items.Clear();
             string strPartidas = Jogo.ListarPartidas("T");
             string[] arrPartidas = strPartidas.Split('\n');
             // partidas.Replace();
@@ -59,6 +60,8 @@ namespace piBodeWar
 
         private void btnListarJogadores_Click(object sender, EventArgs e)
         {
+            lstJogadores.Items.Clear();
+
             string idPartida = lstPartidas.SelectedItem.ToString();
             string[] arrPartida = idPartida.Split(',');
 
