@@ -1,0 +1,14 @@
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe.config
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.pdb
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.dll
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.xml
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.AssemblyReference.cache
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.SuggestedBindingRedirects.cache
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.Form1.resources
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.Properties.Resources.resources
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.GenerateResource.cache
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CoreCompileInputs.cache
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CopyComplete
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.exe
+C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.pdb
