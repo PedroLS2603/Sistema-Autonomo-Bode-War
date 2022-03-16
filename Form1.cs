@@ -13,6 +13,8 @@ namespace piBodeWar
 {
     public partial class Form1 : Form
     {
+        private string senhaJogador;
+        private string idJogador;
         public Form1()
         {
             InitializeComponent();
@@ -20,12 +22,13 @@ namespace piBodeWar
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
         {
+
             lstPartidas.Items.Clear();
             string strPartidas = Jogo.ListarPartidas("T");
             string[] arrPartidas = strPartidas.Split('\n');
             // partidas.Replace();
 
-            for(int i = 0; i < arrPartidas.Length; i++)
+            for (int i = 0; i < arrPartidas.Length; i++)
             {
                 lstPartidas.Items.Add(arrPartidas[i]);
 
@@ -40,7 +43,7 @@ namespace piBodeWar
 
         private void lstJogadores_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void btnCriarPartida_Click(object sender, EventArgs e)
@@ -49,7 +52,7 @@ namespace piBodeWar
             string senha = txtSenha.Text;
             string status = Jogo.CriarPartida(nome, senha);
 
-            if(status.Length <= 4)
+            if (status.Length <= 4)
             {
                 status = "Partida criada com sucesso!";
             }
@@ -61,7 +64,6 @@ namespace piBodeWar
         private void btnListarJogadores_Click(object sender, EventArgs e)
         {
             lstJogadores.Items.Clear();
-
             string idPartida = lstPartidas.SelectedItem.ToString();
             string[] arrPartida = idPartida.Split(',');
 
@@ -72,10 +74,68 @@ namespace piBodeWar
             string[] arrJogadores = strJogadores.Split('\n');
 
 
-            for(int i = 0; i < arrJogadores.Length; i++)
+            for (int i = 0; i < arrJogadores.Length; i++)
             {
                 lstJogadores.Items.Add(arrJogadores[i]);
             }
+        }
+
+        private void btnEntrarPartida_Click(object sender, EventArgs e)
+        {
+            string idPartida = txtIdPartida.Text;
+            string idJogador = txtNomeJogador.Text;
+            string senha = txtSenhaa.Text;
+
+            string status = Jogo.EntrarPartida(Int32.Parse(idPartida), idJogador, senha);
+
+            if(status.Substring(0, 4) != "ERRO")
+            {
+                string[] arrStatus = status.Split(',');
+                this.idJogador = arrStatus[0];
+                this.senhaJogador = arrStatus[1];
+
+                txtStatus.Text = "Entrada realizada com sucesso!";
+            }
+            else
+            {
+                txtStatus.Text = status;
+            }
+
+        }
+        private void btnIniciarPartida_Click(object sender, EventArgs e)
+        {
+
+            if(this.idJogador != null && this.senhaJogador != null)
+            {
+              Jogo.IniciarPartida(Int32.Parse(this.idJogador), this.senhaJogador);
+            }
+            else
+            {
+                txtStatus.Text = "Você não está em nenhuma partida!";
+            }
+
+        }
+
+        private void btnMostrarVez_Click(object sender, EventArgs e)
+        {
+            string idPartida = txtIdPartida.Text;
+
+
+            string status = Jogo.VerificarVez(Int32.Parse(idPartida));   
+
+            if(status.Substring(0, 4) != "ERRO") {
+                string[] arrStatus = status.Split(',');
+                txtStatus.Text = String.Format("É a vez do jogador {0}", arrStatus[1]);
+            }
+            else
+            {
+                txtStatus.Text = status;
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
