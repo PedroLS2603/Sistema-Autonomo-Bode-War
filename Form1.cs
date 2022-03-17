@@ -15,6 +15,7 @@ namespace piBodeWar
     {
         private string senhaJogador;
         private string idJogador;
+        private string idPartidaAtual = null;
         public Form1()
         {
             InitializeComponent();
@@ -82,7 +83,12 @@ namespace piBodeWar
 
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
-            string idPartida = txtIdPartida.Text;
+            string idPartida = lstPartidas.SelectedItem.ToString();
+            string[] arrPartida = idPartida.Split(',');
+
+            idPartida = arrPartida[0];
+            this.idPartidaAtual = idPartida;
+
             string idJogador = txtNomeJogador.Text;
             string senha = txtSenhaa.Text;
 
@@ -91,10 +97,14 @@ namespace piBodeWar
             if(status.Substring(0, 4) != "ERRO")
             {
                 string[] arrStatus = status.Split(',');
-                this.idJogador = arrStatus[0];
-                this.senhaJogador = arrStatus[1];
+                Class1.idJogador = arrStatus[0];
+                Class1.senhaJogador = arrStatus[1];
+                Class1.idPartidaAtual = idPartida;
+
 
                 txtStatus.Text = "Entrada realizada com sucesso!";
+                frmJogo formJogo = new frmJogo();
+                formJogo.Show();
             }
             else
             {
@@ -118,12 +128,17 @@ namespace piBodeWar
 
         private void btnMostrarVez_Click(object sender, EventArgs e)
         {
-            string idPartida = txtIdPartida.Text;
+            string status;
+            if (this.idPartidaAtual != null)
+            {
+                status = Jogo.VerificarVez(Int32.Parse(this.idPartidaAtual));
 
+            } else
+            {
+                status = "Você não está em nenhuma partida!";
+            }
 
-            string status = Jogo.VerificarVez(Int32.Parse(idPartida));   
-
-            if(status.Substring(0, 4) != "ERRO") {
+            if (status.Substring(0, 4) != "ERRO") {
                 string[] arrStatus = status.Split(',');
                 txtStatus.Text = String.Format("É a vez do jogador {0}", arrStatus[1]);
             }
