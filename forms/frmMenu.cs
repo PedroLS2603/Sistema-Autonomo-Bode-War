@@ -8,14 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BodeOfWarServer;
+using piBodeWar.forms;
+using piBodeWar.model;
 
 namespace piBodeWar
 {
-    public partial class Form1 : Form
+    public partial class frmMenu : Form
     {
         private string senhaJogador;
         private string idJogador;
-        public Form1()
+        public frmMenu()
         {
             InitializeComponent();
         }
@@ -36,69 +38,55 @@ namespace piBodeWar
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstJogadores_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCriarPartida_Click(object sender, EventArgs e)
         {
             string nome = txtNome.Text;
             string senha = txtSenha.Text;
             string status = Jogo.CriarPartida(nome, senha);
 
-            if (status.Length <= 4)
+            if (!(status.Contains("ERRO")))
             {
-                status = "Partida criada com sucesso!";
+                MessageBox.Show("Partida criada com sucesso!");
+            } else
+            {
+                MessageBox.Show(status);
             }
 
-            txtStatus.Text = status;
+
+
 
         }
 
-        private void btnListarJogadores_Click(object sender, EventArgs e)
+        private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
-            lstJogadores.Items.Clear();
             string idPartida = lstPartidas.SelectedItem.ToString();
             string[] arrPartida = idPartida.Split(',');
 
             idPartida = arrPartida[0];
 
-            string strJogadores = Jogo.ListarJogadores(Int32.Parse(idPartida));
-
-            string[] arrJogadores = strJogadores.Split('\n');
-
-
-            for (int i = 0; i < arrJogadores.Length; i++)
-            {
-                lstJogadores.Items.Add(arrJogadores[i]);
-            }
-        }
-
-        private void btnEntrarPartida_Click(object sender, EventArgs e)
-        {
-            string idPartida = txtIdPartida.Text;
-            string idJogador = txtNomeJogador.Text;
+            string nome = txtNomeJogador.Text;
             string senha = txtSenhaa.Text;
 
-            string status = Jogo.EntrarPartida(Int32.Parse(idPartida), idJogador, senha);
 
-            if(status.Substring(0, 4) != "ERRO")
+            string status = Jogo.EntrarPartida(Int32.Parse(idPartida), nome, senha);
+
+            if(!(status.Contains("ERRO")))
             {
                 string[] arrStatus = status.Split(',');
                 this.idJogador = arrStatus[0];
                 this.senhaJogador = arrStatus[1];
 
-                txtStatus.Text = "Entrada realizada com sucesso!";
+                Jogador jogador = new Jogador(this.idJogador, nome, senhaJogador);
+                Partida partida = new Partida(idPartida, nome, senha);
+
+
+                frmJogo frmJogo = new frmJogo(jogador, partida);
+
+                frmJogo.Show();
             }
             else
             {
-                txtStatus.Text = status;
+                MessageBox.Show(status);
             }
 
         }
@@ -111,29 +99,23 @@ namespace piBodeWar
             }
             else
             {
-                txtStatus.Text = "Você não está em nenhuma partida!";
+                
+
             }
 
         }
 
         private void btnMostrarVez_Click(object sender, EventArgs e)
         {
-            string idPartida = txtIdPartida.Text;
 
-
-            string status = Jogo.VerificarVez(Int32.Parse(idPartida));   
-
-            if(status.Substring(0, 4) != "ERRO") {
-                string[] arrStatus = status.Split(',');
-                txtStatus.Text = String.Format("É a vez do jogador {0}", arrStatus[1]);
-            }
-            else
-            {
-                txtStatus.Text = status;
-            }
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
