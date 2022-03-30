@@ -63,26 +63,22 @@ namespace piBodeWar.forms
                 else { break; }
                 
             }
-            /*PictureBox imageControl = newPictureBox();  
-            imageControl.Width = 400;  
-            imageControl.Height = 400;  
-            Bitmap image = newBitmap("C:\\Images\\Creek.jpg");  
-            imageControl.Dock = DockStyle.Fill;  
-            imageControl.Image = (Image) image;  
-            Controls.Add(imageControl);  */
-            int x, y;
-            x = 238;
-            y = 333;
+
             foreach (Carta c in this.jogador.mao)
             {
-                PictureBox picBox = new PictureBox();
-                picBox.Location = new Point(x, y);
-                Bitmap imagem = new Bitmap(Image.FromFile(c.imagem));
-                picBox.BackgroundImage = imagem;
+                Label label = new Label();
+                label.Text = c.id.ToString();
+                label.BackColor = Color.Transparent;
+                label.Font = new Font("Microsoft Sans Serif", 25);
+                label.Size = new Size(55, 40);
 
-                x += 87;
+                Panel pnlCarta = new Panel ();
+                pnlCarta.Size = new Size(230, 330);
+                pnlCarta.BackgroundImage = c.imagem;
 
-                Controls.Add(picBox);
+                pnlCarta.Controls.Add(label);
+
+                flpMao.Controls.Add(pnlCarta);
             }
 
         }
@@ -140,6 +136,11 @@ namespace piBodeWar.forms
                 }
             }
             return null;
+        }
+
+        private void btnNarracao_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
