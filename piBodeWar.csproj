@@ -49,16 +49,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="forms\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="forms\frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmJogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmJogo.Designer.cs">
+      <DependentUpon>frmJogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\Carta.cs" />
+    <Compile Include="model\Jogador.cs" />
+    <Compile Include="model\Partida.cs" />
+    <Compile Include="model\Rodada.cs" />
+    <Compile Include="model\Tabuleiro.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="forms\frmJogo.resx">
+      <DependentUpon>frmJogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -68,6 +82,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,6 +96,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="assets\b1.PNG" />
+    <Content Include="assets\b10.PNG" />
+    <Content Include="assets\b2.PNG" />
+    <Content Include="assets\b3.PNG" />
+    <Content Include="assets\b4.PNG" />
+    <Content Include="assets\b5.png" />
+    <Content Include="assets\b6.PNG" />
+    <Content Include="assets\b7.PNG" />
+    <Content Include="assets\b8.PNG" />
+    <Content Include="assets\b9.PNG" />
+    <None Include="assets\bode.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
