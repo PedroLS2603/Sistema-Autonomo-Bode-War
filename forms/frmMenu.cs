@@ -59,48 +59,40 @@ namespace piBodeWar
 
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
-            string idPartida = lstPartidas.SelectedItem.ToString();
-            string[] arrPartida = idPartida.Split(',');
-
-            idPartida = arrPartida[0];
-
-            string nome = txtNomeJogador.Text;
-            string senha = txtSenhaa.Text;
-
-
-            string status = Jogo.EntrarPartida(Int32.Parse(idPartida), nome, senha);
-
-            if(!(status.Contains("ERRO")))
+            
+            try
             {
-                string[] arrStatus = status.Split(',');
-                this.idJogador = arrStatus[0];
-                this.senhaJogador = arrStatus[1];
+                string idPartida = lstPartidas.SelectedItem.ToString();
+                string[] arrPartida = idPartida.Split(',');
 
-                Jogador jogador = new Jogador(this.idJogador, nome, senhaJogador);
-                Partida partida = new Partida(idPartida, nome, senha);
+                idPartida = arrPartida[0];
+
+                string nome = txtNomeJogador.Text;
+                string senha = txtSenhaa.Text;
+                string status = Jogo.EntrarPartida(Int32.Parse(idPartida), nome, senha);
+
+                if (!(status.Contains("ERRO")))
+                {
+                    string[] arrStatus = status.Split(',');
+                    this.idJogador = arrStatus[0];
+                    this.senhaJogador = arrStatus[1];
+
+                    Jogador jogador = new Jogador(this.idJogador, nome, senhaJogador);
+                    Partida partida = new Partida(idPartida, nome, senha);
 
 
-                frmJogo frmJogo = new frmJogo(jogador, partida);
+                    frmJogo frmJogo = new frmJogo(jogador, partida);
 
-                frmJogo.Show();
-            }
-            else
+                    frmJogo.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(status);
+                }
+            } catch (Exception error)
             {
-                MessageBox.Show(status);
-            }
-
-        }
-        private void btnIniciarPartida_Click(object sender, EventArgs e)
-        {
-
-            if(this.idJogador != null && this.senhaJogador != null)
-            {
-              Jogo.IniciarPartida(Int32.Parse(this.idJogador), this.senhaJogador);
-            }
-            else
-            {
-                
-
+                MessageBox.Show("Não há nenhuma partida selecionada!"); 
+                Console.WriteLine(error.Message);
             }
 
         }

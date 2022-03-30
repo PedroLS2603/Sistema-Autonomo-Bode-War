@@ -44,42 +44,73 @@ namespace piBodeWar.forms
         private void btnVerMao_Click(object sender, EventArgs e)
         {
             string strCartas = Jogo.VerificarMao(Int32.Parse(this.jogador.id), this.jogador.senha);
-            txtStatus.Text = strCartas;
-
-            strCartas.Replace('\r', ' ');
-            string[] arrCartas = strCartas.Split('\n');
-
-            foreach(string c in arrCartas)
+            
+            
+            if(!(strCartas.Contains("ERRO")))
             {
+                txtStatus.Text = strCartas;
 
-                if(c != "")
+                int xCarta = 3;
+                int yCarta = 50;
+
+                int widthCarta = 114;
+                int razaoEspacamento = 50;
+
+                strCartas.Replace('\r', ' ');
+                string[] arrCartas = strCartas.Split('\n');
+
+                foreach (string c in arrCartas)
                 {
-                    int num = Int32.Parse(c);
 
-                    Carta carta = this.buscarCarta(num);
+                    if (c != "")
+                    {
+                        int num = Int32.Parse(c);
 
-                    this.jogador.mao.Add(carta);
+                        Carta carta = this.buscarCarta(num);
+
+                        this.jogador.mao.Add(carta);
+                    }
+                    else { break; }
+
                 }
-                else { break; }
-                
+
+                foreach (Carta c in this.jogador.mao)
+                {
+                    int xBode = 3;
+                    int yBode = 140;
+
+                    Label label = new Label();
+                    label.Text = c.id.ToString();
+                    label.BackColor = Color.Transparent;
+                    label.ForeColor = Color.White;
+                    label.Font = new Font("Microsoft Sans Serif", 15);
+                    label.Size = new Size(55, 40);
+                    label.Location = new Point(8, 10);
+
+                    Panel pnlCarta = new Panel();
+                    pnlCarta.Size = new Size(112, 174);
+                    pnlCarta.BackgroundImage = c.imagem;
+                    pnlCarta.Location = new Point(xCarta, yCarta);
+
+                    for (int i = 0; i < c.numBodes; i++)
+                    {
+                        Panel pnlBode = new Panel();
+                        pnlBode.Size = new Size(16, 16);
+                        pnlBode.BackgroundImage = (Image)Properties.Resources.bode;
+                        pnlBode.Location = new Point(xBode, yBode);
+                        pnlBode.BackColor = Color.Transparent;
+                        pnlCarta.Controls.Add(pnlBode);
+                        xBode += 19;
+                    }
+
+                    pnlCarta.Controls.Add(label);
+
+                    flpMao.Controls.Add(pnlCarta);
+
+                    xCarta += widthCarta + razaoEspacamento;
+                }
             }
-
-            foreach (Carta c in this.jogador.mao)
-            {
-                Label label = new Label();
-                label.Text = c.id.ToString();
-                label.BackColor = Color.Transparent;
-                label.Font = new Font("Microsoft Sans Serif", 25);
-                label.Size = new Size(55, 40);
-
-                Panel pnlCarta = new Panel ();
-                pnlCarta.Size = new Size(230, 330);
-                pnlCarta.BackgroundImage = c.imagem;
-
-                pnlCarta.Controls.Add(label);
-
-                flpMao.Controls.Add(pnlCarta);
-            }
+           
 
         }
 
@@ -125,6 +156,8 @@ namespace piBodeWar.forms
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
             txtStatus.Text += Jogo.VerificarVez(Int32.Parse(this.partida.id));
+
+
         }
 
         private Carta buscarCarta(int numCarta)
@@ -139,6 +172,51 @@ namespace piBodeWar.forms
         }
 
         private void btnNarracao_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
         {
 
         }
