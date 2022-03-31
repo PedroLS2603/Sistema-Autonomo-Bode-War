@@ -43,6 +43,7 @@ namespace piBodeWar.forms
 
         private void btnVerMao_Click(object sender, EventArgs e)
         {
+            flpMao.Controls.Clear();
             string strCartas = Jogo.VerificarMao(Int32.Parse(this.jogador.id), this.jogador.senha);
             
             
