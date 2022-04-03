@@ -35,6 +35,10 @@
             this.btnIniciarPartida = new System.Windows.Forms.Button();
             this.btnVerificarVez = new System.Windows.Forms.Button();
             this.flpMao = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnVerificarMesa = new System.Windows.Forms.Button();
+            this.btnVerificarIlha = new System.Windows.Forms.Button();
+            this.txtDefinirIlha = new System.Windows.Forms.TextBox();
+            this.btnDefinirIlha = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtStatus
@@ -48,12 +52,13 @@
             // 
             // btnJogarCarta
             // 
-            this.btnJogarCarta.Location = new System.Drawing.Point(40, 436);
+            this.btnJogarCarta.Location = new System.Drawing.Point(40, 437);
             this.btnJogarCarta.Name = "btnJogarCarta";
             this.btnJogarCarta.Size = new System.Drawing.Size(161, 23);
             this.btnJogarCarta.TabIndex = 1;
             this.btnJogarCarta.Text = "Jogar carta";
             this.btnJogarCarta.UseVisualStyleBackColor = true;
+            this.btnJogarCarta.Click += new System.EventHandler(this.btnJogarCarta_Click);
             // 
             // btnNarracao
             // 
@@ -87,7 +92,7 @@
             // 
             // btnVerificarVez
             // 
-            this.btnVerificarVez.Location = new System.Drawing.Point(40, 525);
+            this.btnVerificarVez.Location = new System.Drawing.Point(40, 524);
             this.btnVerificarVez.Name = "btnVerificarVez";
             this.btnVerificarVez.Size = new System.Drawing.Size(161, 23);
             this.btnVerificarVez.TabIndex = 6;
@@ -103,6 +108,43 @@
             this.flpMao.Size = new System.Drawing.Size(1012, 184);
             this.flpMao.TabIndex = 7;
             // 
+            // btnVerificarMesa
+            // 
+            this.btnVerificarMesa.Location = new System.Drawing.Point(40, 553);
+            this.btnVerificarMesa.Name = "btnVerificarMesa";
+            this.btnVerificarMesa.Size = new System.Drawing.Size(161, 23);
+            this.btnVerificarMesa.TabIndex = 8;
+            this.btnVerificarMesa.Text = "Verificar Mesa";
+            this.btnVerificarMesa.UseVisualStyleBackColor = true;
+            this.btnVerificarMesa.Click += new System.EventHandler(this.btnVerificarMesa_Click);
+            // 
+            // btnVerificarIlha
+            // 
+            this.btnVerificarIlha.Location = new System.Drawing.Point(40, 582);
+            this.btnVerificarIlha.Name = "btnVerificarIlha";
+            this.btnVerificarIlha.Size = new System.Drawing.Size(161, 23);
+            this.btnVerificarIlha.TabIndex = 9;
+            this.btnVerificarIlha.Text = "Verificar ilha";
+            this.btnVerificarIlha.UseVisualStyleBackColor = true;
+            this.btnVerificarIlha.Click += new System.EventHandler(this.btnVerificarIlha_Click);
+            // 
+            // txtDefinirIlha
+            // 
+            this.txtDefinirIlha.Location = new System.Drawing.Point(40, 611);
+            this.txtDefinirIlha.Name = "txtDefinirIlha";
+            this.txtDefinirIlha.Size = new System.Drawing.Size(161, 20);
+            this.txtDefinirIlha.TabIndex = 10;
+            // 
+            // btnDefinirIlha
+            // 
+            this.btnDefinirIlha.Location = new System.Drawing.Point(40, 637);
+            this.btnDefinirIlha.Name = "btnDefinirIlha";
+            this.btnDefinirIlha.Size = new System.Drawing.Size(161, 23);
+            this.btnDefinirIlha.TabIndex = 11;
+            this.btnDefinirIlha.Text = "Definir ilha";
+            this.btnDefinirIlha.UseVisualStyleBackColor = true;
+            this.btnDefinirIlha.Click += new System.EventHandler(this.btnDefinirIlha_Click);
+            // 
             // frmJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +152,10 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnDefinirIlha);
+            this.Controls.Add(this.txtDefinirIlha);
+            this.Controls.Add(this.btnVerificarIlha);
+            this.Controls.Add(this.btnVerificarMesa);
             this.Controls.Add(this.flpMao);
             this.Controls.Add(this.btnVerificarVez);
             this.Controls.Add(this.btnIniciarPartida);
@@ -121,6 +167,7 @@
             this.Text = "frmJogo";
             this.Load += new System.EventHandler(this.frmJogo_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -133,5 +180,9 @@
         private System.Windows.Forms.Button btnIniciarPartida;
         private System.Windows.Forms.Button btnVerificarVez;
         private System.Windows.Forms.FlowLayoutPanel flpMao;
+        private System.Windows.Forms.Button btnVerificarMesa;
+        private System.Windows.Forms.Button btnVerificarIlha;
+        private System.Windows.Forms.TextBox txtDefinirIlha;
+        private System.Windows.Forms.Button btnDefinirIlha;
     }
 }

@@ -12,7 +12,7 @@ namespace piBodeWar.model
         public string nome {get; private set;}
         public string senha { get; private set;}
         public List<Jogador> jogadores { get; private set;}
-        public Jogador vencedor { get; private set;}
+        public Jogador vencedor { get; set;}
 
         public Partida(string id, string nome, string senha)
         {

@@ -17,6 +17,7 @@ namespace piBodeWar.forms
         public Jogador jogador { get; }
         public Partida partida { get; }
 
+
         public List<Carta> listaCarta;
         public frmJogo(Jogador jogador, Partida partida)
         {
@@ -38,14 +39,37 @@ namespace piBodeWar.forms
 
         private void frmJogo_Load(object sender, EventArgs e)
         {
-            
+            string strCartas = Jogo.ListarCartas();
+            txtStatus.Text = strCartas;
+            strCartas.Replace('\r', ' ');
+            string[] arrCartas = strCartas.Split('\n');
+
+
+            foreach (string c in arrCartas)
+            {
+                string[] arrCarta = c.Split(',');
+
+                if (arrCarta.Length > 1)
+                {
+                    int num = Int32.Parse(arrCarta[0]);
+                    int numBodes = Int32.Parse(arrCarta[1]);
+                    int arte = Int32.Parse(arrCarta[2]);
+                    Carta carta = new Carta(num, numBodes, arte);
+
+                    this.listaCarta.Add(carta);
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
 
         private void btnVerMao_Click(object sender, EventArgs e)
         {
             flpMao.Controls.Clear();
+            this.jogador.mao.Clear();
             string strCartas = Jogo.VerificarMao(Int32.Parse(this.jogador.id), this.jogador.senha);
-            
             
             if(!(strCartas.Contains("ERRO")))
             {
@@ -111,7 +135,6 @@ namespace piBodeWar.forms
                     xCarta += widthCarta + razaoEspacamento;
                 }
             }
-           
 
         }
 
@@ -121,31 +144,6 @@ namespace piBodeWar.forms
             if (this.jogador.id != null && this.jogador.senha != null)
             {
                 Jogo.IniciarPartida(Int32.Parse(this.jogador.id), this.jogador.senha);
-                string strCartas = Jogo.ListarCartas();
-                txtStatus.Text = strCartas;
-                strCartas.Replace('\r', ' ');
-                string[] arrCartas = strCartas.Split('\n');
-                
-
-                foreach(string c in arrCartas)
-                {
-                    string[] arrCarta = c.Split(',');
-
-                    if(arrCarta.Length > 1)
-                    {
-                        int num = Int32.Parse(arrCarta[0]);
-                        int numBodes = Int32.Parse(arrCarta[1]);
-                        int arte = Int32.Parse(arrCarta[2]);
-                        Carta carta = new Carta(num, numBodes, arte);
-
-                        this.listaCarta.Add(carta);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-
 
             }
             else
@@ -156,10 +154,8 @@ namespace piBodeWar.forms
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
-            txtStatus.Text += Jogo.VerificarVez(Int32.Parse(this.partida.id));
-
-
-        }
+            txtStatus.Text = Jogo.VerificarVez(Int32.Parse(this.partida.id));
+                    }
 
         private Carta buscarCarta(int numCarta)
         {
@@ -174,7 +170,7 @@ namespace piBodeWar.forms
 
         private void btnNarracao_Click(object sender, EventArgs e)
         {
-
+            txtStatus.Text = Jogo.ExibirNarracao(Int32.Parse(this.partida.id));
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -182,44 +178,35 @@ namespace piBodeWar.forms
 
         }
 
-        private void panel7_Paint(object sender, PaintEventArgs e)
+        private void btnJogarCarta_Click(object sender, EventArgs e)
         {
+            Carta cartaEscolhida = this.jogador.jogar();
 
+            Jogo.Jogar(Int32.Parse(this.jogador.id), this.jogador.senha, cartaEscolhida.id);
+
+            string status = Jogo.VerificarMesa(Int32.Parse(this.partida.id));
+            txtStatus.Text = status;
+
+            this.jogador.mao.Remove(cartaEscolhida);
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void btnVerificarIlha_Click(object sender, EventArgs e)
         {
+            string status = Jogo.VerificarIlha(Int32.Parse(this.jogador.id), this.jogador.senha);
 
+            txtStatus.Text = status;
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void btnDefinirIlha_Click(object sender, EventArgs e)
         {
+            int tamanhoIlha = Int32.Parse(txtDefinirIlha.Text);
 
+            Jogo.DefinirIlha(Int32.Parse(this.jogador.id), this.jogador.senha, tamanhoIlha);
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void btnVerificarMesa_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
+            string status = Jogo.VerificarMesa(Int32.Parse(this.partida.id));
         }
     }
 }
