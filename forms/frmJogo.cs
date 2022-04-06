@@ -154,8 +154,23 @@ namespace piBodeWar.forms
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
-            txtStatus.Text = Jogo.VerificarVez(Int32.Parse(this.partida.id));
-                    }
+            int idPartida = Int32.Parse(this.partida.id);
+            Console.WriteLine(idPartida);
+            string retorno = Jogo.VerificarVez(idPartida);
+            retorno = retorno.Replace('\r', ' ');
+            retorno = retorno.Replace('\n', ' ');
+
+            string[] statusRodada = retorno.Split(',');
+            txtStatus.Text = retorno;
+
+            if(statusRodada[3][0] == 'I')
+            {
+                frmEscolherIlha frmEscolherIlha = new frmEscolherIlha(this.jogador);
+
+                frmEscolherIlha.ShowDialog();
+            }
+
+        }
 
         private Carta buscarCarta(int numCarta)
         {
@@ -184,8 +199,8 @@ namespace piBodeWar.forms
 
             Jogo.Jogar(Int32.Parse(this.jogador.id), this.jogador.senha, cartaEscolhida.id);
 
-            string status = Jogo.VerificarMesa(Int32.Parse(this.partida.id));
-            txtStatus.Text = status;
+            //string status = Jogo.VerificarMesa(Int32.Parse(this.partida.id));
+            //txtStatus.Text = status;
 
             this.jogador.mao.Remove(cartaEscolhida);
         }
@@ -197,16 +212,11 @@ namespace piBodeWar.forms
             txtStatus.Text = status;
         }
 
-        private void btnDefinirIlha_Click(object sender, EventArgs e)
-        {
-            int tamanhoIlha = Int32.Parse(txtDefinirIlha.Text);
-
-            Jogo.DefinirIlha(Int32.Parse(this.jogador.id), this.jogador.senha, tamanhoIlha);
-        }
-
         private void btnVerificarMesa_Click(object sender, EventArgs e)
         {
             string status = Jogo.VerificarMesa(Int32.Parse(this.partida.id));
+
+            txtStatus.Text = status;
         }
     }
 }

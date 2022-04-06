@@ -37,8 +37,6 @@
             this.flpMao = new System.Windows.Forms.FlowLayoutPanel();
             this.btnVerificarMesa = new System.Windows.Forms.Button();
             this.btnVerificarIlha = new System.Windows.Forms.Button();
-            this.txtDefinirIlha = new System.Windows.Forms.TextBox();
-            this.btnDefinirIlha = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtStatus
@@ -128,23 +126,6 @@
             this.btnVerificarIlha.UseVisualStyleBackColor = true;
             this.btnVerificarIlha.Click += new System.EventHandler(this.btnVerificarIlha_Click);
             // 
-            // txtDefinirIlha
-            // 
-            this.txtDefinirIlha.Location = new System.Drawing.Point(40, 611);
-            this.txtDefinirIlha.Name = "txtDefinirIlha";
-            this.txtDefinirIlha.Size = new System.Drawing.Size(161, 20);
-            this.txtDefinirIlha.TabIndex = 10;
-            // 
-            // btnDefinirIlha
-            // 
-            this.btnDefinirIlha.Location = new System.Drawing.Point(40, 637);
-            this.btnDefinirIlha.Name = "btnDefinirIlha";
-            this.btnDefinirIlha.Size = new System.Drawing.Size(161, 23);
-            this.btnDefinirIlha.TabIndex = 11;
-            this.btnDefinirIlha.Text = "Definir ilha";
-            this.btnDefinirIlha.UseVisualStyleBackColor = true;
-            this.btnDefinirIlha.Click += new System.EventHandler(this.btnDefinirIlha_Click);
-            // 
             // frmJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,8 +133,6 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.btnDefinirIlha);
-            this.Controls.Add(this.txtDefinirIlha);
             this.Controls.Add(this.btnVerificarIlha);
             this.Controls.Add(this.btnVerificarMesa);
             this.Controls.Add(this.flpMao);
@@ -167,7 +146,6 @@
             this.Text = "frmJogo";
             this.Load += new System.EventHandler(this.frmJogo_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -182,7 +160,5 @@
         private System.Windows.Forms.FlowLayoutPanel flpMao;
         private System.Windows.Forms.Button btnVerificarMesa;
         private System.Windows.Forms.Button btnVerificarIlha;
-        private System.Windows.Forms.TextBox txtDefinirIlha;
-        private System.Windows.Forms.Button btnDefinirIlha;
     }
 }

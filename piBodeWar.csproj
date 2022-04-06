@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\frmEscolherIlha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmEscolherIlha.Designer.cs">
+      <DependentUpon>frmEscolherIlha.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="model\Tabuleiro.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\frmEscolherIlha.resx">
+      <DependentUpon>frmEscolherIlha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmJogo.resx">
       <DependentUpon>frmJogo.cs</DependentUpon>
     </EmbeddedResource>

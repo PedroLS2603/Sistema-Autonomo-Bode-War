@@ -55,3 +55,4 @@ C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj
 C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CopyComplete
 C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.exe
 C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.pdb
+C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmEscolherIlha.resources
