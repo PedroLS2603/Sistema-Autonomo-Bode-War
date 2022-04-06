@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\forms",
+    "\\model",
+    "\\Properties"
   ],
-  "SelectedNode": "\\piBodeWar.sln",
+  "SelectedNode": "\\forms\\frmMenu.Designer.cs",
   "PreviewInSolutionExplorer": false
 }

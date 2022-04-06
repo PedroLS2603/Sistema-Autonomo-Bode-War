@@ -24,5 +24,10 @@ namespace piBodeWar.model
             this.numBodes = 0;
         }
 
+        public Carta jogar()
+        {
+            return mao[0];
+        }
+
     }
 }

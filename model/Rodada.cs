@@ -8,5 +8,22 @@ namespace piBodeWar.model
 {
     public class Rodada
     {
+        public List<Carta> cartasJogadas { get; private set; }
+
+        public Jogador vencedor { get; set; }
+
+        public Jogador perdedor { get; set; }
+
+        public int totalBodes { get; private set; }
+
+        public Rodada()
+        {
+            this.cartasJogadas = new List<Carta>();
+        }
+
+        public void adicionarBodes(int valor)
+        {
+            this.totalBodes += valor;
+        }
     }
 }

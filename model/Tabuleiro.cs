@@ -8,5 +8,6 @@ namespace piBodeWar.model
 {
     public class Tabuleiro
     {
+        public int tamanhoIlha;
     }
 }
