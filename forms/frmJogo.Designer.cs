@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJogo));
             this.txtStatus = new System.Windows.Forms.RichTextBox();
             this.btnJogarCarta = new System.Windows.Forms.Button();
             this.btnNarracao = new System.Windows.Forms.Button();
@@ -41,7 +42,7 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(765, 38);
+            this.txtStatus.Location = new System.Drawing.Point(1028, 36);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(231, 144);
             this.txtStatus.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             // btnJogarCarta
             // 
-            this.btnJogarCarta.Location = new System.Drawing.Point(40, 437);
+            this.btnJogarCarta.Location = new System.Drawing.Point(29, 526);
             this.btnJogarCarta.Name = "btnJogarCarta";
             this.btnJogarCarta.Size = new System.Drawing.Size(161, 23);
             this.btnJogarCarta.TabIndex = 1;
@@ -60,7 +61,7 @@
             // 
             // btnNarracao
             // 
-            this.btnNarracao.Location = new System.Drawing.Point(765, 215);
+            this.btnNarracao.Location = new System.Drawing.Point(1028, 198);
             this.btnNarracao.Name = "btnNarracao";
             this.btnNarracao.Size = new System.Drawing.Size(231, 23);
             this.btnNarracao.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             // btnVerMao
             // 
-            this.btnVerMao.Location = new System.Drawing.Point(40, 466);
+            this.btnVerMao.Location = new System.Drawing.Point(29, 555);
             this.btnVerMao.Name = "btnVerMao";
             this.btnVerMao.Size = new System.Drawing.Size(161, 23);
             this.btnVerMao.TabIndex = 4;
@@ -80,7 +81,7 @@
             // 
             // btnIniciarPartida
             // 
-            this.btnIniciarPartida.Location = new System.Drawing.Point(40, 495);
+            this.btnIniciarPartida.Location = new System.Drawing.Point(29, 584);
             this.btnIniciarPartida.Name = "btnIniciarPartida";
             this.btnIniciarPartida.Size = new System.Drawing.Size(161, 23);
             this.btnIniciarPartida.TabIndex = 5;
@@ -90,7 +91,7 @@
             // 
             // btnVerificarVez
             // 
-            this.btnVerificarVez.Location = new System.Drawing.Point(40, 524);
+            this.btnVerificarVez.Location = new System.Drawing.Point(29, 613);
             this.btnVerificarVez.Name = "btnVerificarVez";
             this.btnVerificarVez.Size = new System.Drawing.Size(161, 23);
             this.btnVerificarVez.TabIndex = 6;
@@ -100,15 +101,16 @@
             // 
             // flpMao
             // 
+            this.flpMao.BackColor = System.Drawing.Color.Transparent;
             this.flpMao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpMao.Location = new System.Drawing.Point(240, 436);
+            this.flpMao.Location = new System.Drawing.Point(229, 525);
             this.flpMao.Name = "flpMao";
             this.flpMao.Size = new System.Drawing.Size(1012, 184);
             this.flpMao.TabIndex = 7;
             // 
             // btnVerificarMesa
             // 
-            this.btnVerificarMesa.Location = new System.Drawing.Point(40, 553);
+            this.btnVerificarMesa.Location = new System.Drawing.Point(29, 642);
             this.btnVerificarMesa.Name = "btnVerificarMesa";
             this.btnVerificarMesa.Size = new System.Drawing.Size(161, 23);
             this.btnVerificarMesa.TabIndex = 8;
@@ -118,7 +120,7 @@
             // 
             // btnVerificarIlha
             // 
-            this.btnVerificarIlha.Location = new System.Drawing.Point(40, 582);
+            this.btnVerificarIlha.Location = new System.Drawing.Point(29, 671);
             this.btnVerificarIlha.Name = "btnVerificarIlha";
             this.btnVerificarIlha.Size = new System.Drawing.Size(161, 23);
             this.btnVerificarIlha.TabIndex = 9;
@@ -132,7 +134,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.btnVerificarIlha);
             this.Controls.Add(this.btnVerificarMesa);
             this.Controls.Add(this.flpMao);
