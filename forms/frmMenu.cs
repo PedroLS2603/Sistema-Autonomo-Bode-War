@@ -20,6 +20,7 @@ namespace piBodeWar
         public frmMenu()
         {
             InitializeComponent();
+            this.Text = "Animaniacs - Menu";
         }
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace piBodeWar
                     this.idJogador = arrStatus[0];
                     this.senhaJogador = arrStatus[1];
 
-                    Jogador jogador = new Jogador(this.idJogador, nome, senhaJogador);
+                    Jogador jogador = new Jogador(this.idJogador, nome, senhaJogador, false);
                     Partida partida = new Partida(idPartida, nome, senha);
 
 

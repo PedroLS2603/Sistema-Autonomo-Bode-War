@@ -25,6 +25,7 @@ namespace piBodeWar.forms
             this.partida = partida;
             this.listaCarta = new List<Carta>();
             InitializeComponent();
+            this.Text = "Animaniacs";
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -143,6 +144,8 @@ namespace piBodeWar.forms
 
             if (this.jogador.id != null && this.jogador.senha != null)
             {
+                string retorno = Jogo.ListarJogadores(Int32.Parse(this.partida.id));
+                txtStatus.Text = retorno;
                 Jogo.IniciarPartida(Int32.Parse(this.jogador.id), this.jogador.senha);
 
             }
@@ -195,7 +198,7 @@ namespace piBodeWar.forms
 
         private void btnJogarCarta_Click(object sender, EventArgs e)
         {
-            Carta cartaEscolhida = this.jogador.jogar();
+            Carta cartaEscolhida = this.jogador.escolherCarta();
 
             Jogo.Jogar(Int32.Parse(this.jogador.id), this.jogador.senha, cartaEscolhida.id);
 
