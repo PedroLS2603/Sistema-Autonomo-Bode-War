@@ -92,11 +92,10 @@ namespace piBodeWar
                 }
             } catch (Exception error)
             {
-                MessageBox.Show("Não há nenhuma partida selecionada!"); 
-                Console.WriteLine(error.Message);
+                MessageBox.Show(error.Message); 
             }
 
-        }
+            }
 
         private void btnMostrarVez_Click(object sender, EventArgs e)
         {

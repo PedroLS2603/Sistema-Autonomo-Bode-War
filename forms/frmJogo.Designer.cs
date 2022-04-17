@@ -38,6 +38,8 @@
             this.flpMao = new System.Windows.Forms.FlowLayoutPanel();
             this.btnVerificarMesa = new System.Windows.Forms.Button();
             this.btnVerificarIlha = new System.Windows.Forms.Button();
+            this.txtStatusRodada = new System.Windows.Forms.Label();
+            this.lblIlha = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtStatus
@@ -128,6 +130,31 @@
             this.btnVerificarIlha.UseVisualStyleBackColor = true;
             this.btnVerificarIlha.Click += new System.EventHandler(this.btnVerificarIlha_Click);
             // 
+            // txtStatusRodada
+            // 
+            this.txtStatusRodada.AutoSize = true;
+            this.txtStatusRodada.BackColor = System.Drawing.Color.Transparent;
+            this.txtStatusRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.txtStatusRodada.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.txtStatusRodada.Location = new System.Drawing.Point(432, 34);
+            this.txtStatusRodada.Name = "txtStatusRodada";
+            this.txtStatusRodada.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtStatusRodada.Size = new System.Drawing.Size(165, 20);
+            this.txtStatusRodada.TabIndex = 10;
+            this.txtStatusRodada.Text = "Status - Não iniciado";
+            // 
+            // lblIlha
+            // 
+            this.lblIlha.AutoSize = true;
+            this.lblIlha.BackColor = System.Drawing.Color.Transparent;
+            this.lblIlha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.lblIlha.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblIlha.Location = new System.Drawing.Point(690, 34);
+            this.lblIlha.Name = "lblIlha";
+            this.lblIlha.Size = new System.Drawing.Size(60, 20);
+            this.lblIlha.TabIndex = 11;
+            this.lblIlha.Text = "Ilha - 0";
+            // 
             // frmJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,6 +163,8 @@
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.lblIlha);
+            this.Controls.Add(this.txtStatusRodada);
             this.Controls.Add(this.btnVerificarIlha);
             this.Controls.Add(this.btnVerificarMesa);
             this.Controls.Add(this.flpMao);
@@ -149,6 +178,7 @@
             this.Text = "frmJogo";
             this.Load += new System.EventHandler(this.frmJogo_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -163,5 +193,7 @@
         private System.Windows.Forms.FlowLayoutPanel flpMao;
         private System.Windows.Forms.Button btnVerificarMesa;
         private System.Windows.Forms.Button btnVerificarIlha;
+        private System.Windows.Forms.Label txtStatusRodada;
+        private System.Windows.Forms.Label lblIlha;
     }
 }

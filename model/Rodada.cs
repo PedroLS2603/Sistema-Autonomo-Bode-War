@@ -10,7 +10,7 @@ namespace piBodeWar.model
     {
         public string id { get; }
 
-        public char status { get; set; }
+        public char status { get; private set; }
         public List<Carta> cartasJogadas { get; }
 
         public Jogador vencedor { get; set; }
@@ -35,6 +35,14 @@ namespace piBodeWar.model
         public void distribuirPremios()
         {
             this.vencedor.adicionarBodes(this.totalBodes);
+        }
+
+        public void setStatus(char status)
+        {
+            if(status == 'B' || status == 'I')
+            {
+                this.status = status;
+            }
         }
     }
 }

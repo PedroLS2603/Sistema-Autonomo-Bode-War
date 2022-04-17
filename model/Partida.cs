@@ -16,7 +16,9 @@ namespace piBodeWar.model
         public Jogador vencedor { get; set;}
         public char status { get; set;}
         public Rodada rodadaAtual { get; private set; }
-        
+        public bool iniciou { get; private set; }
+
+        public int tamanhoIlha { get; private set; }
         public List<Carta> cartas { get; }
         public Partida(string id, string nome, string senha)
         {
@@ -26,6 +28,7 @@ namespace piBodeWar.model
             this.jogadores = new List<Jogador>();
             this.status = 'A';
             this.cartas = new List<Carta>();
+            this.tamanhoIlha = 0;
             string strCartas = Jogo.ListarCartas();
             strCartas.Replace('\r', ' ');
             string[] arrCartas = strCartas.Split('\n');
@@ -83,20 +86,51 @@ namespace piBodeWar.model
         {
 
             string retorno = Jogo.ListarJogadores(Int32.Parse(this.id));
+            retorno = retorno.Replace('\n'.ToString(), String.Empty);
             string[] arrRetorno = retorno.Split('\n');
 
             foreach(string strJogador in arrRetorno)
             {
-                string[] infoJogador = strJogador.Split(',');
-                string id = infoJogador[0];
-                string nome = infoJogador[1];
+                if(strJogador != "")
+                {
+                    string[] infoJogador = strJogador.Split(',');
+                    string id = infoJogador[0];
+                    string nome = infoJogador[1];
 
-                Jogador jogador = new Jogador(id, nome);
+                    Jogador jogador = new Jogador(id, nome);
 
-                this.jogadores.Add(jogador);
+                    this.jogadores.Add(jogador);
+                }
             }
 
             return this.jogadores;
+        }
+
+        public Jogador buscarJogador(string id)
+        {
+            foreach (Jogador jogador in this.jogadores)
+            {
+                if(jogador.id == id)
+                {
+                    return jogador;
+                }
+            }
+            return null;
+        }
+
+        public void setTamanhoIlha(int valor)
+        {
+            if(valor > 0)
+            {
+                this.tamanhoIlha = valor;
+            }
+        }
+        public void aumentarIlha(int valor)
+        {
+            if(valor > 0)
+            {
+                this.tamanhoIlha += valor;
+            }
         }
     }
 }
