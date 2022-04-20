@@ -107,7 +107,7 @@
             this.flpMao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpMao.Location = new System.Drawing.Point(229, 525);
             this.flpMao.Name = "flpMao";
-            this.flpMao.Size = new System.Drawing.Size(1012, 184);
+            this.flpMao.Size = new System.Drawing.Size(1000, 184);
             this.flpMao.TabIndex = 7;
             // 
             // btnVerificarMesa
@@ -190,10 +190,10 @@
         private System.Windows.Forms.Button btnVerMao;
         private System.Windows.Forms.Button btnIniciarPartida;
         private System.Windows.Forms.Button btnVerificarVez;
-        private System.Windows.Forms.FlowLayoutPanel flpMao;
         private System.Windows.Forms.Button btnVerificarMesa;
         private System.Windows.Forms.Button btnVerificarIlha;
         private System.Windows.Forms.Label txtStatusRodada;
         private System.Windows.Forms.Label lblIlha;
+        private System.Windows.Forms.FlowLayoutPanel flpMao;
     }
 }

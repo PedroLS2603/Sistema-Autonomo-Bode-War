@@ -55,6 +55,7 @@ namespace piBodeWar.model
             retorno = retorno.Replace('\n'.ToString(), "");
 
             Jogador quemJoga;
+            partida.listarJogadores();
 
             if (retorno.StartsWith("ERRO"))
             {
@@ -64,9 +65,17 @@ namespace piBodeWar.model
                 string[] arrRetorno = retorno.Split(',');
                 string statusPartida = arrRetorno[0];
                 string idJogador = arrRetorno[1];
+                string idRodada = arrRetorno[2];
                 char statusRodada = arrRetorno[3][0];
                 partida.status = statusPartida[0];
-                partida.rodadaAtual.setStatus(statusRodada);
+                if(partida.rodadaAtual == null)
+                {
+                    partida.setRodadaAtual(new Rodada(idRodada, statusRodada, 0));
+                }
+                else
+                {
+                    partida.rodadaAtual.setStatus(statusRodada);
+                }
                 quemJoga = partida.buscarJogador(idJogador);
             }
 
