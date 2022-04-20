@@ -8,7 +8,10 @@ namespace piBodeWar.model
 {
     public class Rodada
     {
-        public List<Carta> cartasJogadas { get; private set; }
+        public string id { get; }
+
+        public char status { get; private set; }
+        public List<Carta> cartasJogadas { get; }
 
         public Jogador vencedor { get; set; }
 
@@ -16,14 +19,30 @@ namespace piBodeWar.model
 
         public int totalBodes { get; private set; }
 
-        public Rodada()
+        public Rodada(string id, char status, int totalBodes)
         {
+            this.id = id;
+            this.status = status;
+            this.totalBodes = totalBodes;
             this.cartasJogadas = new List<Carta>();
         }
 
         public void adicionarBodes(int valor)
         {
             this.totalBodes += valor;
+        }
+
+        public void distribuirPremios()
+        {
+            this.vencedor.adicionarBodes(this.totalBodes);
+        }
+
+        public void setStatus(char status)
+        {
+            if(status == 'B' || status == 'I')
+            {
+                this.status = status;
+            }
         }
     }
 }

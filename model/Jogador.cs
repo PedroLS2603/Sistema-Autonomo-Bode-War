@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BodeOfWarServer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,23 +12,151 @@ namespace piBodeWar.model
         public string id { get; }
         public string nome { get; }
         public string senha { get; }
-        public List<Rodada> rodadasGanhas { get; }
-        public int numBodes { get; }
+        public int numBodes { get; private set; }
+        public bool isBot { get; set; }
         public List<Carta> mao { get; }
 
-        public Jogador(string id, string nome, string senha) { 
+
+        public Jogador(string id, string nome)
+        {
+            this.id = id;
+            this.nome = nome;
+        }
+        public Jogador(string id, string nome, string senha, bool isBot)
+        {
             this.id = id;
             this.nome = nome;
             this.senha = senha;
-            this.rodadasGanhas = new List<Rodada>();
             this.mao = new List<Carta>();
             this.numBodes = 0;
+            this.isBot = isBot;
         }
 
-        public Carta jogar()
+        public void jogarCarta()
         {
+            Carta escolhida = this.escolherCarta();
+
+            Jogo.Jogar(Int32.Parse(this.id), this.senha, escolhida.id);
+
+            this.mao.Remove(escolhida);
+
+        }
+
+        public Carta escolherCarta()
+        {
+
             return mao[0];
         }
 
+        public Jogador verificaVez(Partida partida)
+        {
+            string retorno = Jogo.VerificarVez(Int32.Parse(partida.id));
+            retorno = retorno.Replace('\r'.ToString(), "");
+            retorno = retorno.Replace('\n'.ToString(), "");
+
+            Jogador quemJoga;
+
+            if (retorno.StartsWith("ERRO"))
+            {
+                quemJoga = null;
+            }
+            else {
+                string[] arrRetorno = retorno.Split(',');
+                string statusPartida = arrRetorno[0];
+                string idJogador = arrRetorno[1];
+                char statusRodada = arrRetorno[3][0];
+                partida.status = statusPartida[0];
+                partida.rodadaAtual.setStatus(statusRodada);
+                quemJoga = partida.buscarJogador(idJogador);
+            }
+
+
+            return quemJoga;
+        }
+
+        public List<Carta> verMao(Partida partida)
+        {
+            string strCartas = Jogo.VerificarMao(Int32.Parse(this.id), this.senha);
+
+            if (!(strCartas.StartsWith("ERRO")))
+                this.mao.Clear();
+                   
+                strCartas.Replace('\r', ' ');
+                string[] arrCartas = strCartas.Split('\n');
+
+                foreach (string c in arrCartas)
+                {
+
+                    if (c != "")
+                    {
+                        int num = Int32.Parse(c);
+
+                        Carta carta = partida.buscarCarta(num);
+
+                        this.mao.Add(carta);
+                    }
+                    else { break; }
+
+                }
+            return this.mao;
+        }
+
+        public void escolherIlha() {
+            string retorno = Jogo.VerificarIlha(Int32.Parse(this.id), this.senha);
+            string[] opcoesIlha = retorno.Split(',');
+
+            Jogo.DefinirIlha(Int32.Parse(this.id), this.senha, Int32.Parse(opcoesIlha[0]));
+        }
+
+        public void verificarMesa(Partida partida)
+        {
+            string status = Jogo.VerificarMesa(Int32.Parse(partida.id));
+
+            status = status.Replace('\r'.ToString(), String.Empty);
+            string[] arrStatus = status.Split('\n');
+
+            foreach (string jogada in arrStatus)
+            {
+                if(jogada.StartsWith("I"))
+                {
+                    string tamanhoIlha = jogada.Replace("I", "");
+                    partida.setTamanhoIlha(Int32.Parse(tamanhoIlha));
+                }
+                else if(jogada != "")
+                {
+                    string[] arrJogada = jogada.Split(',');
+                    Carta carta = partida.buscarCarta(Int32.Parse(arrJogada[1]));
+
+                    partida.rodadaAtual.cartasJogadas.Add(carta);
+                }
+            }
+        }
+
+        public void iniciarPartida(Partida partida)
+        {
+            partida.listarJogadores();
+            string retorno = Jogo.IniciarPartida(Int32.Parse(this.id), this.senha);
+
+            if(!(retorno.StartsWith("ERRO")))
+            {
+                partida.setRodadaAtual(new Rodada("1", 'B', 0));
+                partida.status = 'J';
+                this.verMao(partida);
+            }
+            
+        }
+
+        public void adicionarBodes(int valor)
+        {
+            if(valor > 0)
+            {
+                this.numBodes += valor;
+            }
+        }
+
+        public void entrarNaPartida(Partida partida)
+        {
+            Jogo.EntrarPartida(Int32.Parse(partida.id), this.nome, this.senha);
+        }
     }
 }

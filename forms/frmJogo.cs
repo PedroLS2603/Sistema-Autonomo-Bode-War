@@ -25,6 +25,7 @@ namespace piBodeWar.forms
             this.partida = partida;
             this.listaCarta = new List<Carta>();
             InitializeComponent();
+            this.Text = "Animaniacs";
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -40,7 +41,6 @@ namespace piBodeWar.forms
         private void frmJogo_Load(object sender, EventArgs e)
         {
             string strCartas = Jogo.ListarCartas();
-            txtStatus.Text = strCartas;
             strCartas.Replace('\r', ' ');
             string[] arrCartas = strCartas.Split('\n');
 
@@ -68,74 +68,49 @@ namespace piBodeWar.forms
         private void btnVerMao_Click(object sender, EventArgs e)
         {
             flpMao.Controls.Clear();
-            this.jogador.mao.Clear();
-            string strCartas = Jogo.VerificarMao(Int32.Parse(this.jogador.id), this.jogador.senha);
-            
-            if(!(strCartas.Contains("ERRO")))
+            this.jogador.verMao(this.partida);
+
+            int xCarta = 3;
+            int yCarta = 50;
+
+            int widthCarta = 114;
+            int razaoEspacamento = 50;
+
+            foreach (Carta c in this.jogador.mao)
             {
-                txtStatus.Text = strCartas;
+                int xBode = 3;
+                int yBode = 140;
 
-                int xCarta = 3;
-                int yCarta = 50;
+                Label label = new Label();
+                label.Text = c.id.ToString();
+                label.BackColor = Color.Transparent;
+                label.ForeColor = Color.White;
+                label.Font = new Font("Microsoft Sans Serif", 15);
+                label.Size = new Size(55, 40);
+                label.Location = new Point(8, 10);
 
-                int widthCarta = 114;
-                int razaoEspacamento = 50;
+                Panel pnlCarta = new Panel();
+                pnlCarta.Size = new Size(112, 174);
+                pnlCarta.BackgroundImage = c.imagem;
+                pnlCarta.Location = new Point(xCarta, yCarta);
 
-                strCartas.Replace('\r', ' ');
-                string[] arrCartas = strCartas.Split('\n');
-
-                foreach (string c in arrCartas)
+                for (int i = 0; i < c.numBodes; i++)
                 {
-
-                    if (c != "")
-                    {
-                        int num = Int32.Parse(c);
-
-                        Carta carta = this.buscarCarta(num);
-
-                        this.jogador.mao.Add(carta);
-                    }
-                    else { break; }
-
+                    Panel pnlBode = new Panel();
+                    pnlBode.Size = new Size(16, 16);
+                    pnlBode.BackgroundImage = (Image)Properties.Resources.bode;
+                    pnlBode.Location = new Point(xBode, yBode);
+                    pnlBode.BackColor = Color.Transparent;
+                    pnlCarta.Controls.Add(pnlBode);
+                    xBode += 19;
                 }
 
-                foreach (Carta c in this.jogador.mao)
-                {
-                    int xBode = 3;
-                    int yBode = 140;
+                pnlCarta.Controls.Add(label);
 
-                    Label label = new Label();
-                    label.Text = c.id.ToString();
-                    label.BackColor = Color.Transparent;
-                    label.ForeColor = Color.White;
-                    label.Font = new Font("Microsoft Sans Serif", 15);
-                    label.Size = new Size(55, 40);
-                    label.Location = new Point(8, 10);
+                flpMao.Controls.Add(pnlCarta);
 
-                    Panel pnlCarta = new Panel();
-                    pnlCarta.Size = new Size(112, 174);
-                    pnlCarta.BackgroundImage = c.imagem;
-                    pnlCarta.Location = new Point(xCarta, yCarta);
-
-                    for (int i = 0; i < c.numBodes; i++)
-                    {
-                        Panel pnlBode = new Panel();
-                        pnlBode.Size = new Size(16, 16);
-                        pnlBode.BackgroundImage = (Image)Properties.Resources.bode;
-                        pnlBode.Location = new Point(xBode, yBode);
-                        pnlBode.BackColor = Color.Transparent;
-                        pnlCarta.Controls.Add(pnlBode);
-                        xBode += 19;
-                    }
-
-                    pnlCarta.Controls.Add(label);
-
-                    flpMao.Controls.Add(pnlCarta);
-
-                    xCarta += widthCarta + razaoEspacamento;
-                }
+                xCarta += widthCarta + razaoEspacamento;
             }
-
         }
 
         private void btnIniciarPartida_Click(object sender, EventArgs e)
@@ -143,8 +118,10 @@ namespace piBodeWar.forms
 
             if (this.jogador.id != null && this.jogador.senha != null)
             {
-                Jogo.IniciarPartida(Int32.Parse(this.jogador.id), this.jogador.senha);
+                this.jogador.iniciarPartida(this.partida);
+                Jogador quemJoga = this.jogador.verificaVez(this.partida);
 
+                txtStatusRodada.Text = String.Format("Status - vez de {0}", quemJoga.nome);
             }
             else
             {
@@ -154,38 +131,23 @@ namespace piBodeWar.forms
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
-            int idPartida = Int32.Parse(this.partida.id);
-            Console.WriteLine(idPartida);
-            string retorno = Jogo.VerificarVez(idPartida);
-            retorno = retorno.Replace('\r', ' ');
-            retorno = retorno.Replace('\n', ' ');
-
-            string[] statusRodada = retorno.Split(',');
-            txtStatus.Text = retorno;
-
-            if(statusRodada[3][0] == 'I')
+            Jogador quemJoga =  this.jogador.verificaVez(this.partida);
+            if(quemJoga != null)
             {
-                frmEscolherIlha frmEscolherIlha = new frmEscolherIlha(this.jogador);
-
-                frmEscolherIlha.ShowDialog();
-            }
-
-        }
-
-        private Carta buscarCarta(int numCarta)
-        {
-            foreach(Carta carta in this.listaCarta) {
-                if(carta.id == numCarta)
+                txtStatusRodada.Text = String.Format("Status - Vez de {0}", quemJoga.nome);
+                if(quemJoga.id == this.jogador.id && this.partida.rodadaAtual.status == 'I')
                 {
-                    return carta;
+                    frmEscolherIlha formEscolherIlha = new frmEscolherIlha(this.jogador);
+
+                    formEscolherIlha.ShowDialog();
                 }
             }
-            return null;
         }
+
 
         private void btnNarracao_Click(object sender, EventArgs e)
         {
-            txtStatus.Text = Jogo.ExibirNarracao(Int32.Parse(this.partida.id));
+            txtStatus.Text = this.partida.exibirNarracao();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -195,14 +157,7 @@ namespace piBodeWar.forms
 
         private void btnJogarCarta_Click(object sender, EventArgs e)
         {
-            Carta cartaEscolhida = this.jogador.jogar();
-
-            Jogo.Jogar(Int32.Parse(this.jogador.id), this.jogador.senha, cartaEscolhida.id);
-
-            //string status = Jogo.VerificarMesa(Int32.Parse(this.partida.id));
-            //txtStatus.Text = status;
-
-            this.jogador.mao.Remove(cartaEscolhida);
+            this.jogador.jogarCarta();
         }
 
         private void btnVerificarIlha_Click(object sender, EventArgs e)
@@ -214,9 +169,10 @@ namespace piBodeWar.forms
 
         private void btnVerificarMesa_Click(object sender, EventArgs e)
         {
-            string status = Jogo.VerificarMesa(Int32.Parse(this.partida.id));
+            this.jogador.verificarMesa(partida);
 
-            txtStatus.Text = status;
+            txtStatus.Text = this.partida.rodadaAtual.status.ToString();
+            lblIlha.Text = String.Format("Ilha - {0}", this.partida.tamanhoIlha.ToString());
         }
     }
 }
