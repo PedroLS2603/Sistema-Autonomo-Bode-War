@@ -76,40 +76,45 @@ namespace piBodeWar.forms
             int widthCarta = 114;
             int razaoEspacamento = 50;
 
-            foreach (Carta c in this.jogador.mao)
+       
+            flpMao.Visible = false;
+
+            if(this.jogador.mao.Count > 0)
             {
-                int xBode = 3;
-                int yBode = 140;
-
-                Label label = new Label();
-                label.Text = c.id.ToString();
-                label.BackColor = Color.Transparent;
-                label.ForeColor = Color.White;
-                label.Font = new Font("Microsoft Sans Serif", 15);
-                label.Size = new Size(55, 40);
-                label.Location = new Point(8, 10);
-
-                Panel pnlCarta = new Panel();
-                pnlCarta.Size = new Size(112, 174);
-                pnlCarta.BackgroundImage = c.imagem;
-                pnlCarta.Location = new Point(xCarta, yCarta);
-
-                for (int i = 0; i < c.numBodes; i++)
+                foreach (Carta c in this.jogador.mao)
                 {
-                    Panel pnlBode = new Panel();
-                    pnlBode.Size = new Size(16, 16);
-                    pnlBode.BackgroundImage = (Image)Properties.Resources.bode;
-                    pnlBode.Location = new Point(xBode, yBode);
-                    pnlBode.BackColor = Color.Transparent;
-                    pnlCarta.Controls.Add(pnlBode);
-                    xBode += 19;
+                    int xBode = 3;
+                    int yBode = 140;
+
+                    Panel pnlCarta = new Panel();
+                    pnlCarta.Size = new Size(112, 172);
+                    pnlCarta.BackgroundImage = c.imagem;
+                    pnlCarta.Location = new Point(xCarta, yCarta);
+
+                    Label label = new Label();
+                    label.Text = c.id.ToString();
+                    label.BackColor = Color.Transparent;
+                    label.ForeColor = Color.White;
+                    label.Font = new Font("Microsoft Sans Serif", 15);
+                    label.Size = new Size(55, 40);
+                    label.Location = new Point(8, 10);
+                    pnlCarta.Controls.Add(label);
+
+                    for (int i = 0; i < c.numBodes; i++)
+                    {
+                        Panel pnlBode = new Panel();
+                        pnlBode.Size = new Size(16, 16);
+                        pnlBode.BackgroundImage = (Image)Properties.Resources.bode;
+                        pnlBode.Location = new Point(xBode, yBode);
+                        pnlBode.BackColor = Color.Transparent;
+                        pnlCarta.Controls.Add(pnlBode);
+                        xBode += 19;
+                    }
+
+                    xCarta += widthCarta + razaoEspacamento;
+                    flpMao.Controls.Add(pnlCarta);
                 }
-
-                pnlCarta.Controls.Add(label);
-
-                flpMao.Controls.Add(pnlCarta);
-
-                xCarta += widthCarta + razaoEspacamento;
+                flpMao.Visible = true;
             }
         }
 

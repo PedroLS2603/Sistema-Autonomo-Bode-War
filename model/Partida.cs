@@ -84,9 +84,9 @@ namespace piBodeWar.model
 
         public List<Jogador> listarJogadores()
         {
-
+            this.jogadores.Clear();
             string retorno = Jogo.ListarJogadores(Int32.Parse(this.id));
-            retorno = retorno.Replace('\n'.ToString(), String.Empty);
+            retorno = retorno.Replace('\r'.ToString(), String.Empty);
             string[] arrRetorno = retorno.Split('\n');
 
             foreach(string strJogador in arrRetorno)
