@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJogo));
             this.txtStatus = new System.Windows.Forms.RichTextBox();
             this.btnJogarCarta = new System.Windows.Forms.Button();
@@ -40,6 +41,12 @@
             this.btnVerificarIlha = new System.Windows.Forms.Button();
             this.txtStatusRodada = new System.Windows.Forms.Label();
             this.lblIlha = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.flpMesa = new System.Windows.Forms.FlowLayoutPanel();
+            this.tmrStatusPartida = new System.Windows.Forms.Timer(this.components);
+            this.tmrAtualizaMao = new System.Windows.Forms.Timer(this.components);
+            this.tmrMinhaVez = new System.Windows.Forms.Timer(this.components);
+            this.tmrAtualizaMesa = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // txtStatus
@@ -107,7 +114,7 @@
             this.flpMao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpMao.Location = new System.Drawing.Point(229, 525);
             this.flpMao.Name = "flpMao";
-            this.flpMao.Size = new System.Drawing.Size(1000, 184);
+            this.flpMao.Size = new System.Drawing.Size(960, 184);
             this.flpMao.TabIndex = 7;
             // 
             // btnVerificarMesa
@@ -136,7 +143,7 @@
             this.txtStatusRodada.BackColor = System.Drawing.Color.Transparent;
             this.txtStatusRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.txtStatusRodada.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.txtStatusRodada.Location = new System.Drawing.Point(432, 34);
+            this.txtStatusRodada.Location = new System.Drawing.Point(1028, 297);
             this.txtStatusRodada.Name = "txtStatusRodada";
             this.txtStatusRodada.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtStatusRodada.Size = new System.Drawing.Size(165, 20);
@@ -149,11 +156,51 @@
             this.lblIlha.BackColor = System.Drawing.Color.Transparent;
             this.lblIlha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblIlha.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblIlha.Location = new System.Drawing.Point(690, 34);
+            this.lblIlha.Location = new System.Drawing.Point(1030, 263);
             this.lblIlha.Name = "lblIlha";
             this.lblIlha.Size = new System.Drawing.Size(60, 20);
             this.lblIlha.TabIndex = 11;
             this.lblIlha.Text = "Ilha - 0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(1029, 337);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 20);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Meus bodes - 0";
+            // 
+            // flpMesa
+            // 
+            this.flpMesa.BackColor = System.Drawing.Color.Transparent;
+            this.flpMesa.Location = new System.Drawing.Point(453, 355);
+            this.flpMesa.Name = "flpMesa";
+            this.flpMesa.Size = new System.Drawing.Size(514, 164);
+            this.flpMesa.TabIndex = 13;
+            // 
+            // tmrStatusPartida
+            // 
+            this.tmrStatusPartida.Interval = 500;
+            this.tmrStatusPartida.Tick += new System.EventHandler(this.tmrStatusPartida_Tick);
+            // 
+            // tmrAtualizaMao
+            // 
+            this.tmrAtualizaMao.Interval = 1000;
+            this.tmrAtualizaMao.Tick += new System.EventHandler(this.tmrAtualizaTela_Tick);
+            // 
+            // tmrMinhaVez
+            // 
+            this.tmrMinhaVez.Interval = 900;
+            this.tmrMinhaVez.Tick += new System.EventHandler(this.tmrMinhaVez_Tick);
+            // 
+            // tmrAtualizaMesa
+            // 
+            this.tmrAtualizaMesa.Interval = 1000;
+            this.tmrAtualizaMesa.Tick += new System.EventHandler(this.tmrAtualizaMesa_Tick);
             // 
             // frmJogo
             // 
@@ -163,6 +210,8 @@
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.flpMesa);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblIlha);
             this.Controls.Add(this.txtStatusRodada);
             this.Controls.Add(this.btnVerificarIlha);
@@ -195,5 +244,11 @@
         private System.Windows.Forms.Label txtStatusRodada;
         private System.Windows.Forms.Label lblIlha;
         private System.Windows.Forms.FlowLayoutPanel flpMao;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flpMesa;
+        private System.Windows.Forms.Timer tmrStatusPartida;
+        private System.Windows.Forms.Timer tmrAtualizaMao;
+        private System.Windows.Forms.Timer tmrMinhaVez;
+        private System.Windows.Forms.Timer tmrAtualizaMesa;
     }
 }

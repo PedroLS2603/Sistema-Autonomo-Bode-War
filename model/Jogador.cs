@@ -90,7 +90,7 @@ namespace piBodeWar.model
             if (!(strCartas.StartsWith("ERRO")))
                 this.mao.Clear();
                    
-                strCartas.Replace('\r', ' ');
+                strCartas.Replace('\r'.ToString(), String.Empty);
                 string[] arrCartas = strCartas.Split('\n');
 
                 foreach (string c in arrCartas)
@@ -119,6 +119,7 @@ namespace piBodeWar.model
 
         public void verificarMesa(Partida partida)
         {
+            partida.rodadaAtual.cartasJogadas.Clear();
             string status = Jogo.VerificarMesa(Int32.Parse(partida.id));
 
             status = status.Replace('\r'.ToString(), String.Empty);

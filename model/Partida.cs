@@ -16,8 +16,7 @@ namespace piBodeWar.model
         public Jogador vencedor { get; set;}
         public char status { get; set;}
         public Rodada rodadaAtual { get; private set; }
-        public bool iniciou { get; private set; }
-
+        public bool iniciou { get;  set; }
         public int tamanhoIlha { get; private set; }
         public List<Carta> cartas { get; }
         public Partida(string id, string nome, string senha)

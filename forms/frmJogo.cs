@@ -12,8 +12,20 @@ using BodeOfWarServer;
 
 namespace piBodeWar.forms
 {
+
     public partial class frmJogo : Form
     {
+        /* Resolve o problema de flicker de exibir as cartas
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                return handleParam;
+            }
+        }
+        */
         public Jogador jogador { get; }
         public Partida partida { get; }
 
@@ -26,6 +38,8 @@ namespace piBodeWar.forms
             this.listaCarta = new List<Carta>();
             InitializeComponent();
             this.Text = "Animaniacs";
+            tmrStatusPartida.Enabled = true;
+
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -70,52 +84,8 @@ namespace piBodeWar.forms
             flpMao.Controls.Clear();
             this.jogador.verMao(this.partida);
 
-            int xCarta = 3;
-            int yCarta = 50;
 
-            int widthCarta = 114;
-            int razaoEspacamento = 50;
-
-       
-            flpMao.Visible = false;
-
-            if(this.jogador.mao.Count > 0)
-            {
-                foreach (Carta c in this.jogador.mao)
-                {
-                    int xBode = 3;
-                    int yBode = 140;
-
-                    Panel pnlCarta = new Panel();
-                    pnlCarta.Size = new Size(112, 172);
-                    pnlCarta.BackgroundImage = c.imagem;
-                    pnlCarta.Location = new Point(xCarta, yCarta);
-
-                    Label label = new Label();
-                    label.Text = c.id.ToString();
-                    label.BackColor = Color.Transparent;
-                    label.ForeColor = Color.White;
-                    label.Font = new Font("Microsoft Sans Serif", 15);
-                    label.Size = new Size(55, 40);
-                    label.Location = new Point(8, 10);
-                    pnlCarta.Controls.Add(label);
-
-                    for (int i = 0; i < c.numBodes; i++)
-                    {
-                        Panel pnlBode = new Panel();
-                        pnlBode.Size = new Size(16, 16);
-                        pnlBode.BackgroundImage = (Image)Properties.Resources.bode;
-                        pnlBode.Location = new Point(xBode, yBode);
-                        pnlBode.BackColor = Color.Transparent;
-                        pnlCarta.Controls.Add(pnlBode);
-                        xBode += 19;
-                    }
-
-                    xCarta += widthCarta + razaoEspacamento;
-                    flpMao.Controls.Add(pnlCarta);
-                }
-                flpMao.Visible = true;
-            }
+            this.mostraMao();
         }
 
         private void btnIniciarPartida_Click(object sender, EventArgs e)
@@ -136,11 +106,11 @@ namespace piBodeWar.forms
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
-            Jogador quemJoga =  this.jogador.verificaVez(this.partida);
-            if(quemJoga != null)
+            Jogador quemJoga = this.jogador.verificaVez(this.partida);
+            if (quemJoga != null)
             {
                 txtStatusRodada.Text = String.Format("Status - Vez de {0}", quemJoga.nome);
-                if(quemJoga.id == this.jogador.id && this.partida.rodadaAtual.status == 'I')
+                if (quemJoga.id == this.jogador.id && this.partida.rodadaAtual.status == 'I')
                 {
                     frmEscolherIlha formEscolherIlha = new frmEscolherIlha(this.jogador);
 
@@ -169,15 +139,179 @@ namespace piBodeWar.forms
         {
             string status = Jogo.VerificarIlha(Int32.Parse(this.jogador.id), this.jogador.senha);
 
-            txtStatus.Text = status;
         }
 
         private void btnVerificarMesa_Click(object sender, EventArgs e)
         {
             this.jogador.verificarMesa(partida);
+            this.atualizarTela();
+        }
 
-            txtStatus.Text = this.partida.rodadaAtual.status.ToString();
+        private void atualizarTela()
+        {
             lblIlha.Text = String.Format("Ilha - {0}", this.partida.tamanhoIlha.ToString());
+            Jogador quemJoga = this.jogador.verificaVez(this.partida);
+
+            if (quemJoga != null)
+            {
+                txtStatusRodada.Text = String.Format("Status - Vez de {0}", quemJoga.nome);
+            }
+
+            flpMao.Visible = false;
+
+            this.mostraMao();
+           // this.mostraMesa();
+        }
+
+        private void mostraMao()
+        {
+            if (this.jogador.mao.Count > 0)
+            {
+                flpMao.Controls.Clear();
+                foreach (Carta c in this.jogador.mao)
+                {
+                    int xBode = 3;
+                    int yBode = 140;
+
+                    Panel pnlCarta = new Panel();
+                    pnlCarta.Size = new Size(112, 172);
+                    pnlCarta.BackgroundImage = c.imagem;
+
+                    Label label = new Label();
+                    label.Text = c.id.ToString();
+                    label.BackColor = Color.Transparent;
+                    label.ForeColor = Color.White;
+                    label.Font = new Font("Microsoft Sans Serif", 15);
+                    label.Size = new Size(55, 40);
+                    label.Location = new Point(8, 10);
+                    pnlCarta.Controls.Add(label);
+
+                    for (int i = 0; i < c.numBodes; i++)
+                    {
+                        Panel pnlBode = new Panel();
+                        pnlBode.Size = new Size(16, 16);
+                        pnlBode.BackgroundImage = (Image)Properties.Resources.bode;
+                        pnlBode.Location = new Point(xBode, yBode);
+                        pnlBode.BackColor = Color.Transparent;
+                        pnlCarta.Controls.Add(pnlBode);
+                        xBode += 19;
+                    }
+
+                    flpMao.Controls.Add(pnlCarta);
+                }
+                flpMao.Visible = true;
+            }
+        }
+
+        private void mostraMesa()
+        {
+            if (this.partida.rodadaAtual.cartasJogadas.Count > 0)
+            {
+                flpMesa.Controls.Clear();
+                foreach (Carta c in this.partida.rodadaAtual.cartasJogadas)
+                {
+                    int xBode = 3;
+                    int yBode = 140;
+
+                    Panel pnlCarta = new Panel();
+                    pnlCarta.Size = new Size(112, 172);
+                    pnlCarta.BackgroundImage = c.imagem;
+
+                    Label label = new Label();
+                    label.Text = c.id.ToString();
+                    label.BackColor = Color.Transparent;
+                    label.ForeColor = Color.White;
+                    label.Font = new Font("Microsoft Sans Serif", 15);
+                    label.Size = new Size(55, 40);
+                    label.Location = new Point(8, 10);
+                    pnlCarta.Controls.Add(label);
+
+                    for (int i = 0; i < c.numBodes; i++)
+                    {
+                        Panel pnlBode = new Panel();
+                        pnlBode.Size = new Size(16, 16);
+                        pnlBode.BackgroundImage = (Image)Properties.Resources.bode;
+                        pnlBode.Location = new Point(xBode, yBode);
+                        pnlBode.BackColor = Color.Transparent;
+                        pnlCarta.Controls.Add(pnlBode);
+                        xBode += 19;
+                    }
+
+                    flpMesa.Controls.Add(pnlCarta);
+                }
+                flpMesa.Visible = true;
+            }
+        }
+        /**Timers**/
+        private void tmrStatusPartida_Tick(object sender, EventArgs e)
+        {
+            string retorno = Jogo.VerificarVez(Int32.Parse(this.partida.id));
+
+            if (!retorno.StartsWith("ERRO"))
+            {
+                if (!this.partida.iniciou)
+                {
+                    this.partida.listarJogadores();
+                    this.partida.setRodadaAtual(new Rodada("1", 'B', 0));
+                    tmrAtualizaMao.Enabled = true;
+                    tmrAtualizaMesa.Enabled = true;
+                    tmrMinhaVez.Enabled = true;
+                    this.partida.iniciou = true;
+                }
+            }
+            else
+            {
+                string status = Jogo.ListarPartidas("E");
+                string[] partidas = status.Split('\n');
+                
+                foreach(string strPartida in partidas)
+                {
+                    if(strPartida != "")
+                    {
+                        string[] arrPartida = strPartida.Split(',');
+
+                        string idPartida = arrPartida[0];
+                        if (idPartida == this.partida.id)
+                        {
+                            tmrStatusPartida.Enabled = false;
+                            tmrMinhaVez.Enabled = false;
+                            tmrAtualizaMao.Enabled = false;
+                            tmrAtualizaMesa.Enabled = false;
+                            MessageBox.Show("Partida encerrada!");
+                        }
+                    }
+                }
+                
+            }
+        }
+
+        private void tmrAtualizaTela_Tick(object sender, EventArgs e)
+        {
+            this.atualizarTela();
+        }
+
+        private void tmrMinhaVez_Tick(object sender, EventArgs e)
+        {
+            Jogador quemJoga = this.jogador.verificaVez(this.partida);
+
+            if (quemJoga != null && quemJoga.id == this.jogador.id)
+            {
+                if (this.partida.rodadaAtual.status == 'B')
+                {
+                    this.jogador.jogarCarta();
+                }
+                else
+                {
+                    this.jogador.escolherIlha();
+                }
+
+            }
+        }
+
+        private void tmrAtualizaMesa_Tick(object sender, EventArgs e)
+        {
+            this.jogador.verificarMesa(this.partida);
+            this.mostraMesa();
         }
     }
 }
