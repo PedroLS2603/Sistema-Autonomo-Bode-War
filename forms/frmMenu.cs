@@ -29,11 +29,14 @@ namespace piBodeWar
             lstPartidas.Items.Clear();
             string strPartidas = Jogo.ListarPartidas("T");
             string[] arrPartidas = strPartidas.Split('\n');
-            // partidas.Replace();
+            Array.Reverse(arrPartidas);
 
-            for (int i = 0; i < arrPartidas.Length; i++)
+            foreach (string partida in arrPartidas)
             {
-                lstPartidas.Items.Add(arrPartidas[i]);
+                if(partida != "")
+                {
+                    lstPartidas.Items.Add(partida);
+                }
 
             }
 
@@ -53,7 +56,8 @@ namespace piBodeWar
                 MessageBox.Show(status);
             }
 
-
+            btnListarPartidas.PerformClick();
+            lstPartidas.SelectedIndex = 0;
 
 
         }

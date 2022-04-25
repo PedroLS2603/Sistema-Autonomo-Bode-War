@@ -13,6 +13,8 @@ namespace piBodeWar.model
         public int numBodes { get; }
         public Image imagem { get; }
 
+        public Jogador detentor { get; private set; }
+
         public Carta(int id, int numBodes, int arte)
         {
             this.id = id;
@@ -49,6 +51,14 @@ namespace piBodeWar.model
                 case 10:
                     this.imagem = Properties.Resources.b10;
                     break;
+            }
+   
+        }
+        public void setDono(Jogador dono)
+        {
+            if(dono != null)
+            {
+                this.detentor = dono;
             }
         }
     }

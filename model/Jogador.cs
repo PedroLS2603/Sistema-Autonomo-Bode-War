@@ -68,14 +68,17 @@ namespace piBodeWar.model
                 string idRodada = arrRetorno[2];
                 char statusRodada = arrRetorno[3][0];
                 partida.status = statusPartida[0];
-                if(partida.rodadaAtual == null)
+                if (statusRodada == 'B' && idRodada != partida.rodadaAtual.id)
                 {
                     partida.setRodadaAtual(new Rodada(idRodada, statusRodada, 0));
                 }
                 else
                 {
                     partida.rodadaAtual.setStatus(statusRodada);
+                    partida.rodadaAtual.distribuirPremios();
                 }
+                
+
                 quemJoga = partida.buscarJogador(idJogador);
             }
 
@@ -101,7 +104,7 @@ namespace piBodeWar.model
                         int num = Int32.Parse(c);
 
                         Carta carta = partida.buscarCarta(num);
-
+                        carta.setDono(this);
                         this.mao.Add(carta);
                     }
                     else { break; }
@@ -120,7 +123,15 @@ namespace piBodeWar.model
         public void verificarMesa(Partida partida)
         {
             partida.rodadaAtual.cartasJogadas.Clear();
-            string status = Jogo.VerificarMesa(Int32.Parse(partida.id));
+            string status;
+            if (Int32.Parse(partida.rodadaAtual.id) > 4 && Int32.Parse(partida.rodadaAtual.id) < 8)
+            {
+                status = Jogo.VerificarMesa(Int32.Parse(partida.id), Int32.Parse(partida.rodadaAtual.id) - 1);
+            }
+            else
+            {
+                status = Jogo.VerificarMesa(Int32.Parse(partida.id));
+            }
 
             status = status.Replace('\r'.ToString(), String.Empty);
             string[] arrStatus = status.Split('\n');
@@ -135,9 +146,14 @@ namespace piBodeWar.model
                 else if(jogada != "")
                 {
                     string[] arrJogada = jogada.Split(',');
-                    Carta carta = partida.buscarCarta(Int32.Parse(arrJogada[1]));
+                    string idJogador = arrJogada[0];
+                    string idCarta = arrJogada[1];
+                    Jogador dono = partida.buscarJogador(idJogador);
+                    Carta carta = partida.buscarCarta(Int32.Parse(idCarta));
 
+                    carta.setDono(dono);
                     partida.rodadaAtual.cartasJogadas.Add(carta);
+                    partida.rodadaAtual.adicionarBodes(carta.numBodes);
                 }
             }
         }

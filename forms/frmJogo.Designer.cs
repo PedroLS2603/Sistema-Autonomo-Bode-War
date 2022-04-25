@@ -189,17 +189,17 @@
             // 
             // tmrAtualizaMao
             // 
-            this.tmrAtualizaMao.Interval = 1000;
+            this.tmrAtualizaMao.Interval = 1600;
             this.tmrAtualizaMao.Tick += new System.EventHandler(this.tmrAtualizaTela_Tick);
             // 
             // tmrMinhaVez
             // 
-            this.tmrMinhaVez.Interval = 900;
+            this.tmrMinhaVez.Interval = 1500;
             this.tmrMinhaVez.Tick += new System.EventHandler(this.tmrMinhaVez_Tick);
             // 
             // tmrAtualizaMesa
             // 
-            this.tmrAtualizaMesa.Interval = 1000;
+            this.tmrAtualizaMesa.Interval = 500;
             this.tmrAtualizaMesa.Tick += new System.EventHandler(this.tmrAtualizaMesa_Tick);
             // 
             // frmJogo

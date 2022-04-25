@@ -117,6 +117,19 @@ namespace piBodeWar.model
             return null;
         }
 
+        public Jogador buscarJogador(int numBodes)
+        {
+            int countJogador = 0;
+            foreach (Jogador jogador in this.jogadores)
+            {
+                if (jogador.numBodes == numBodes && countJogador == 1)
+                {
+                    return jogador;
+                }
+            }
+            return null;
+        }
+
         public void setTamanhoIlha(int valor)
         {
             if(valor > 0)
@@ -130,6 +143,40 @@ namespace piBodeWar.model
             {
                 this.tamanhoIlha += valor;
             }
+        }
+
+        public Jogador verificaVencedor() {
+            int maiorQtdBodes = 0;
+
+            foreach(Jogador jogador in this.jogadores)
+            {
+                if(jogador.numBodes > maiorQtdBodes && this.tamanhoIlha >= jogador.numBodes)
+                {
+                    maiorQtdBodes = jogador.numBodes;
+                }
+            }
+
+            if(maiorQtdBodes == 0)
+            {
+                int menorQtdBodesAposEstourar = 0;
+                foreach(Jogador jogador in this.jogadores) {
+                    if(menorQtdBodesAposEstourar == 0)
+                    {
+                        menorQtdBodesAposEstourar = jogador.numBodes;
+                    }
+
+                    if(menorQtdBodesAposEstourar < jogador.numBodes)
+                    {
+                        menorQtdBodesAposEstourar = jogador.numBodes;
+                    }
+                }
+                this.vencedor = this.buscarJogador(menorQtdBodesAposEstourar);
+            } else
+            {
+                this.vencedor = this.buscarJogador(maiorQtdBodes);
+            }
+
+            return this.vencedor;
         }
     }
 }

@@ -15,7 +15,6 @@ namespace piBodeWar.forms
 
     public partial class frmJogo : Form
     {
-        /* Resolve o problema de flicker de exibir as cartas
         protected override CreateParams CreateParams
         {
             get
@@ -25,7 +24,6 @@ namespace piBodeWar.forms
                 return handleParam;
             }
         }
-        */
         public Jogador jogador { get; }
         public Partida partida { get; }
 
@@ -205,6 +203,8 @@ namespace piBodeWar.forms
 
         private void mostraMesa()
         {
+            lblIlha.Text = String.Format("Ilha - {0}", this.partida.tamanhoIlha.ToString());
+
             if (this.partida.rodadaAtual.cartasJogadas.Count > 0)
             {
                 flpMesa.Controls.Clear();
@@ -252,9 +252,10 @@ namespace piBodeWar.forms
                 if (!this.partida.iniciou)
                 {
                     this.partida.listarJogadores();
+                    this.jogador.verMao(this.partida);
                     this.partida.setRodadaAtual(new Rodada("1", 'B', 0));
                     tmrAtualizaMao.Enabled = true;
-                    tmrAtualizaMesa.Enabled = true;
+//                    tmrAtualizaMesa.Enabled = true;
                     tmrMinhaVez.Enabled = true;
                     this.partida.iniciou = true;
                 }
@@ -273,11 +274,26 @@ namespace piBodeWar.forms
                         string idPartida = arrPartida[0];
                         if (idPartida == this.partida.id)
                         {
+                            Jogador vencedor = this.partida.verificaVencedor();
+                            string mensagem = "Partida encerrada!";
                             tmrStatusPartida.Enabled = false;
                             tmrMinhaVez.Enabled = false;
                             tmrAtualizaMao.Enabled = false;
-                            tmrAtualizaMesa.Enabled = false;
-                            MessageBox.Show("Partida encerrada!");
+//                            tmrAtualizaMesa.Enabled = false;
+                            if(vencedor != null)
+                            {
+                                mensagem += String.Format("\n {0} venceu!", vencedor.nome);
+                            }
+                            else
+                            {
+                                mensagem += "\n Empate!";
+                            }
+
+                            DialogResult resultado = MessageBox.Show(mensagem, "Resultado");
+                            if(resultado == DialogResult.OK)
+                            {
+                                this.Close();
+                            }
                         }
                     }
                 }
@@ -292,6 +308,9 @@ namespace piBodeWar.forms
 
         private void tmrMinhaVez_Tick(object sender, EventArgs e)
         {
+            this.jogador.verificarMesa(this.partida);
+            this.mostraMesa();
+
             Jogador quemJoga = this.jogador.verificaVez(this.partida);
 
             if (quemJoga != null && quemJoga.id == this.jogador.id)
@@ -304,13 +323,15 @@ namespace piBodeWar.forms
                 {
                     this.jogador.escolherIlha();
                 }
-
             }
+            
+
         }
 
         private void tmrAtualizaMesa_Tick(object sender, EventArgs e)
         {
             this.jogador.verificarMesa(this.partida);
+
             this.mostraMesa();
         }
     }
