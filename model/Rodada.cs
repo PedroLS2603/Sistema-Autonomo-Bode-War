@@ -32,7 +32,10 @@ namespace piBodeWar.model
 
         public void adicionarBodes(int valor)
         {
-            this.totalBodes += valor;
+            if(valor > 0)
+            {
+                this.totalBodes += valor;
+            }
         }
 
         public void distribuirPremios(Partida partida)

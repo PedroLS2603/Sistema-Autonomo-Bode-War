@@ -55,7 +55,6 @@ namespace piBodeWar.model
             retorno = retorno.Replace('\n'.ToString(), "");
 
             Jogador quemJoga;
-            partida.listarJogadores();
 
             if (retorno.StartsWith("ERRO"))
             {
@@ -66,6 +65,10 @@ namespace piBodeWar.model
                 string statusPartida = arrRetorno[0];
                 string idJogador = arrRetorno[1];
                 string idRodada = arrRetorno[2];
+                if(idRodada == "1")
+                {
+                    partida.listarJogadores();
+                }
                 char statusRodada = arrRetorno[3][0];
                 partida.status = statusPartida[0];
                 if (statusRodada == 'B' && idRodada != partida.rodadaAtual.id)
@@ -148,10 +151,9 @@ namespace piBodeWar.model
                     string[] arrJogada = jogada.Split(',');
                     string idJogador = arrJogada[0];
                     string idCarta = arrJogada[1];
-                    Jogador dono = partida.buscarJogador(idJogador);
                     Carta carta = partida.buscarCarta(Int32.Parse(idCarta));
 
-                    carta.setDono(dono);
+                    carta.setDono(partida.buscarJogador(idJogador));
                     partida.rodadaAtual.cartasJogadas.Add(carta);
                     partida.rodadaAtual.adicionarBodes(carta.numBodes);
                 }
