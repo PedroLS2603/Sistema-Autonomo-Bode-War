@@ -41,7 +41,7 @@
             this.btnVerificarIlha = new System.Windows.Forms.Button();
             this.txtStatusRodada = new System.Windows.Forms.Label();
             this.lblIlha = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblBodes = new System.Windows.Forms.Label();
             this.flpMesa = new System.Windows.Forms.FlowLayoutPanel();
             this.tmrStatusPartida = new System.Windows.Forms.Timer(this.components);
             this.tmrAtualizaMao = new System.Windows.Forms.Timer(this.components);
@@ -162,17 +162,17 @@
             this.lblIlha.TabIndex = 11;
             this.lblIlha.Text = "Ilha - 0";
             // 
-            // label1
+            // lblBodes
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(1029, 337);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 20);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Meus bodes - 0";
+            this.lblBodes.AutoSize = true;
+            this.lblBodes.BackColor = System.Drawing.Color.Transparent;
+            this.lblBodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
+            this.lblBodes.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblBodes.Location = new System.Drawing.Point(1029, 337);
+            this.lblBodes.Name = "lblBodes";
+            this.lblBodes.Size = new System.Drawing.Size(125, 20);
+            this.lblBodes.TabIndex = 12;
+            this.lblBodes.Text = "Meus bodes - 0";
             // 
             // flpMesa
             // 
@@ -211,7 +211,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.flpMesa);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblBodes);
             this.Controls.Add(this.lblIlha);
             this.Controls.Add(this.txtStatusRodada);
             this.Controls.Add(this.btnVerificarIlha);
@@ -244,7 +244,7 @@
         private System.Windows.Forms.Label txtStatusRodada;
         private System.Windows.Forms.Label lblIlha;
         private System.Windows.Forms.FlowLayoutPanel flpMao;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBodes;
         private System.Windows.Forms.FlowLayoutPanel flpMesa;
         private System.Windows.Forms.Timer tmrStatusPartida;
         private System.Windows.Forms.Timer tmrAtualizaMao;

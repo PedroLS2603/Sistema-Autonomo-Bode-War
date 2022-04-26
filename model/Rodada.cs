@@ -35,10 +35,14 @@ namespace piBodeWar.model
             this.totalBodes += valor;
         }
 
-        public void distribuirPremios()
+        public void distribuirPremios(Partida partida)
         {
             this.verificaVencedor();
-            this.vencedor.adicionarBodes(this.totalBodes);
+            if(this.vencedor != null)
+            {
+                this.vencedor = partida.buscarJogador(this.vencedor.id);
+                this.vencedor.adicionarBodes(this.totalBodes);
+            }
         }
 
         public void setStatus(char status)
@@ -60,7 +64,10 @@ namespace piBodeWar.model
                     vencedora = carta;
                 }
             }
-            this.vencedor = vencedora.detentor;
+            if(vencedora != null)
+            {
+                this.vencedor = vencedora.detentor;
+            }
 
             return this.vencedor;
         } 

@@ -70,12 +70,12 @@ namespace piBodeWar.model
                 partida.status = statusPartida[0];
                 if (statusRodada == 'B' && idRodada != partida.rodadaAtual.id)
                 {
-                    partida.setRodadaAtual(new Rodada(idRodada, statusRodada, 0));
+                    partida.setRodadaAtual(new Rodada(idRodada, statusRodada, 0, partida));
                 }
-                else
+                else if(statusRodada == 'I' && idRodada == partida.rodadaAtual.id)
                 {
                     partida.rodadaAtual.setStatus(statusRodada);
-                    partida.rodadaAtual.distribuirPremios();
+                    partida.rodadaAtual.distribuirPremios(partida);
                 }
                 
 
@@ -165,7 +165,7 @@ namespace piBodeWar.model
 
             if(!(retorno.StartsWith("ERRO")))
             {
-                partida.setRodadaAtual(new Rodada("1", 'B', 0));
+                partida.setRodadaAtual(new Rodada("1", 'B', 0, partida));
                 partida.status = 'J';
                 this.verMao(partida);
             }

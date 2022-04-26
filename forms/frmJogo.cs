@@ -253,7 +253,7 @@ namespace piBodeWar.forms
                 {
                     this.partida.listarJogadores();
                     this.jogador.verMao(this.partida);
-                    this.partida.setRodadaAtual(new Rodada("1", 'B', 0));
+                    this.partida.setRodadaAtual(new Rodada("1", 'B', 0, this.partida));
                     tmrAtualizaMao.Enabled = true;
 //                    tmrAtualizaMesa.Enabled = true;
                     tmrMinhaVez.Enabled = true;
@@ -325,7 +325,7 @@ namespace piBodeWar.forms
                 }
             }
             
-
+            lblBodes.Text = String.Format("Meus bodes - {0}", this.partida.buscarJogador(this.jogador.id).numBodes.ToString());
         }
 
         private void tmrAtualizaMesa_Tick(object sender, EventArgs e)
