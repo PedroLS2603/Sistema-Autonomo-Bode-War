@@ -88,15 +88,16 @@ namespace piBodeWar.model
             retorno = retorno.Replace('\r'.ToString(), String.Empty);
             string[] arrRetorno = retorno.Split('\n');
 
-            foreach(string strJogador in arrRetorno)
+            for (int i = 0; i < arrRetorno.Length; i++)
             {
+                string strJogador = arrRetorno[i];
                 if(strJogador != "")
                 {
                     string[] infoJogador = strJogador.Split(',');
                     string id = infoJogador[0];
                     string nome = infoJogador[1];
 
-                    Jogador jogador = new Jogador(id, nome);
+                    Jogador jogador = new Jogador(id, nome, i);
 
                     this.jogadores.Add(jogador);
                 }
@@ -177,6 +178,11 @@ namespace piBodeWar.model
             }
 
             return this.vencedor;
+        }
+
+        public void encerrar()
+        {
+            this.status = 'E';
         }
     }
 }

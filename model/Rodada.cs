@@ -38,12 +38,12 @@ namespace piBodeWar.model
             }
         }
 
-        public void distribuirPremios(Partida partida)
+        public void distribuirPremios()
         {
             this.verificaVencedor();
             if(this.vencedor != null)
             {
-                this.vencedor = partida.buscarJogador(this.vencedor.id);
+                this.vencedor = this.partida.buscarJogador(this.vencedor.id);
                 this.vencedor.adicionarBodes(this.totalBodes);
             }
         }
@@ -60,6 +60,10 @@ namespace piBodeWar.model
         {
             int maiorNum = 0;
             Carta vencedora = null;
+            if(this.vencedor != null)
+            {
+                this.vencedor = null;
+            }
             foreach(Carta carta in this.cartasJogadas)
             {
                 if(carta.id > maiorNum)
