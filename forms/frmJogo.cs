@@ -258,6 +258,7 @@ namespace piBodeWar.forms
         /**Timers**/
         private void tmrStatusPartida_Tick(object sender, EventArgs e)
         {
+            tmrStatusPartida.Enabled = false;
             string retorno = Jogo.VerificarVez(Int32.Parse(this.partida.id));
 
             if (!retorno.StartsWith("ERRO"))
@@ -274,7 +275,7 @@ namespace piBodeWar.forms
                         Jogador jogador = this.partida.jogadores[i];
                         if(jogador.id == this.jogador.id)
                         {
-                            this.partida.jogadores[i] = this.jogador;
+                            this.jogador.cor = jogador.cor;
                         }
                         switch(i)
                         {
@@ -337,6 +338,7 @@ namespace piBodeWar.forms
                 }
                 
             }
+            tmrStatusPartida.Enabled = true;
         }
 
         private void tmrAtualizaTela_Tick(object sender, EventArgs e)
@@ -345,7 +347,8 @@ namespace piBodeWar.forms
         }
 
         private void tmrMinhaVez_Tick(object sender, EventArgs e)
-        {   
+        {
+            tmrMinhaVez.Enabled = false;
             this.mostraMao();
             Jogador quemJoga = this.jogador.verificaVez(this.partida);
 
@@ -366,6 +369,8 @@ namespace piBodeWar.forms
             lblRodada.Text = $"Rodada - {this.partida.rodadaAtual.id}";
             this.jogador.verificarMesa(this.partida);
             this.mostraMesa();
+            tmrMinhaVez.Enabled = true;
+
         }
 
         private void tmrAtualizaMesa_Tick(object sender, EventArgs e)

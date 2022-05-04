@@ -88,7 +88,7 @@ namespace piBodeWar
 
                     frmJogo frmJogo = new frmJogo(jogador, partida);
 
-                    frmJogo.ShowDialog();
+                    frmJogo.Show();
                 }
                 else
                 {

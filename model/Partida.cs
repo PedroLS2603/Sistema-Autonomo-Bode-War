@@ -97,7 +97,7 @@ namespace piBodeWar.model
                     string id = infoJogador[0];
                     string nome = infoJogador[1];
 
-                    Jogador jogador = new Jogador(id, nome, i);
+                    Jogador jogador = new Jogador(id, nome, i + 1);
 
                     this.jogadores.Add(jogador);
                 }
