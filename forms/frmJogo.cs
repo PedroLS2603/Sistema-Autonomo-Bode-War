@@ -331,6 +331,8 @@ namespace piBodeWar.forms
                             DialogResult resultado = MessageBox.Show(mensagem, "Resultado");
                             if(resultado == DialogResult.OK)
                             {
+                                tmrStatusPartida.Enabled = false;
+                                return;
                             //    this.Close();
                             }
                         }
@@ -340,6 +342,7 @@ namespace piBodeWar.forms
             }
             tmrStatusPartida.Enabled = true;
         }
+
 
         private void tmrAtualizaTela_Tick(object sender, EventArgs e)
         {
