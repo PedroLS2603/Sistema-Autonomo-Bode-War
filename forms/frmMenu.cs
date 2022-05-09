@@ -82,8 +82,9 @@ namespace piBodeWar
                     this.idJogador = arrStatus[0];
                     this.senhaJogador = arrStatus[1];
 
-                    Jogador jogador = new Jogador(this.idJogador, nome, senhaJogador, false);
                     Partida partida = new Partida(idPartida, nome, senha);
+                    Jogador jogador = new Jogador(partida, this.idJogador, nome, senhaJogador, false);
+
 
 
                     frmJogo frmJogo = new frmJogo(jogador, partida);
@@ -98,21 +99,6 @@ namespace piBodeWar
             {
                 MessageBox.Show(error.Message); 
             }
-
-            }
-
-        private void btnMostrarVez_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
     }

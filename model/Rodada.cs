@@ -50,7 +50,7 @@ namespace piBodeWar.model
 
         public void setStatus(char status)
         {
-            if(status == 'B' || status == 'I')
+            if(status == 'B' || status == 'I' || status == 'E')
             {
                 this.status = status;
             }

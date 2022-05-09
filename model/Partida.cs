@@ -16,6 +16,8 @@ namespace piBodeWar.model
         public Jogador vencedor { get; set;}
         public char status { get; set;}
         public Rodada rodadaAtual { get; private set; }
+
+        public List<Rodada> rodadas { get; private set; }
         public bool iniciou { get;  set; }
         public int tamanhoIlha { get; private set; }
         public List<Carta> cartas { get; }
@@ -31,7 +33,7 @@ namespace piBodeWar.model
             string strCartas = Jogo.ListarCartas();
             strCartas.Replace('\r', ' ');
             string[] arrCartas = strCartas.Split('\n');
-
+            this.rodadas = new List<Rodada>();
 
             foreach (string c in arrCartas)
             {
@@ -97,7 +99,7 @@ namespace piBodeWar.model
                     string id = infoJogador[0];
                     string nome = infoJogador[1];
 
-                    Jogador jogador = new Jogador(id, nome, i + 1);
+                    Jogador jogador = new Jogador(this, id, nome, i + 1);
 
                     this.jogadores.Add(jogador);
                 }
@@ -178,6 +180,18 @@ namespace piBodeWar.model
             }
 
             return this.vencedor;
+        }
+
+        public Rodada obterRodadaPorId(string id)
+        {
+            foreach (Rodada rodada in this.rodadas)
+            {
+                if(rodada.id == id)
+                {
+                    return rodada;
+                }
+            }
+            return null;
         }
 
         public void encerrar()

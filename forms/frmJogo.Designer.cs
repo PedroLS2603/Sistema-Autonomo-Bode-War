@@ -43,10 +43,7 @@
             this.lblIlha = new System.Windows.Forms.Label();
             this.lblBodes = new System.Windows.Forms.Label();
             this.flpMesa = new System.Windows.Forms.FlowLayoutPanel();
-            this.tmrStatusPartida = new System.Windows.Forms.Timer(this.components);
-            this.tmrAtualizaMao = new System.Windows.Forms.Timer(this.components);
             this.tmrMinhaVez = new System.Windows.Forms.Timer(this.components);
-            this.tmrAtualizaMesa = new System.Windows.Forms.Timer(this.components);
             this.lblBodesRodada = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -66,7 +63,6 @@
             this.txtStatus.Size = new System.Drawing.Size(231, 144);
             this.txtStatus.TabIndex = 0;
             this.txtStatus.Text = "";
-            this.txtStatus.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // btnJogarCarta
             // 
@@ -192,25 +188,10 @@
             this.flpMesa.Size = new System.Drawing.Size(514, 164);
             this.flpMesa.TabIndex = 13;
             // 
-            // tmrStatusPartida
-            // 
-            this.tmrStatusPartida.Interval = 500;
-            this.tmrStatusPartida.Tick += new System.EventHandler(this.tmrStatusPartida_Tick);
-            // 
-            // tmrAtualizaMao
-            // 
-            this.tmrAtualizaMao.Interval = 1600;
-            this.tmrAtualizaMao.Tick += new System.EventHandler(this.tmrAtualizaTela_Tick);
-            // 
             // tmrMinhaVez
             // 
-            this.tmrMinhaVez.Interval = 1500;
+            this.tmrMinhaVez.Interval = 300;
             this.tmrMinhaVez.Tick += new System.EventHandler(this.tmrMinhaVez_Tick);
-            // 
-            // tmrAtualizaMesa
-            // 
-            this.tmrAtualizaMesa.Interval = 500;
-            this.tmrAtualizaMesa.Tick += new System.EventHandler(this.tmrAtualizaMesa_Tick);
             // 
             // lblBodesRodada
             // 
@@ -349,7 +330,6 @@
             this.Controls.Add(this.txtStatus);
             this.Name = "frmJogo";
             this.Text = "frmJogo";
-            this.Load += new System.EventHandler(this.frmJogo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,10 +350,7 @@
         private System.Windows.Forms.FlowLayoutPanel flpMao;
         private System.Windows.Forms.Label lblBodes;
         private System.Windows.Forms.FlowLayoutPanel flpMesa;
-        private System.Windows.Forms.Timer tmrStatusPartida;
-        private System.Windows.Forms.Timer tmrAtualizaMao;
         private System.Windows.Forms.Timer tmrMinhaVez;
-        private System.Windows.Forms.Timer tmrAtualizaMesa;
         private System.Windows.Forms.Label lblBodesRodada;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;

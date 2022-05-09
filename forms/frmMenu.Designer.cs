@@ -61,7 +61,6 @@ namespace piBodeWar
             this.lstPartidas.Name = "lstPartidas";
             this.lstPartidas.Size = new System.Drawing.Size(202, 225);
             this.lstPartidas.TabIndex = 1;
-            this.lstPartidas.SelectedIndexChanged += new System.EventHandler(this.lstPartidas_SelectedIndexChanged);
             // 
             // txtNome
             // 

@@ -28,54 +28,14 @@ namespace piBodeWar.forms
         public Jogador jogador { get; }
         public Partida partida { get; }
 
-
-        public List<Carta> listaCarta;
         public frmJogo(Jogador jogador, Partida partida)
         {
             this.jogador = jogador;
             this.partida = partida;
-            this.listaCarta = new List<Carta>();
             InitializeComponent();
             this.Text = "Animaniacs";
-            tmrStatusPartida.Enabled = true;
+            tmrMinhaVez.Enabled = true;
 
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void frmJogo_Load(object sender, EventArgs e)
-        {
-            string strCartas = Jogo.ListarCartas();
-            strCartas.Replace('\r', ' ');
-            string[] arrCartas = strCartas.Split('\n');
-
-
-            foreach (string c in arrCartas)
-            {
-                string[] arrCarta = c.Split(',');
-
-                if (arrCarta.Length > 1)
-                {
-                    int num = Int32.Parse(arrCarta[0]);
-                    int numBodes = Int32.Parse(arrCarta[1]);
-                    int arte = Int32.Parse(arrCarta[2]);
-                    Carta carta = new Carta(num, numBodes, arte);
-
-                    this.listaCarta.Add(carta);
-                }
-                else
-                {
-                    break;
-                }
-            }
         }
 
         private void btnVerMao_Click(object sender, EventArgs e)
@@ -123,10 +83,6 @@ namespace piBodeWar.forms
             txtStatus.Text = this.partida.exibirNarracao();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnJogarCarta_Click(object sender, EventArgs e)
         {
@@ -142,23 +98,6 @@ namespace piBodeWar.forms
         private void btnVerificarMesa_Click(object sender, EventArgs e)
         {
             this.jogador.verificarMesa(partida);
-            this.atualizarTela();
-        }
-
-        private void atualizarTela()
-        {
-            lblIlha.Text = String.Format("Ilha - {0}", this.partida.tamanhoIlha.ToString());
-            Jogador quemJoga = this.jogador.verificaVez(this.partida);
-
-            if (quemJoga != null)
-            {
-                lblStatusRodada.Text = String.Format("Status - Vez de {0}", quemJoga.nome);
-            }
-
-            flpMao.Visible = false;
-
-            this.mostraMao();
-           // this.mostraMesa();
         }
 
         private void mostraMao()
@@ -252,32 +191,35 @@ namespace piBodeWar.forms
                     flpMesa.Controls.Add(pnlCarta);
                 }
                 flpMesa.Visible = true;
+                lblBodes.Text = String.Format("Meus bodes - {0}", this.partida.buscarJogador(this.jogador.id).numBodes.ToString());
                 lblBodesRodada.Text = $"Bodes rodada - {partida.rodadaAtual.totalBodes}";
             }
         }
-        /**Timers**/
-        private void tmrStatusPartida_Tick(object sender, EventArgs e)
+        /**Timer**/
+        private void tmrMinhaVez_Tick(object sender, EventArgs e)
         {
-            tmrStatusPartida.Enabled = false;
-            string retorno = Jogo.VerificarVez(Int32.Parse(this.partida.id));
 
-            if (!retorno.StartsWith("ERRO"))
+            tmrMinhaVez.Enabled = false;
+            this.mostraMao();
+            Jogador quemJoga = this.jogador.verificaVez(this.partida);
+
+            if(quemJoga != null)
             {
+                lblStatusRodada.Text = String.Format("Status - vez de {0}", quemJoga.nome);
                 if (!this.partida.iniciou)
                 {
                     this.partida.listarJogadores();
                     this.jogador.verMao(this.partida);
                     this.partida.setRodadaAtual(new Rodada("1", 'B', 0, this.partida));
-                    //                   tmrAtualizaMao.Enabled = true;
-                    //                    tmrAtualizaMesa.Enabled indicadorCor.Location= true;
+
                     for (int i = 0; i < this.partida.jogadores.Count; i++)
                     {
                         Jogador jogador = this.partida.jogadores[i];
-                        if(jogador.id == this.jogador.id)
+                        if (jogador.id == this.jogador.id)
                         {
                             this.jogador.cor = jogador.cor;
                         }
-                        switch(i)
+                        switch (i)
                         {
                             case 0:
                                 lblJogador1.Text = jogador.nome;
@@ -296,91 +238,53 @@ namespace piBodeWar.forms
                     tmrMinhaVez.Enabled = true;
                     this.partida.iniciou = true;
                 }
-            }
-            else
-            {
-                string status = Jogo.ListarPartidas("E");
-                string[] partidas = status.Split('\n');
-                
-                foreach(string strPartida in partidas)
+
+                if (this.partida.rodadaAtual.status == 'E' && this.partida.rodadaAtual.id == "8")
                 {
-                    if(strPartida != "")
+                    this.jogador.verificarMesa(this.partida, 8);
+                    this.mostraMesa();
+                    this.flpMao.Controls.Clear();
+                    this.jogador.encerrarPartida(this.partida);
+                    Jogador vencedor = this.partida.vencedor;
+
+                    string mensagem = "Partida encerrada!";
+                    tmrMinhaVez.Enabled = false;
+                    if (vencedor != null)
                     {
-                        string[] arrPartida = strPartida.Split(',');
+                        mensagem += String.Format("\n{0} venceu!", vencedor.nome);
+                    }
 
-                        string idPartida = arrPartida[0];
-                        if (idPartida == this.partida.id)
-                        {
-                            Jogador vencedor = this.partida.verificaVencedor();
-                            string mensagem = "Partida encerrada!";
-                            tmrStatusPartida.Enabled = false;
-                            tmrMinhaVez.Enabled = false;
- //                           tmrAtualizaMao.Enabled = false;
-                            tmrAtualizaMesa.Enabled = false;
-                            this.mostraMesa();
-                            flpMao.Controls.Clear();
-                            if(vencedor != null)
-                            {
-                                mensagem += String.Format("\n{0} venceu!", vencedor.nome);
-                            }
-                            else
-                            {
-                                mensagem += "\nEmpate!";
-                            }
+                    DialogResult resultado = MessageBox.Show(mensagem, "Resultado");
+                    if (resultado == DialogResult.OK)
+                    {
+                        this.Close();
+                        return;
+                    }
+                }
+                this.jogador.verificarMesa(this.partida);
+                this.mostraMesa();
+                if (quemJoga.id == this.jogador.id)
+                {
 
-                            DialogResult resultado = MessageBox.Show(mensagem, "Resultado");
-                            if(resultado == DialogResult.OK)
-                            {
-                                tmrStatusPartida.Enabled = false;
-                                return;
-                            //    this.Close();
-                            }
-                        }
+                    switch (this.partida.rodadaAtual.status)
+                    {
+                        case 'B':
+                            this.jogador.jogarCarta();
+                            break;
+                        case 'I':
+                            this.jogador.escolherIlha();
+                            break;
+                        case 'E':
+                            return;
                     }
                 }
                 
+                lblRodada.Text = $"Rodada - {this.partida.rodadaAtual.id}";
             }
-            tmrStatusPartida.Enabled = true;
-        }
-
-
-        private void tmrAtualizaTela_Tick(object sender, EventArgs e)
-        {
-            this.atualizarTela();
-        }
-
-        private void tmrMinhaVez_Tick(object sender, EventArgs e)
-        {
-            tmrMinhaVez.Enabled = false;
-            this.mostraMao();
-            Jogador quemJoga = this.jogador.verificaVez(this.partida);
-
-            if (quemJoga != null && quemJoga.id == this.jogador.id)
-            {
-                if (this.partida.rodadaAtual.status == 'B')
-
-                {
-                    this.jogador.jogarCarta();
-                }
-                else
-                {
-                    this.jogador.escolherIlha();
-                }
-                lblStatusRodada.Text = String.Format("Status - vez de {0}", quemJoga.nome);
-            }
-            lblBodes.Text = String.Format("Meus bodes - {0}", this.partida.buscarJogador(this.jogador.id).numBodes.ToString());
-            lblRodada.Text = $"Rodada - {this.partida.rodadaAtual.id}";
-            this.jogador.verificarMesa(this.partida);
-            this.mostraMesa();
+            
             tmrMinhaVez.Enabled = true;
 
         }
-
-        private void tmrAtualizaMesa_Tick(object sender, EventArgs e)
-        {
-            this.jogador.verificarMesa(this.partida);
-
-            this.mostraMesa();
-        }
     }
 }
+
