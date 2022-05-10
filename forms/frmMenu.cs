@@ -29,11 +29,14 @@ namespace piBodeWar
             lstPartidas.Items.Clear();
             string strPartidas = Jogo.ListarPartidas("T");
             string[] arrPartidas = strPartidas.Split('\n');
-            // partidas.Replace();
+            Array.Reverse(arrPartidas);
 
-            for (int i = 0; i < arrPartidas.Length; i++)
+            foreach (string partida in arrPartidas)
             {
-                lstPartidas.Items.Add(arrPartidas[i]);
+                if(partida != "")
+                {
+                    lstPartidas.Items.Add(partida);
+                }
 
             }
 
@@ -53,7 +56,8 @@ namespace piBodeWar
                 MessageBox.Show(status);
             }
 
-
+            btnListarPartidas.PerformClick();
+            lstPartidas.SelectedIndex = 0;
 
 
         }
@@ -78,13 +82,14 @@ namespace piBodeWar
                     this.idJogador = arrStatus[0];
                     this.senhaJogador = arrStatus[1];
 
-                    Jogador jogador = new Jogador(this.idJogador, nome, senhaJogador, false);
                     Partida partida = new Partida(idPartida, nome, senha);
+                    Jogador jogador = new Jogador(partida, this.idJogador, nome, senhaJogador, false);
+
 
 
                     frmJogo frmJogo = new frmJogo(jogador, partida);
 
-                    frmJogo.ShowDialog();
+                    frmJogo.Show();
                 }
                 else
                 {
@@ -94,21 +99,6 @@ namespace piBodeWar
             {
                 MessageBox.Show(error.Message); 
             }
-
-            }
-
-        private void btnMostrarVez_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
     }

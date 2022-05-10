@@ -17,32 +17,66 @@ namespace piBodeWar.model
 
         public Jogador perdedor { get; set; }
 
+        public Partida partida { get; }
+        
         public int totalBodes { get; private set; }
 
-        public Rodada(string id, char status, int totalBodes)
+        public Rodada(string id, char status, int totalBodes, Partida partida)
         {
             this.id = id;
             this.status = status;
             this.totalBodes = totalBodes;
             this.cartasJogadas = new List<Carta>();
+            this.partida = partida;
         }
 
         public void adicionarBodes(int valor)
         {
-            this.totalBodes += valor;
+            if(valor > 0)
+            {
+                this.totalBodes += valor;
+            }
         }
 
         public void distribuirPremios()
         {
-            this.vencedor.adicionarBodes(this.totalBodes);
+            this.verificaVencedor();
+            if(this.vencedor != null)
+            {
+                this.vencedor = this.partida.buscarJogador(this.vencedor.id);
+                this.vencedor.adicionarBodes(this.totalBodes);
+            }
         }
 
         public void setStatus(char status)
         {
-            if(status == 'B' || status == 'I')
+            if(status == 'B' || status == 'I' || status == 'E')
             {
                 this.status = status;
             }
         }
+
+        private Jogador verificaVencedor()
+        {
+            int maiorNum = 0;
+            Carta vencedora = null;
+            if(this.vencedor != null)
+            {
+                this.vencedor = null;
+            }
+            foreach(Carta carta in this.cartasJogadas)
+            {
+                if(carta.id > maiorNum)
+                {
+                    vencedora = carta;
+                }
+            }
+            if(vencedora != null)
+            {
+                this.vencedor = vencedora.detentor;
+            }
+
+            return this.vencedor;
+        } 
     }
 }

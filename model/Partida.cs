@@ -16,8 +16,9 @@ namespace piBodeWar.model
         public Jogador vencedor { get; set;}
         public char status { get; set;}
         public Rodada rodadaAtual { get; private set; }
-        public bool iniciou { get; private set; }
 
+        public List<Rodada> rodadas { get; private set; }
+        public bool iniciou { get;  set; }
         public int tamanhoIlha { get; private set; }
         public List<Carta> cartas { get; }
         public Partida(string id, string nome, string senha)
@@ -32,7 +33,7 @@ namespace piBodeWar.model
             string strCartas = Jogo.ListarCartas();
             strCartas.Replace('\r', ' ');
             string[] arrCartas = strCartas.Split('\n');
-
+            this.rodadas = new List<Rodada>();
 
             foreach (string c in arrCartas)
             {
@@ -89,15 +90,16 @@ namespace piBodeWar.model
             retorno = retorno.Replace('\r'.ToString(), String.Empty);
             string[] arrRetorno = retorno.Split('\n');
 
-            foreach(string strJogador in arrRetorno)
+            for (int i = 0; i < arrRetorno.Length; i++)
             {
+                string strJogador = arrRetorno[i];
                 if(strJogador != "")
                 {
                     string[] infoJogador = strJogador.Split(',');
                     string id = infoJogador[0];
                     string nome = infoJogador[1];
 
-                    Jogador jogador = new Jogador(id, nome);
+                    Jogador jogador = new Jogador(this, id, nome, i + 1);
 
                     this.jogadores.Add(jogador);
                 }
@@ -118,6 +120,19 @@ namespace piBodeWar.model
             return null;
         }
 
+        public Jogador buscarJogador(int numBodes)
+        {
+            int countJogador = 0;
+            foreach (Jogador jogador in this.jogadores)
+            {
+                if (jogador.numBodes == numBodes && countJogador == 1)
+                {
+                    return jogador;
+                }
+            }
+            return null;
+        }
+
         public void setTamanhoIlha(int valor)
         {
             if(valor > 0)
@@ -131,6 +146,57 @@ namespace piBodeWar.model
             {
                 this.tamanhoIlha += valor;
             }
+        }
+
+        public Jogador verificaVencedor() {
+            int maiorQtdBodes = 0;
+
+            foreach(Jogador jogador in this.jogadores)
+            {
+                if(jogador.numBodes > maiorQtdBodes && this.tamanhoIlha >= jogador.numBodes)
+                {
+                    maiorQtdBodes = jogador.numBodes;
+                }
+            }
+
+            if(maiorQtdBodes == 0)
+            {
+                int menorQtdBodesAposEstourar = 0;
+                foreach(Jogador jogador in this.jogadores) {
+                    if(menorQtdBodesAposEstourar == 0)
+                    {
+                        menorQtdBodesAposEstourar = jogador.numBodes;
+                    }
+
+                    if(menorQtdBodesAposEstourar < jogador.numBodes)
+                    {
+                        menorQtdBodesAposEstourar = jogador.numBodes;
+                    }
+                }
+                this.vencedor = this.buscarJogador(menorQtdBodesAposEstourar);
+            } else
+            {
+                this.vencedor = this.buscarJogador(maiorQtdBodes);
+            }
+
+            return this.vencedor;
+        }
+
+        public Rodada obterRodadaPorId(string id)
+        {
+            foreach (Rodada rodada in this.rodadas)
+            {
+                if(rodada.id == id)
+                {
+                    return rodada;
+                }
+            }
+            return null;
+        }
+
+        public void encerrar()
+        {
+            this.status = 'E';
         }
     }
 }
