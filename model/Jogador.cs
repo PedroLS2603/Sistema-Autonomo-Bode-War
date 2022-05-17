@@ -63,7 +63,7 @@ namespace piBodeWar.model
             {
                 Jogo.Jogar(Int32.Parse(this.id), this.senha, escolhida.id);
 
-                this.mao.Remove(escolhida);
+                this.mao.RemoveAt(obterIndiceDaMao(escolhida));
             }
         }
 
@@ -149,6 +149,8 @@ namespace piBodeWar.model
                     else { break; }
 
                 }
+            this.inteligencia.classificarCartas();
+
             return this.mao;
         }
 
@@ -242,5 +244,19 @@ namespace piBodeWar.model
         {
             partida.encerrar();
         }
+        
+        private int obterIndiceDaMao(Carta carta)
+        {
+            foreach(Carta c in this.mao)
+            {
+                if (c.id == carta.id)
+                {
+                    return this.mao.IndexOf(c);
+                }
+            }
+
+            return -1;
+        }
     }
+
 }
