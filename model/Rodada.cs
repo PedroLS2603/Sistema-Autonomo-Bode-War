@@ -40,6 +40,7 @@ namespace piBodeWar.model
 
         public void distribuirPremios()
         {
+            this.verificaPerdedor();
             this.verificaVencedor();
             if(this.vencedor != null)
             {
@@ -77,6 +78,28 @@ namespace piBodeWar.model
             }
 
             return this.vencedor;
-        } 
+        }
+
+        private Jogador verificaPerdedor()
+        {
+            int menor = 0;
+            Carta perdedora = null;
+
+            for(int i = 0; i < this.cartasJogadas.Count; i++)
+            {
+                Carta carta = this.cartasJogadas[i];
+                if(carta.id < menor || i == 0)
+                {
+                    perdedora = carta;
+                }
+            }
+
+            if(perdedora != null)
+            {
+                this.perdedor = perdedora.detentor;
+            }
+
+            return this.perdedor;
+        }
     }
 }

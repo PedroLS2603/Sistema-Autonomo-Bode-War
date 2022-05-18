@@ -59,11 +59,14 @@ namespace piBodeWar.model
         {
             Carta escolhida = this.escolherCarta();
 
-            if(escolhida != null)
+            if(escolhida != null && escolhida.id > 0)
             {
                 Jogo.Jogar(Int32.Parse(this.id), this.senha, escolhida.id);
-
-                this.mao.RemoveAt(obterIndiceDaMao(escolhida));
+                int indice = obterIndiceDaMao(escolhida);
+                if(indice > -1)
+                {
+                    this.mao.RemoveAt(indice);
+                }
             }
         }
 
@@ -149,7 +152,10 @@ namespace piBodeWar.model
                     else { break; }
 
                 }
-            this.inteligencia.classificarCartas();
+            if(!partida.iniciou)
+            {
+                this.inteligencia.classificarCartas();
+            }
 
             return this.mao;
         }
@@ -223,8 +229,9 @@ namespace piBodeWar.model
                 partida.setRodadaAtual(new Rodada("1", 'B', 0, partida));
                 partida.status = 'J';
                 this.verMao(partida);
+                partida.iniciou = true;
             }
-            
+
         }
 
         public void adicionarBodes(int valor)
