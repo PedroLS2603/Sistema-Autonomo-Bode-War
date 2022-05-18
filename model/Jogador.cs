@@ -105,12 +105,12 @@ namespace piBodeWar.model
                         this.encerrarPartida(this.partida);
                         break;
                 }
-                if (statusRodada == 'B' && idRodada != partida.rodadaAtual.id)
+                if (partida.rodadaAtual != null && statusRodada == 'B' && idRodada != partida.rodadaAtual.id)
                 {
                     partida.rodadas.Add(partida.rodadaAtual);
                     partida.setRodadaAtual(new Rodada(idRodada, statusRodada, 0, partida));
                 }
-                else if(idRodada == partida.rodadaAtual.id)
+                else if(partida.rodadaAtual != null && idRodada == partida.rodadaAtual.id)
                 {
                     partida.rodadaAtual.setStatus(statusRodada);
                     if(statusRodada == 'E' && idRodada == "8")
@@ -163,17 +163,19 @@ namespace piBodeWar.model
         public void escolherIlha() {
             string retorno = Jogo.VerificarIlha(Int32.Parse(this.id), this.senha);
             string[] opcoesIlha = retorno.Split(',');
+            int escolha = this.inteligencia.escolheIlha(Int32.Parse(opcoesIlha[0]), Int32.Parse(opcoesIlha[1]));
 
-            Jogo.DefinirIlha(Int32.Parse(this.id), this.senha, Int32.Parse(opcoesIlha[0]));
+            Jogo.DefinirIlha(Int32.Parse(this.id), this.senha, escolha);
         }
 
         public void verificarMesa(Partida partida, int idRodada = 0)
         {
             partida.rodadaAtual.cartasJogadas.Clear();
             string status;
-            if(idRodada == 0)
+
+            if (idRodada == 0)
             {
-                if (Int32.Parse(partida.rodadaAtual.id) > 5 && Int32.Parse(partida.rodadaAtual.id) < 9)
+                if (Int32.Parse(partida.rodadaAtual.id) >= 4 && Int32.Parse(partida.rodadaAtual.id) < 9)
                 {
                     status = Jogo.VerificarMesa(Int32.Parse(partida.id), Int32.Parse(partida.rodadaAtual.id) - 1);
                 }
@@ -214,7 +216,7 @@ namespace piBodeWar.model
                     partida.rodadaAtual.adicionarBodes(carta.numBodes);
                 }
             }
-            if (partida.rodadaAtual.cartasJogadas.Count == partida.jogadores.Count)
+            if (partida.rodadaAtual.cartasJogadas.Count == partida.jogadores.Count && partida.status != 'E' && !partida.rodadaAtual.distribuiuPremio)
             {
                 partida.rodadaAtual.distribuirPremios();
             }

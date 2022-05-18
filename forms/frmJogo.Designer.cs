@@ -118,6 +118,7 @@
             // 
             this.flpMao.BackColor = System.Drawing.Color.Transparent;
             this.flpMao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpMao.ForeColor = System.Drawing.SystemColors.ControlText;
             this.flpMao.Location = new System.Drawing.Point(229, 525);
             this.flpMao.Name = "flpMao";
             this.flpMao.Size = new System.Drawing.Size(960, 184);

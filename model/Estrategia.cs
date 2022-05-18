@@ -68,7 +68,8 @@ namespace piBodeWar.model
                         escolhida = this.tentaIlhaOuDescarta();
                         break;
                     case 2:
-                        if(partida.rodadas[0].perdedor.id == this.jogador.id)
+                        Jogador perdedor = partida.rodadas[0].perdedor;
+                        if (perdedor != null && perdedor.id == this.jogador.id)
                         {
                             escolhida = this.descarta();
                         }
@@ -78,7 +79,8 @@ namespace piBodeWar.model
                         }
                         break;
                     case 3:
-                        if (partida.rodadas[1].perdedor.id == this.jogador.id)
+                        perdedor = partida.rodadas[1].perdedor;
+                        if (perdedor != null && perdedor.id == this.jogador.id)
                         {
                             escolhida = this.descarta();
                         }
@@ -88,7 +90,8 @@ namespace piBodeWar.model
                         }
                         break;
                     case 4:
-                        if (partida.rodadas[2].perdedor.id == this.jogador.id)
+                        perdedor = partida.rodadas[2].perdedor;
+                        if (perdedor != null && perdedor.id == this.jogador.id)
                         {
                             escolhida = this.descarta();
                         }
@@ -164,7 +167,7 @@ namespace piBodeWar.model
             Carta escolhida = null;
             if(this.peso2.Count > 0)
             {
-                escolhida = this.peso2[this.peso2.Count / 2];
+                escolhida = this.peso2[0];
                 this.removeCarta(escolhida);
 
             }
@@ -316,6 +319,11 @@ namespace piBodeWar.model
                     }
                 }
             }
+        }
+
+        public int escolheIlha(int opcao1, int opcao2)
+        {
+            return opcao1;
         }
     }
 }
