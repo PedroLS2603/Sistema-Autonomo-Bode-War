@@ -101,5 +101,20 @@ namespace piBodeWar
             }
 
         }
+
+        private void txtSenhaa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCriarPartida_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

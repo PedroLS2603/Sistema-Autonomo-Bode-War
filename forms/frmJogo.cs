@@ -111,7 +111,7 @@ namespace piBodeWar.forms
                     int yBode = 140;
 
                     Panel pnlCarta = new Panel();
-                    pnlCarta.Size = new Size(112, 172);
+                    pnlCarta.Size = new Size(100, 206);
                     pnlCarta.BackgroundImage = c.imagem;
 
                     Label label = new Label();
@@ -159,7 +159,7 @@ namespace piBodeWar.forms
                     int yBode = 140;
 
                     Panel pnlCarta = new Panel();
-                    pnlCarta.Size = new Size(112, 172);
+                    pnlCarta.Size = new Size(100, 206);
                     pnlCarta.BackgroundImage = c.imagem;
 
                     Label label = new Label();
@@ -283,6 +283,31 @@ namespace piBodeWar.forms
             }
             
             tmrMinhaVez.Enabled = true;
+
+        }
+
+        private void flpMao_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmJogo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblIlha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblJogador2_Click(object sender, EventArgs e)
+        {
 
         }
     }
