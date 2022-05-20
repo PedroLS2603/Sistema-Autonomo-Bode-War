@@ -65,10 +65,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 163);
+            this.ClientSize = new System.Drawing.Size(300, 150);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnIlhaOpcao2);
             this.Controls.Add(this.btnIlhaOpcao1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEscolherIlha";
             this.Text = "frmEscolherIlha";
             this.Load += new System.EventHandler(this.frmEscolherIlha_Load);

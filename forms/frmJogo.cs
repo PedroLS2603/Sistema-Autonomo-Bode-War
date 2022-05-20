@@ -131,10 +131,10 @@ namespace piBodeWar.forms
                 foreach (Carta c in this.jogador.mao)
                 {
                     int xBode = 3;
-                    int yBode = 140;
+                    int yBode = 160;
 
                     Panel pnlCarta = new Panel();
-                    pnlCarta.Size = new Size(112, 172);
+                    pnlCarta.Size = new Size(100, 206);
                     pnlCarta.BackgroundImage = c.imagem;
 
                     Label label = new Label();
@@ -143,13 +143,13 @@ namespace piBodeWar.forms
                     label.ForeColor = Color.White;
                     label.Font = new Font("Microsoft Sans Serif", 15);
                     label.Size = new Size(55, 40);
-                    label.Location = new Point(8, 10);
+                    label.Location = new Point(3, 35);
                     pnlCarta.Controls.Add(label);
 
                     Panel indicadorCor = new Panel();
-                    indicadorCor.Size = new Size(15, 15);
-                    indicadorCor.Location = new Point(84, 10);
-                    indicadorCor.BackColor = c.detentor.cor;
+                    indicadorCor.Size = new Size(25, 25);
+                    indicadorCor.Location = new Point(35, 8);
+                    indicadorCor.BackgroundImage= c.detentor.marcador;
                     pnlCarta.Controls.Add(indicadorCor);
 
                     for (int i = 0; i < c.numBodes; i++)
@@ -179,10 +179,10 @@ namespace piBodeWar.forms
                 foreach (Carta c in this.partida.rodadaAtual.cartasJogadas)
                 {
                     int xBode = 3;
-                    int yBode = 140;
+                    int yBode = 160;
 
                     Panel pnlCarta = new Panel();
-                    pnlCarta.Size = new Size(112, 172);
+                    pnlCarta.Size = new Size(100, 206);
                     pnlCarta.BackgroundImage = c.imagem;
 
                     Label label = new Label();
@@ -191,13 +191,13 @@ namespace piBodeWar.forms
                     label.ForeColor = Color.White;
                     label.Font = new Font("Microsoft Sans Serif", 15);
                     label.Size = new Size(55, 40);
-                    label.Location = new Point(8, 10);
+                    label.Location = new Point(3, 35);
                     pnlCarta.Controls.Add(label);
 
                     Panel indicadorCor = new Panel();
-                    indicadorCor.Size = new Size(15, 15);
-                    indicadorCor.Location = new Point(84, 10);
-                    indicadorCor.BackColor = c.detentor.cor;
+                    indicadorCor.Size = new Size(25, 25);
+                    indicadorCor.Location = new Point(35, 8);
+                    indicadorCor.BackgroundImage = c.detentor.marcador;
                     pnlCarta.Controls.Add(indicadorCor);
 
                     for (int i = 0; i < c.numBodes; i++)
@@ -240,7 +240,7 @@ namespace piBodeWar.forms
                         Jogador jogador = this.partida.jogadores[i];
                         if (jogador.id == this.jogador.id)
                         {
-                            this.jogador.cor = jogador.cor;
+                            this.jogador.marcador = jogador.marcador;
                         }
                         switch (i)
                         {
@@ -305,6 +305,31 @@ namespace piBodeWar.forms
             }
 
             tmrMinhaVez.Enabled = true;
+
+        }
+
+        private void flpMao_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmJogo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblIlha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblJogador2_Click(object sender, EventArgs e)
+        {
 
         }
     }
