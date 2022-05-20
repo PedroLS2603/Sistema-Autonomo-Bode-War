@@ -59,11 +59,14 @@ namespace piBodeWar.model
         {
             Carta escolhida = this.escolherCarta();
 
-            if(escolhida != null)
+            if(escolhida != null && escolhida.id > 0)
             {
                 Jogo.Jogar(Int32.Parse(this.id), this.senha, escolhida.id);
-
-                this.mao.Remove(escolhida);
+                int indice = obterIndiceDaMao(escolhida);
+                if(indice > -1)
+                {
+                    this.mao.RemoveAt(indice);
+                }
             }
         }
 
@@ -102,12 +105,12 @@ namespace piBodeWar.model
                         this.encerrarPartida(this.partida);
                         break;
                 }
-                if (statusRodada == 'B' && idRodada != partida.rodadaAtual.id)
+                if (partida.rodadaAtual != null && statusRodada == 'B' && idRodada != partida.rodadaAtual.id)
                 {
                     partida.rodadas.Add(partida.rodadaAtual);
                     partida.setRodadaAtual(new Rodada(idRodada, statusRodada, 0, partida));
                 }
-                else if(idRodada == partida.rodadaAtual.id)
+                else if(partida.rodadaAtual != null && idRodada == partida.rodadaAtual.id)
                 {
                     partida.rodadaAtual.setStatus(statusRodada);
                     if(statusRodada == 'E' && idRodada == "8")
@@ -149,23 +152,30 @@ namespace piBodeWar.model
                     else { break; }
 
                 }
+            if(!partida.iniciou)
+            {
+                this.inteligencia.classificarCartas();
+            }
+
             return this.mao;
         }
 
         public void escolherIlha() {
             string retorno = Jogo.VerificarIlha(Int32.Parse(this.id), this.senha);
             string[] opcoesIlha = retorno.Split(',');
+            int escolha = this.inteligencia.escolheIlha(Int32.Parse(opcoesIlha[0]), Int32.Parse(opcoesIlha[1]));
 
-            Jogo.DefinirIlha(Int32.Parse(this.id), this.senha, Int32.Parse(opcoesIlha[0]));
+            Jogo.DefinirIlha(Int32.Parse(this.id), this.senha, escolha);
         }
 
         public void verificarMesa(Partida partida, int idRodada = 0)
         {
             partida.rodadaAtual.cartasJogadas.Clear();
             string status;
-            if(idRodada == 0)
+
+            if (idRodada == 0)
             {
-                if (Int32.Parse(partida.rodadaAtual.id) > 5 && Int32.Parse(partida.rodadaAtual.id) < 9)
+                if (Int32.Parse(partida.rodadaAtual.id) >= 4 && Int32.Parse(partida.rodadaAtual.id) < 9)
                 {
                     status = Jogo.VerificarMesa(Int32.Parse(partida.id), Int32.Parse(partida.rodadaAtual.id) - 1);
                 }
@@ -206,7 +216,7 @@ namespace piBodeWar.model
                     partida.rodadaAtual.adicionarBodes(carta.numBodes);
                 }
             }
-            if (partida.rodadaAtual.cartasJogadas.Count == partida.jogadores.Count)
+            if (partida.rodadaAtual.cartasJogadas.Count == partida.jogadores.Count && partida.status != 'E' && !partida.rodadaAtual.distribuiuPremio)
             {
                 partida.rodadaAtual.distribuirPremios();
             }
@@ -221,8 +231,9 @@ namespace piBodeWar.model
                 partida.setRodadaAtual(new Rodada("1", 'B', 0, partida));
                 partida.status = 'J';
                 this.verMao(partida);
+                partida.iniciou = true;
             }
-            
+
         }
 
         public void adicionarBodes(int valor)
@@ -242,5 +253,19 @@ namespace piBodeWar.model
         {
             partida.encerrar();
         }
+        
+        private int obterIndiceDaMao(Carta carta)
+        {
+            foreach(Carta c in this.mao)
+            {
+                if (c.id == carta.id)
+                {
+                    return this.mao.IndexOf(c);
+                }
+            }
+
+            return -1;
+        }
     }
+
 }

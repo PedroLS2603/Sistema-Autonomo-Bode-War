@@ -55,6 +55,29 @@ namespace piBodeWar.forms
                 this.jogador.iniciarPartida(this.partida);
                 Jogador quemJoga = this.jogador.verificaVez(this.partida);
                 lblStatusRodada.Text = String.Format("Status - Vez de {0}", quemJoga.nome);
+                for (int i = 0; i < this.partida.jogadores.Count; i++)
+                {
+                    Jogador jogador = this.partida.jogadores[i];
+                    if (jogador.id == this.jogador.id)
+                    {
+                        this.jogador.cor = jogador.cor;
+                    }
+                    switch (i)
+                    {
+                        case 0:
+                            lblJogador1.Text = jogador.nome;
+                            break;
+                        case 1:
+                            lblJogador2.Text = jogador.nome;
+                            break;
+                        case 2:
+                            lblJogador3.Text = jogador.nome;
+                            break;
+                        case 3:
+                            lblJogador4.Text = jogador.nome;
+                            break;
+                    }
+                }
             }
             else
             {
@@ -235,11 +258,10 @@ namespace piBodeWar.forms
                                 break;
                         }
                     }
-                    tmrMinhaVez.Enabled = true;
                     this.partida.iniciou = true;
                 }
 
-                if (this.partida.rodadaAtual.status == 'E' && this.partida.rodadaAtual.id == "8")
+                else if (this.partida.rodadaAtual.status == 'E' && this.partida.rodadaAtual.id == "8")
                 {
                     this.jogador.verificarMesa(this.partida, 8);
                     this.mostraMesa();
@@ -257,12 +279,11 @@ namespace piBodeWar.forms
                     DialogResult resultado = MessageBox.Show(mensagem, "Resultado");
                     if (resultado == DialogResult.OK)
                     {
-                        this.Close();
+                        //this.Close();
                         return;
                     }
                 }
-                this.jogador.verificarMesa(this.partida);
-                this.mostraMesa();
+                
                 if (quemJoga.id == this.jogador.id)
                 {
 
@@ -278,10 +299,11 @@ namespace piBodeWar.forms
                             return;
                     }
                 }
-                
+                this.jogador.verificarMesa(this.partida);
+                this.mostraMesa();
                 lblRodada.Text = $"Rodada - {this.partida.rodadaAtual.id}";
             }
-            
+
             tmrMinhaVez.Enabled = true;
 
         }

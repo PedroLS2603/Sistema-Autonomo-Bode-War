@@ -198,5 +198,17 @@ namespace piBodeWar.model
         {
             this.status = 'E';
         }
+
+        public List<Carta> listarTodasAsCartas()
+        {
+            List<Carta> retorno = new List<Carta>();
+
+            foreach(Carta c in this.cartas)
+            {
+                retorno.Add(c);
+            }
+
+            return retorno;
+        }
     }
 }
