@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJogo));
             this.txtStatus = new System.Windows.Forms.RichTextBox();
             this.btnJogarCarta = new System.Windows.Forms.Button();
             this.btnNarracao = new System.Windows.Forms.Button();
@@ -44,10 +45,6 @@
             this.flpMesa = new System.Windows.Forms.FlowLayoutPanel();
             this.tmrMinhaVez = new System.Windows.Forms.Timer(this.components);
             this.lblBodesRodada = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.lblJogador1 = new System.Windows.Forms.Label();
             this.lblJogador3 = new System.Windows.Forms.Label();
             this.lblJogador2 = new System.Windows.Forms.Label();
@@ -116,7 +113,6 @@
             // flpMao
             // 
             this.flpMao.BackColor = System.Drawing.Color.Transparent;
-            this.flpMao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpMao.Location = new System.Drawing.Point(7, 481);
             this.flpMao.Name = "flpMao";
             this.flpMao.Size = new System.Drawing.Size(960, 247);
@@ -206,49 +202,18 @@
             this.lblBodesRodada.TabIndex = 14;
             this.lblBodesRodada.Text = "Bodes rodada - 0";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Yellow;
-            this.panel1.Location = new System.Drawing.Point(1152, 129);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(16, 15);
-            this.panel1.TabIndex = 15;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Blue;
-            this.panel2.Location = new System.Drawing.Point(1095, 129);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(16, 15);
-            this.panel2.TabIndex = 16;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Red;
-            this.panel3.Location = new System.Drawing.Point(1250, 129);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(16, 15);
-            this.panel3.TabIndex = 17;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.panel4.Location = new System.Drawing.Point(994, 129);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(16, 15);
-            this.panel4.TabIndex = 18;
-            // 
             // lblJogador1
             // 
             this.lblJogador1.AutoSize = true;
             this.lblJogador1.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblJogador1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblJogador1.Location = new System.Drawing.Point(968, 175);
+            this.lblJogador1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblJogador1.Location = new System.Drawing.Point(994, 175);
             this.lblJogador1.Name = "lblJogador1";
-            this.lblJogador1.Size = new System.Drawing.Size(83, 20);
+            this.lblJogador1.Size = new System.Drawing.Size(29, 20);
             this.lblJogador1.TabIndex = 19;
-            this.lblJogador1.Text = "Jogador 1";
+            this.lblJogador1.Text = "P1";
             this.lblJogador1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblJogador3
@@ -257,11 +222,11 @@
             this.lblJogador3.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblJogador3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblJogador3.Location = new System.Drawing.Point(1127, 175);
+            this.lblJogador3.Location = new System.Drawing.Point(1153, 175);
             this.lblJogador3.Name = "lblJogador3";
-            this.lblJogador3.Size = new System.Drawing.Size(83, 20);
+            this.lblJogador3.Size = new System.Drawing.Size(29, 20);
             this.lblJogador3.TabIndex = 20;
-            this.lblJogador3.Text = "Jogador 3";
+            this.lblJogador3.Text = "P3";
             this.lblJogador3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblJogador2
@@ -270,11 +235,11 @@
             this.lblJogador2.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblJogador2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblJogador2.Location = new System.Drawing.Point(1048, 175);
+            this.lblJogador2.Location = new System.Drawing.Point(1073, 175);
             this.lblJogador2.Name = "lblJogador2";
-            this.lblJogador2.Size = new System.Drawing.Size(83, 20);
+            this.lblJogador2.Size = new System.Drawing.Size(29, 20);
             this.lblJogador2.TabIndex = 21;
-            this.lblJogador2.Text = "Jogador 2";
+            this.lblJogador2.Text = "P2";
             this.lblJogador2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblJogador2.Click += new System.EventHandler(this.lblJogador2_Click);
             // 
@@ -284,11 +249,11 @@
             this.lblJogador4.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblJogador4.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblJogador4.Location = new System.Drawing.Point(1216, 175);
+            this.lblJogador4.Location = new System.Drawing.Point(1238, 174);
             this.lblJogador4.Name = "lblJogador4";
-            this.lblJogador4.Size = new System.Drawing.Size(83, 20);
+            this.lblJogador4.Size = new System.Drawing.Size(29, 20);
             this.lblJogador4.TabIndex = 22;
-            this.lblJogador4.Text = "Jogador 4";
+            this.lblJogador4.Text = "P4";
             this.lblJogador4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblRodada
@@ -309,7 +274,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.BackgroundImage = global::piBodeWar.Properties.Resources.table_BOW;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.lblRodada);
@@ -317,10 +282,6 @@
             this.Controls.Add(this.lblJogador2);
             this.Controls.Add(this.lblJogador3);
             this.Controls.Add(this.lblJogador1);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblBodesRodada);
             this.Controls.Add(this.flpMesa);
             this.Controls.Add(this.lblBodes);
@@ -335,7 +296,7 @@
             this.Controls.Add(this.btnNarracao);
             this.Controls.Add(this.btnJogarCarta);
             this.Controls.Add(this.txtStatus);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmJogo";
             this.Text = "frmJogo";
             this.Load += new System.EventHandler(this.frmJogo_Load);
@@ -361,10 +322,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpMesa;
         private System.Windows.Forms.Timer tmrMinhaVez;
         private System.Windows.Forms.Label lblBodesRodada;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblJogador1;
         private System.Windows.Forms.Label lblJogador3;
         private System.Windows.Forms.Label lblJogador2;

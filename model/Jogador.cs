@@ -1,6 +1,7 @@
 ﻿using BodeOfWarServer;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace piBodeWar.model
 
         private Partida partida { get; set; }
 
-        public System.Drawing.Color cor;
+        public Image marcador;
         public Jogador(Partida partida, string id, string nome, int cor)
         {
             this.id = id;
@@ -29,16 +30,16 @@ namespace piBodeWar.model
             switch(cor)
             {
                 case 1:
-                    this.cor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.Yellow);
+                    this.marcador = Properties.Resources.agua;
                     break;
                 case 2:
-                    this.cor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.Blue);
+                    this.marcador = Properties.Resources.ar;
                     break;
                 case 3:
-                    this.cor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.Green);
+                    this.marcador = Properties.Resources.pedra;
                     break;
                 case 4:
-                    this.cor = System.Drawing.Color.FromKnownColor(System.Drawing.KnownColor.Red);
+                    this.marcador = Properties.Resources.fogo;
                     break;
             }
         }
@@ -50,7 +51,6 @@ namespace piBodeWar.model
             this.mao = new List<Carta>();
             this.numBodes = 0;
             this.isBot = isBot;
-            this.cor = System.Drawing.Color.Yellow;
             this.partida = partida;
             this.inteligencia = new Estrategia(this.partida, this);
         }

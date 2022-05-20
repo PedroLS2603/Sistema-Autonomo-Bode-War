@@ -89,7 +89,7 @@ namespace piBodeWar
             this.btnCriarPartida.BackColor = System.Drawing.Color.Transparent;
             this.btnCriarPartida.FlatAppearance.BorderSize = 0;
             this.btnCriarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCriarPartida.Image = global::piBodeWar.Properties.Resources.criarbotao;
+            this.btnCriarPartida.Image = ((System.Drawing.Image)(resources.GetObject("btnCriarPartida.Image")));
             this.btnCriarPartida.Location = new System.Drawing.Point(30, 134);
             this.btnCriarPartida.Name = "btnCriarPartida";
             this.btnCriarPartida.Size = new System.Drawing.Size(200, 40);
@@ -103,7 +103,7 @@ namespace piBodeWar
             this.btnEntrarPartida.BackColor = System.Drawing.Color.Transparent;
             this.btnEntrarPartida.FlatAppearance.BorderSize = 0;
             this.btnEntrarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntrarPartida.Image = global::piBodeWar.Properties.Resources.entrarbotao;
+            this.btnEntrarPartida.Image = ((System.Drawing.Image)(resources.GetObject("btnEntrarPartida.Image")));
             this.btnEntrarPartida.Location = new System.Drawing.Point(30, 289);
             this.btnEntrarPartida.Name = "btnEntrarPartida";
             this.btnEntrarPartida.Size = new System.Drawing.Size(200, 40);
@@ -132,7 +132,7 @@ namespace piBodeWar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::piBodeWar.Properties.Resources.menu;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(500, 350);
             this.Controls.Add(this.txtSenhaa);
@@ -143,7 +143,7 @@ namespace piBodeWar
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lstPartidas);
             this.Controls.Add(this.btnListarPartidas);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMenu";
             this.Text = "Form1";
             this.ResumeLayout(false);

@@ -85,6 +85,7 @@ namespace piBodeWar
                     Partida partida = new Partida(idPartida, nome, senha);
                     Jogador jogador = new Jogador(partida, this.idJogador, nome, senhaJogador, false);
 
+                    jogador.marcador = Properties.Resources.agua;
 
 
                     frmJogo frmJogo = new frmJogo(jogador, partida);
