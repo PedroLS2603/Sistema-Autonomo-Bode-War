@@ -68,37 +68,13 @@ namespace piBodeWar.model
                         escolhida = this.tentaIlhaOuDescarta();
                         break;
                     case 2:
-                        Jogador perdedor = partida.rodadas[0].perdedor;
-                        if (perdedor != null && perdedor.id == this.jogador.id)
-                        {
-                            escolhida = this.descarta();
-                        }
-                        else
-                        {
-                            escolhida = this.tentaIlhaOuDescarta();
-                        }
+                        escolhida = this.tentaIlhaOuDescarta();
                         break;
                     case 3:
-                        perdedor = partida.rodadas[1].perdedor;
-                        if (perdedor != null && perdedor.id == this.jogador.id)
-                        {
-                            escolhida = this.descarta();
-                        }
-                        else
-                        {
-                            escolhida = this.tentaIlhaOuDescarta();
-                        }
+                        escolhida = this.tentaIlhaOuDescarta();
                         break;
                     case 4:
-                        perdedor = partida.rodadas[2].perdedor;
-                        if (perdedor != null && perdedor.id == this.jogador.id)
-                        {
-                            escolhida = this.descarta();
-                        }
-                        else
-                        {
-                            escolhida = this.tentaIlhaOuDescarta();
-                        }
+                        escolhida = this.tentaIlhaOuDescarta();
                         break;
                     default:
                         if(!this.passouDoLimite())
@@ -281,7 +257,21 @@ namespace piBodeWar.model
 
         private bool passouDoLimite()
         {
-            double cap = this.jogador.numBodes / this.partida.tamanhoIlha;
+            double cap = 0;
+            if (this.partida.tamanhoIlha > 0)
+            {
+                cap = this.jogador.numBodes / this.partida.tamanhoIlha;
+            }
+            return cap < this.limiteProximidadeIlha;
+        }
+
+        private bool passouDoLimite(Jogador jogador)
+        {
+            double cap = 0;
+            if (this.partida.tamanhoIlha > 0)
+            {
+                cap = jogador.numBodes / this.partida.tamanhoIlha;
+            }
             return cap < this.limiteProximidadeIlha;
         }
 
@@ -323,7 +313,32 @@ namespace piBodeWar.model
 
         public int escolheIlha(int opcao1, int opcao2)
         {
-            return opcao1;
+            int maior = opcao1 > opcao2 ? opcao1 : opcao2;
+            int menor = opcao1 < opcao2 ? opcao1 : opcao2;
+            int countJogadoresQuePassaramDoLimite = 0;
+            Dictionary<Jogador, bool> limites = new Dictionary<Jogador, bool>();
+
+            foreach(Jogador jogador in this.partida.jogadores)
+            {
+                if(jogador.id != this.jogador.id)
+                {
+                    bool passouLimite = passouDoLimite(jogador);
+                    limites.Add(jogador, passouLimite);
+
+                    if (passouLimite) countJogadoresQuePassaramDoLimite++;
+
+                  
+                }
+            }
+            
+            if(!passouDoLimite() || countJogadoresQuePassaramDoLimite >= 1)
+            {
+                return menor;
+            }
+            else
+            {
+                return maior;
+            }
         }
     }
 }

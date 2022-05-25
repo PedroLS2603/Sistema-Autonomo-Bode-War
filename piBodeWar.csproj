@@ -109,6 +109,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="assets\pedra.png" />
+    <None Include="assets\fogo.png" />
+    <None Include="assets\agua.png" />
+    <None Include="assets\ar.png" />
     <Content Include="assets\b1.PNG" />
     <Content Include="assets\b10.PNG" />
     <Content Include="assets\b2.PNG" />

@@ -60,7 +60,7 @@ namespace piBodeWar.forms
                     Jogador jogador = this.partida.jogadores[i];
                     if (jogador.id == this.jogador.id)
                     {
-                        this.jogador.cor = jogador.cor;
+                        this.jogador.marcador = jogador.marcador;
                     }
                     switch (i)
                     {
