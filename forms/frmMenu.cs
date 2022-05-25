@@ -115,7 +115,38 @@ namespace piBodeWar
 
         private void btnCriarPartida_MouseEnter(object sender, EventArgs e)
         {
+            btnCriarPartida.Image = Properties.Resources.criar2;
+            btnCriarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
 
+        private void btnCriarPartida_MouseLeave(object sender, EventArgs e)
+        {
+            btnCriarPartida.Image = Properties.Resources.criar1;
+            btnCriarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnListar_MouseEnter(object sender, EventArgs e)
+        {
+            btnListarPartidas.Image = Properties.Resources.listar2;
+            btnListarPartidas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnListar_MouseLeave(object sender, EventArgs e)
+        {
+            btnListarPartidas.Image = Properties.Resources.listar1;
+            btnListarPartidas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnEntrar_MouseEnter(object sender, EventArgs e)
+        {
+            btnEntrarPartida.Image = Properties.Resources.entrar2;
+            btnEntrarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnEntrar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEntrarPartida.Image = Properties.Resources.entrar1;
+            btnEntrarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
         }
     }
 }

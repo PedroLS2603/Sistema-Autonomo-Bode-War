@@ -119,6 +119,15 @@
     <Content Include="assets\b7.PNG" />
     <Content Include="assets\b8.PNG" />
     <Content Include="assets\b9.PNG" />
+    <Content Include="assets\criar2.png" />
+    <Content Include="assets\entrar2.png" />
+    <Content Include="assets\listar2.png" />
+    <None Include="Resources\criar2.png" />
+    <None Include="Resources\criar2.bmp" />
+    <None Include="assets\entrar1.png" />
+    <None Include="assets\listar1.png" />
+    <None Include="assets\criar1.png" />
+    <None Include="assets\menu.png" />
     <None Include="assets\table_BOW.jpg" />
     <None Include="Resources\menu.png" />
     <None Include="assets\entrarbotao.png" />
