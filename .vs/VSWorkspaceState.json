@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\forms",
-    "\\model",
-    "\\Properties"
+    "\\forms"
   ],
-  "SelectedNode": "\\forms\\frmMenu.Designer.cs",
+  "SelectedNode": "\\forms\\frmMenu.resx",
   "PreviewInSolutionExplorer": false
 }
