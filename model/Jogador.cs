@@ -195,6 +195,7 @@ namespace piBodeWar.model
 
 
             status = status.Replace('\r'.ToString(), String.Empty);
+            status = status.Trim();
             string[] arrStatus = status.Split('\n');
 
             foreach (string jogada in arrStatus)
@@ -206,14 +207,18 @@ namespace piBodeWar.model
                 }
                 else if(jogada != "")
                 {
+                    
                     string[] arrJogada = jogada.Split(',');
                     string idJogador = arrJogada[0];
                     string idCarta = arrJogada[1];
                     Carta carta = partida.buscarCarta(Int32.Parse(idCarta));
 
                     carta.setDono(partida.buscarJogador(idJogador));
-                    partida.rodadaAtual.cartasJogadas.Add(carta);
-                    partida.rodadaAtual.adicionarBodes(carta.numBodes);
+                    if (!(arrStatus.Length - 1 == partida.rodadaAtual.cartasJogadas.Count))
+                    {
+                        partida.rodadaAtual.cartasJogadas.Add(carta);
+                        partida.rodadaAtual.adicionarBodes(carta.numBodes);
+                    }
                 }
             }
             if (partida.rodadaAtual.cartasJogadas.Count == partida.jogadores.Count && partida.status != 'E' && !partida.rodadaAtual.distribuiuPremio)
