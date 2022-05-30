@@ -30,114 +30,42 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJogo));
-            this.txtStatus = new System.Windows.Forms.RichTextBox();
-            this.btnJogarCarta = new System.Windows.Forms.Button();
-            this.btnNarracao = new System.Windows.Forms.Button();
-            this.btnVerMao = new System.Windows.Forms.Button();
             this.btnIniciarPartida = new System.Windows.Forms.Button();
-            this.btnVerificarVez = new System.Windows.Forms.Button();
             this.flpMao = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnVerificarMesa = new System.Windows.Forms.Button();
-            this.btnVerificarIlha = new System.Windows.Forms.Button();
             this.lblStatusRodada = new System.Windows.Forms.Label();
-            this.lblIlha = new System.Windows.Forms.Label();
             this.lblBodes = new System.Windows.Forms.Label();
             this.flpMesa = new System.Windows.Forms.FlowLayoutPanel();
             this.tmrMinhaVez = new System.Windows.Forms.Timer(this.components);
-            this.lblBodesRodada = new System.Windows.Forms.Label();
             this.lblJogador1 = new System.Windows.Forms.Label();
             this.lblJogador3 = new System.Windows.Forms.Label();
             this.lblJogador2 = new System.Windows.Forms.Label();
             this.lblJogador4 = new System.Windows.Forms.Label();
             this.lblRodada = new System.Windows.Forms.Label();
+            this.pnlIlha = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtStatus = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.Location = new System.Drawing.Point(795, 12);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(161, 144);
-            this.txtStatus.TabIndex = 0;
-            this.txtStatus.Text = "";
-            // 
-            // btnJogarCarta
-            // 
-            this.btnJogarCarta.Location = new System.Drawing.Point(1250, 621);
-            this.btnJogarCarta.Name = "btnJogarCarta";
-            this.btnJogarCarta.Size = new System.Drawing.Size(84, 23);
-            this.btnJogarCarta.TabIndex = 1;
-            this.btnJogarCarta.Text = "Jogar carta";
-            this.btnJogarCarta.UseVisualStyleBackColor = true;
-            this.btnJogarCarta.Click += new System.EventHandler(this.btnJogarCarta_Click);
-            // 
-            // btnNarracao
-            // 
-            this.btnNarracao.Location = new System.Drawing.Point(795, 172);
-            this.btnNarracao.Name = "btnNarracao";
-            this.btnNarracao.Size = new System.Drawing.Size(161, 23);
-            this.btnNarracao.TabIndex = 2;
-            this.btnNarracao.Text = "Narração";
-            this.btnNarracao.UseVisualStyleBackColor = true;
-            this.btnNarracao.Click += new System.EventHandler(this.btnNarracao_Click);
-            // 
-            // btnVerMao
-            // 
-            this.btnVerMao.Location = new System.Drawing.Point(1250, 651);
-            this.btnVerMao.Name = "btnVerMao";
-            this.btnVerMao.Size = new System.Drawing.Size(84, 23);
-            this.btnVerMao.TabIndex = 4;
-            this.btnVerMao.Text = "Ver mão";
-            this.btnVerMao.UseVisualStyleBackColor = true;
-            this.btnVerMao.Click += new System.EventHandler(this.btnVerMao_Click);
             // 
             // btnIniciarPartida
             // 
-            this.btnIniciarPartida.Location = new System.Drawing.Point(1250, 680);
+            this.btnIniciarPartida.Location = new System.Drawing.Point(1098, 54);
             this.btnIniciarPartida.Name = "btnIniciarPartida";
-            this.btnIniciarPartida.Size = new System.Drawing.Size(84, 23);
+            this.btnIniciarPartida.Size = new System.Drawing.Size(123, 28);
             this.btnIniciarPartida.TabIndex = 5;
             this.btnIniciarPartida.Text = "Iniciar partida";
             this.btnIniciarPartida.UseVisualStyleBackColor = true;
             this.btnIniciarPartida.Click += new System.EventHandler(this.btnIniciarPartida_Click);
             // 
-            // btnVerificarVez
-            // 
-            this.btnVerificarVez.Location = new System.Drawing.Point(1122, 651);
-            this.btnVerificarVez.Name = "btnVerificarVez";
-            this.btnVerificarVez.Size = new System.Drawing.Size(88, 23);
-            this.btnVerificarVez.TabIndex = 6;
-            this.btnVerificarVez.Text = "Verificar vez";
-            this.btnVerificarVez.UseVisualStyleBackColor = true;
-            this.btnVerificarVez.Click += new System.EventHandler(this.btnVerificarVez_Click);
-            // 
             // flpMao
             // 
             this.flpMao.BackColor = System.Drawing.Color.Transparent;
-            this.flpMao.Location = new System.Drawing.Point(7, 481);
+            this.flpMao.Location = new System.Drawing.Point(15, 520);
             this.flpMao.Name = "flpMao";
-            this.flpMao.Size = new System.Drawing.Size(960, 247);
+            this.flpMao.Size = new System.Drawing.Size(919, 210);
             this.flpMao.TabIndex = 7;
-            this.flpMao.Paint += new System.Windows.Forms.PaintEventHandler(this.flpMao_Paint);
-            // 
-            // btnVerificarMesa
-            // 
-            this.btnVerificarMesa.Location = new System.Drawing.Point(1122, 622);
-            this.btnVerificarMesa.Name = "btnVerificarMesa";
-            this.btnVerificarMesa.Size = new System.Drawing.Size(88, 23);
-            this.btnVerificarMesa.TabIndex = 8;
-            this.btnVerificarMesa.Text = "Verificar Mesa";
-            this.btnVerificarMesa.UseVisualStyleBackColor = true;
-            this.btnVerificarMesa.Click += new System.EventHandler(this.btnVerificarMesa_Click);
-            // 
-            // btnVerificarIlha
-            // 
-            this.btnVerificarIlha.Location = new System.Drawing.Point(1122, 680);
-            this.btnVerificarIlha.Name = "btnVerificarIlha";
-            this.btnVerificarIlha.Size = new System.Drawing.Size(88, 23);
-            this.btnVerificarIlha.TabIndex = 9;
-            this.btnVerificarIlha.Text = "Verificar ilha";
-            this.btnVerificarIlha.UseVisualStyleBackColor = true;
-            this.btnVerificarIlha.Click += new System.EventHandler(this.btnVerificarIlha_Click);
             // 
             // lblStatusRodada
             // 
@@ -145,25 +73,12 @@
             this.lblStatusRodada.BackColor = System.Drawing.Color.Transparent;
             this.lblStatusRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblStatusRodada.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblStatusRodada.Location = new System.Drawing.Point(10, 346);
+            this.lblStatusRodada.Location = new System.Drawing.Point(6, 34);
             this.lblStatusRodada.Name = "lblStatusRodada";
             this.lblStatusRodada.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblStatusRodada.Size = new System.Drawing.Size(165, 20);
             this.lblStatusRodada.TabIndex = 10;
             this.lblStatusRodada.Text = "Status - Não iniciado";
-            // 
-            // lblIlha
-            // 
-            this.lblIlha.AutoSize = true;
-            this.lblIlha.BackColor = System.Drawing.Color.Transparent;
-            this.lblIlha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.lblIlha.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblIlha.Location = new System.Drawing.Point(12, 311);
-            this.lblIlha.Name = "lblIlha";
-            this.lblIlha.Size = new System.Drawing.Size(60, 20);
-            this.lblIlha.TabIndex = 11;
-            this.lblIlha.Text = "Ilha - 0";
-            this.lblIlha.Click += new System.EventHandler(this.lblIlha_Click);
             // 
             // lblBodes
             // 
@@ -171,7 +86,7 @@
             this.lblBodes.BackColor = System.Drawing.Color.Transparent;
             this.lblBodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblBodes.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblBodes.Location = new System.Drawing.Point(12, 381);
+            this.lblBodes.Location = new System.Drawing.Point(1153, 655);
             this.lblBodes.Name = "lblBodes";
             this.lblBodes.Size = new System.Drawing.Size(125, 20);
             this.lblBodes.TabIndex = 12;
@@ -187,20 +102,8 @@
             // 
             // tmrMinhaVez
             // 
-            this.tmrMinhaVez.Interval = 300;
+            this.tmrMinhaVez.Interval = 666;
             this.tmrMinhaVez.Tick += new System.EventHandler(this.tmrMinhaVez_Tick);
-            // 
-            // lblBodesRodada
-            // 
-            this.lblBodesRodada.AutoSize = true;
-            this.lblBodesRodada.BackColor = System.Drawing.Color.Transparent;
-            this.lblBodesRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.lblBodesRodada.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblBodesRodada.Location = new System.Drawing.Point(12, 421);
-            this.lblBodesRodada.Name = "lblBodesRodada";
-            this.lblBodesRodada.Size = new System.Drawing.Size(138, 20);
-            this.lblBodesRodada.TabIndex = 14;
-            this.lblBodesRodada.Text = "Bodes rodada - 0";
             // 
             // lblJogador1
             // 
@@ -241,7 +144,6 @@
             this.lblJogador2.TabIndex = 21;
             this.lblJogador2.Text = "P2";
             this.lblJogador2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblJogador2.Click += new System.EventHandler(this.lblJogador2_Click);
             // 
             // lblJogador4
             // 
@@ -262,11 +164,58 @@
             this.lblRodada.BackColor = System.Drawing.Color.Transparent;
             this.lblRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblRodada.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblRodada.Location = new System.Drawing.Point(12, 455);
+            this.lblRodada.Location = new System.Drawing.Point(6, 74);
             this.lblRodada.Name = "lblRodada";
             this.lblRodada.Size = new System.Drawing.Size(91, 20);
             this.lblRodada.TabIndex = 23;
             this.lblRodada.Text = "Rodada - 1";
+            // 
+            // pnlIlha
+            // 
+            this.pnlIlha.BackColor = System.Drawing.Color.Transparent;
+            this.pnlIlha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnlIlha.Location = new System.Drawing.Point(0, 0);
+            this.pnlIlha.Name = "pnlIlha";
+            this.pnlIlha.Size = new System.Drawing.Size(482, 284);
+            this.pnlIlha.TabIndex = 24;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.lblStatusRodada);
+            this.groupBox1.Controls.Add(this.lblRodada);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(539, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(177, 108);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Status";
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.AutoSize = true;
+            this.txtStatus.BackColor = System.Drawing.Color.Transparent;
+            this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtStatus.ForeColor = System.Drawing.SystemColors.Control;
+            this.txtStatus.Location = new System.Drawing.Point(6, 16);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(18, 20);
+            this.txtStatus.TabIndex = 26;
+            this.txtStatus.Text = "0";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox2.Controls.Add(this.txtStatus);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.Location = new System.Drawing.Point(43, 352);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(577, 162);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Narração";
             // 
             // frmJogo
             // 
@@ -275,57 +224,46 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.lblRodada);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnIniciarPartida);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblBodes);
+            this.Controls.Add(this.pnlIlha);
             this.Controls.Add(this.lblJogador4);
             this.Controls.Add(this.lblJogador2);
             this.Controls.Add(this.lblJogador3);
             this.Controls.Add(this.lblJogador1);
-            this.Controls.Add(this.lblBodesRodada);
             this.Controls.Add(this.flpMesa);
-            this.Controls.Add(this.lblBodes);
-            this.Controls.Add(this.lblIlha);
-            this.Controls.Add(this.lblStatusRodada);
-            this.Controls.Add(this.btnVerificarIlha);
-            this.Controls.Add(this.btnVerificarMesa);
             this.Controls.Add(this.flpMao);
-            this.Controls.Add(this.btnVerificarVez);
-            this.Controls.Add(this.btnIniciarPartida);
-            this.Controls.Add(this.btnVerMao);
-            this.Controls.Add(this.btnNarracao);
-            this.Controls.Add(this.btnJogarCarta);
-            this.Controls.Add(this.txtStatus);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmJogo";
             this.Text = "frmJogo";
-            this.Load += new System.EventHandler(this.frmJogo_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox txtStatus;
-        private System.Windows.Forms.Button btnJogarCarta;
-        private System.Windows.Forms.Button btnNarracao;
-        private System.Windows.Forms.Button btnVerMao;
         private System.Windows.Forms.Button btnIniciarPartida;
-        private System.Windows.Forms.Button btnVerificarVez;
-        private System.Windows.Forms.Button btnVerificarMesa;
-        private System.Windows.Forms.Button btnVerificarIlha;
         private System.Windows.Forms.Label lblStatusRodada;
-        private System.Windows.Forms.Label lblIlha;
         private System.Windows.Forms.FlowLayoutPanel flpMao;
         private System.Windows.Forms.Label lblBodes;
         private System.Windows.Forms.FlowLayoutPanel flpMesa;
         private System.Windows.Forms.Timer tmrMinhaVez;
-        private System.Windows.Forms.Label lblBodesRodada;
         private System.Windows.Forms.Label lblJogador1;
         private System.Windows.Forms.Label lblJogador3;
         private System.Windows.Forms.Label lblJogador2;
         private System.Windows.Forms.Label lblJogador4;
         private System.Windows.Forms.Label lblRodada;
+        private System.Windows.Forms.Panel pnlIlha;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label txtStatus;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

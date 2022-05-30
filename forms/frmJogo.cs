@@ -6,7 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using BodeOfWarServer;
 
@@ -15,7 +15,11 @@ namespace piBodeWar.forms
     public partial class frmJogo : Form
     {
 
+        public Jogador jogador { get; }
+        public Partida partida { get; }
 
+        private bool mostrarIlha { get; set; }
+        
         protected override CreateParams CreateParams
         {
             get
@@ -25,8 +29,6 @@ namespace piBodeWar.forms
                 return handleParam;
             }
         }
-        public Jogador jogador { get; }
-        public Partida partida { get; }
 
         public frmJogo(Jogador jogador, Partida partida)
         {
@@ -35,14 +37,12 @@ namespace piBodeWar.forms
             InitializeComponent();
             this.Text = "Animaniacs";
             tmrMinhaVez.Enabled = true;
-
         }
 
         private void btnVerMao_Click(object sender, EventArgs e)
         {
             flpMao.Controls.Clear();
             this.jogador.verMao(this.partida);
-
 
             this.mostraMao();
         }
@@ -85,42 +85,9 @@ namespace piBodeWar.forms
             }
         }
 
-        private void btnVerificarVez_Click(object sender, EventArgs e)
-        {
-            Jogador quemJoga = this.jogador.verificaVez(this.partida);
-            if (quemJoga != null)
-            {
-                lblStatusRodada.Text = String.Format("Status - Vez de {0}", quemJoga.nome);
-                if (quemJoga.id == this.jogador.id && this.partida.rodadaAtual.status == 'I')
-                {
-                    frmEscolherIlha formEscolherIlha = new frmEscolherIlha(this.jogador);
-
-                    formEscolherIlha.ShowDialog();
-                }
-            }
-        }
-
-
         private void btnNarracao_Click(object sender, EventArgs e)
         {
             txtStatus.Text = this.partida.exibirNarracao();
-        }
-
-
-        private void btnJogarCarta_Click(object sender, EventArgs e)
-        {
-            this.jogador.jogarCarta();
-        }
-
-        private void btnVerificarIlha_Click(object sender, EventArgs e)
-        {
-            string status = Jogo.VerificarIlha(Int32.Parse(this.jogador.id), this.jogador.senha);
-
-        }
-
-        private void btnVerificarMesa_Click(object sender, EventArgs e)
-        {
-            this.jogador.verificarMesa(partida);
         }
 
         private void mostraMao()
@@ -134,6 +101,7 @@ namespace piBodeWar.forms
                     int yBode = 160;
 
                     Panel pnlCarta = new Panel();
+                    pnlCarta.Dock = DockStyle.Top;
                     pnlCarta.Size = new Size(100, 206);
                     pnlCarta.BackgroundImage = c.imagem;
 
@@ -171,8 +139,6 @@ namespace piBodeWar.forms
 
         public void mostraMesa()
         {
-            lblIlha.Text = String.Format("Ilha - {0}", partida.tamanhoIlha.ToString());
-
             if (this.partida.rodadaAtual.cartasJogadas.Count > 0)
             {
                 flpMesa.Controls.Clear();
@@ -215,7 +181,6 @@ namespace piBodeWar.forms
                 }
                 flpMesa.Visible = true;
                 lblBodes.Text = String.Format("Meus bodes - {0}", this.partida.buscarJogador(this.jogador.id).numBodes.ToString());
-                lblBodesRodada.Text = $"Bodes rodada - {partida.rodadaAtual.totalBodes}";
             }
         }
         /**Timer**/
@@ -301,36 +266,41 @@ namespace piBodeWar.forms
                 }
                 this.jogador.verificarMesa(this.partida);
                 this.mostraMesa();
+                this.exibeIlha();
                 lblRodada.Text = $"Rodada - {this.partida.rodadaAtual.id}";
             }
-
+            this.exibirNarracao();
             tmrMinhaVez.Enabled = true;
 
         }
 
-        private void flpMao_Paint(object sender, PaintEventArgs e)
+        private void exibeIlha()
         {
+            int rodada = Int32.Parse(this.partida.rodadaAtual.id);
+            switch(rodada)
+            {
+                case 2:
+                    pnlIlha.BackgroundImage = Properties.Resources.ilha1;
+                    break;
+                case 3:
+                    pnlIlha.BackgroundImage = Properties.Resources.ilha2;
+                    break;
+                case 4:
+                    pnlIlha.BackgroundImage = Properties.Resources.ilha3;
+                    break;
+                case 5:
+                    pnlIlha.BackgroundImage = Properties.Resources.ilha4;
+                    break;
+            }
+           // lblIlha.Text = partida.tamanhoIlha.ToString();
+           // lblIlha.Visible = true;
 
         }
+        
 
-        private void frmJogo_Load(object sender, EventArgs e)
+        private void exibirNarracao()
         {
-
-        }
-
-        private void lblIlha_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblJogador2_Click(object sender, EventArgs e)
-        {
-
+            txtStatus.Text = this.partida.exibirNarracao();
         }
     }
 }

@@ -205,4 +205,16 @@
   <data name="listar11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\listar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ilha1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\ilha1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ilha2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\ilha2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ilha3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\ilha3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ilha4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\ilha4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
