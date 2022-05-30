@@ -62,11 +62,7 @@ namespace piBodeWar.model
             if(escolhida != null && escolhida.id > 0)
             {
                 Jogo.Jogar(Int32.Parse(this.id), this.senha, escolhida.id);
-                int indice = obterIndiceDaMao(escolhida);
-                if(indice > -1)
-                {
-                    this.mao.RemoveAt(indice);
-                }
+                removeDaMao(escolhida);
             }
         }
 
@@ -259,17 +255,16 @@ namespace piBodeWar.model
             partida.encerrar();
         }
         
-        private int obterIndiceDaMao(Carta carta)
+        private void removeDaMao(Carta carta)
         {
             foreach(Carta c in this.mao)
             {
                 if (c.id == carta.id)
                 {
-                    return this.mao.IndexOf(c);
+                    this.mao.Remove(c);
+                    return;
                 }
             }
-
-            return -1;
         }
     }
 

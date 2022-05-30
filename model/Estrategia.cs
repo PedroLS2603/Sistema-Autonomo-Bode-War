@@ -36,8 +36,8 @@ namespace piBodeWar.model
         public void classificarCartas()
         {
             this.peso1 = this.jogador.mao.Where(c => c.id <= 16).ToList();
-            this.peso2 = this.jogador.mao.Where(c => c.id <= 34).ToList();
-            this.peso3 = this.jogador.mao.Where(c => c.id <= 50).ToList();
+            this.peso2 = this.jogador.mao.Where(c => c.id <= 34 && c.id > 16).ToList();
+            this.peso3 = this.jogador.mao.Where(c => c.id <= 50 && c.id > 34).ToList();
 
         }
         public Carta escolherCarta()
@@ -71,6 +71,7 @@ namespace piBodeWar.model
                 }
             }
 
+            this.removeCarta(escolhida);
             return escolhida;
         }
 
@@ -155,6 +156,7 @@ namespace piBodeWar.model
 
             if(menoresQueMaiorDaMesa.Count > 0)
             {
+                this.removeCarta(menoresQueMaiorDaMesa[menoresQueMaiorDaMesa.Count - 1]);
                 return menoresQueMaiorDaMesa[menoresQueMaiorDaMesa.Count - 1];
             }
 
@@ -192,7 +194,7 @@ namespace piBodeWar.model
             }
             else
             {
-                escolhida = this.peso3[0];
+                escolhida = this.escolheMaiorCarta();
             }
 
             this.removeCarta(escolhida);
@@ -239,7 +241,7 @@ namespace piBodeWar.model
 
         public void removeCarta(Carta c)
         {
-            if(c.id <= 15)
+            if(c.id <= 16)
             {
                 foreach (Carta carta in this.peso1)
                 {
@@ -249,7 +251,7 @@ namespace piBodeWar.model
                         return;
                     }
                 }
-            } else if( c.id <= 37)
+            } else if(c.id <= 34)
             {
                 foreach (Carta carta in this.peso2)
                 {
@@ -283,5 +285,23 @@ namespace piBodeWar.model
             return !passouDoLimite() ? maior : menor;
         }
 
+        private Carta escolheMaiorCarta()
+        {
+            Carta escolhida = null;
+            if(this.peso3.Count > 0)
+            {
+                escolhida = this.peso3[0];
+            }
+            else if(this.peso2.Count > 0)
+            {
+                escolhida = this.peso2[this.peso2.Count - 1];
+            }
+            else if (this.peso1.Count > 0)
+            {
+                escolhida = this.peso1[this.peso1.Count - 1];
+            }
+
+            return escolhida;
+        }
     }
 }
