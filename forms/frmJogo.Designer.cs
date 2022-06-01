@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJogo));
             this.btnIniciarPartida = new System.Windows.Forms.Button();
             this.flpMao = new System.Windows.Forms.FlowLayoutPanel();
             this.lblStatusRodada = new System.Windows.Forms.Label();
@@ -62,7 +61,7 @@
             // flpMao
             // 
             this.flpMao.BackColor = System.Drawing.Color.Transparent;
-            this.flpMao.Location = new System.Drawing.Point(15, 520);
+            this.flpMao.Location = new System.Drawing.Point(440, 525);
             this.flpMao.Name = "flpMao";
             this.flpMao.Size = new System.Drawing.Size(919, 210);
             this.flpMao.TabIndex = 7;
@@ -95,9 +94,9 @@
             // flpMesa
             // 
             this.flpMesa.BackColor = System.Drawing.Color.Transparent;
-            this.flpMesa.Location = new System.Drawing.Point(795, 237);
+            this.flpMesa.Location = new System.Drawing.Point(833, 266);
             this.flpMesa.Name = "flpMesa";
-            this.flpMesa.Size = new System.Drawing.Size(514, 238);
+            this.flpMesa.Size = new System.Drawing.Size(514, 222);
             this.flpMesa.TabIndex = 13;
             // 
             // tmrMinhaVez
@@ -185,9 +184,9 @@
             this.groupBox1.Controls.Add(this.lblStatusRodada);
             this.groupBox1.Controls.Add(this.lblRodada);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Location = new System.Drawing.Point(539, 28);
+            this.groupBox1.Location = new System.Drawing.Point(647, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 108);
+            this.groupBox1.Size = new System.Drawing.Size(175, 97);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
@@ -210,9 +209,9 @@
             this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox2.Controls.Add(this.txtStatus);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox2.Location = new System.Drawing.Point(43, 352);
+            this.groupBox2.Location = new System.Drawing.Point(64, 525);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(577, 162);
+            this.groupBox2.Size = new System.Drawing.Size(256, 210);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Narração";
@@ -223,7 +222,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::piBodeWar.Properties.Resources.table_BOW;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.groupBox2);
@@ -240,6 +239,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmJogo";
             this.Text = "frmJogo";
+            this.Load += new System.EventHandler(this.frmJogo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
