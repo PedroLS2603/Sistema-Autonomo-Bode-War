@@ -53,7 +53,7 @@ namespace piBodeWar
             this.btnListarPartidas.TabIndex = 3;
             this.btnListarPartidas.UseVisualStyleBackColor = false;
             this.btnListarPartidas.Click += new System.EventHandler(this.btnListarPartidas_Click);
-            this.btnListarPartidas.MouseEnter += new System.EventHandler(this.btnListar_MouseEnter);
+             this.btnListarPartidas.MouseEnter += new System.EventHandler(this.btnListar_MouseEnter);
             this.btnListarPartidas.MouseLeave += new System.EventHandler(this.btnListar_MouseLeave);
             // 
             // lstPartidas

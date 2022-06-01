@@ -302,6 +302,11 @@ namespace piBodeWar.forms
         {
             txtStatus.Text = this.partida.exibirNarracao();
         }
+
+        private void frmJogo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
