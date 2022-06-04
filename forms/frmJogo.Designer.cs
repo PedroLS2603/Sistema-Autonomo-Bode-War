@@ -40,30 +40,34 @@
             this.lblJogador2 = new System.Windows.Forms.Label();
             this.lblJogador4 = new System.Windows.Forms.Label();
             this.lblRodada = new System.Windows.Forms.Label();
-            this.pnlIlha = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtStatus = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.pbxIlha = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxIlha)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnIniciarPartida
             // 
-            this.btnIniciarPartida.Location = new System.Drawing.Point(1098, 54);
+            this.btnIniciarPartida.BackColor = System.Drawing.Color.Transparent;
+            this.btnIniciarPartida.BackgroundImage = global::piBodeWar.Properties.Resources.iniciar1;
+            this.btnIniciarPartida.FlatAppearance.BorderSize = 0;
+            this.btnIniciarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciarPartida.Location = new System.Drawing.Point(1086, -2);
             this.btnIniciarPartida.Name = "btnIniciarPartida";
-            this.btnIniciarPartida.Size = new System.Drawing.Size(123, 28);
+            this.btnIniciarPartida.Size = new System.Drawing.Size(119, 48);
             this.btnIniciarPartida.TabIndex = 5;
-            this.btnIniciarPartida.Text = "Iniciar partida";
-            this.btnIniciarPartida.UseVisualStyleBackColor = true;
+            this.btnIniciarPartida.UseVisualStyleBackColor = false;
             this.btnIniciarPartida.Click += new System.EventHandler(this.btnIniciarPartida_Click);
+            this.btnIniciarPartida.MouseEnter += new System.EventHandler(this.btnIniciarPartida_MouseEnter);
+            this.btnIniciarPartida.MouseLeave += new System.EventHandler(this.btnIniciarPartida_MouseLeave);
             // 
             // flpMao
             // 
             this.flpMao.BackColor = System.Drawing.Color.Transparent;
-            this.flpMao.Location = new System.Drawing.Point(440, 525);
+            this.flpMao.Location = new System.Drawing.Point(472, 551);
             this.flpMao.Name = "flpMao";
-            this.flpMao.Size = new System.Drawing.Size(919, 210);
+            this.flpMao.Size = new System.Drawing.Size(892, 210);
             this.flpMao.TabIndex = 7;
             // 
             // lblStatusRodada
@@ -72,7 +76,7 @@
             this.lblStatusRodada.BackColor = System.Drawing.Color.Transparent;
             this.lblStatusRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblStatusRodada.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblStatusRodada.Location = new System.Drawing.Point(6, 25);
+            this.lblStatusRodada.Location = new System.Drawing.Point(287, 11);
             this.lblStatusRodada.Name = "lblStatusRodada";
             this.lblStatusRodada.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblStatusRodada.Size = new System.Drawing.Size(165, 20);
@@ -83,18 +87,18 @@
             // 
             this.lblBodes.AutoSize = true;
             this.lblBodes.BackColor = System.Drawing.Color.Transparent;
-            this.lblBodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.lblBodes.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblBodes.Location = new System.Drawing.Point(7, 47);
+            this.lblBodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.lblBodes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblBodes.Location = new System.Drawing.Point(924, 512);
             this.lblBodes.Name = "lblBodes";
-            this.lblBodes.Size = new System.Drawing.Size(125, 20);
+            this.lblBodes.Size = new System.Drawing.Size(30, 31);
             this.lblBodes.TabIndex = 12;
-            this.lblBodes.Text = "Meus bodes - 0";
+            this.lblBodes.Text = "0";
             // 
             // flpMesa
             // 
             this.flpMesa.BackColor = System.Drawing.Color.Transparent;
-            this.flpMesa.Location = new System.Drawing.Point(833, 266);
+            this.flpMesa.Location = new System.Drawing.Point(833, 246);
             this.flpMesa.Name = "flpMesa";
             this.flpMesa.Size = new System.Drawing.Size(514, 222);
             this.flpMesa.TabIndex = 13;
@@ -161,36 +165,13 @@
             // 
             this.lblRodada.AutoSize = true;
             this.lblRodada.BackColor = System.Drawing.Color.Transparent;
-            this.lblRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
-            this.lblRodada.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblRodada.Location = new System.Drawing.Point(6, 70);
+            this.lblRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.lblRodada.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblRodada.Location = new System.Drawing.Point(668, 40);
             this.lblRodada.Name = "lblRodada";
-            this.lblRodada.Size = new System.Drawing.Size(91, 20);
+            this.lblRodada.Size = new System.Drawing.Size(30, 31);
             this.lblRodada.TabIndex = 23;
-            this.lblRodada.Text = "Rodada - 1";
-            // 
-            // pnlIlha
-            // 
-            this.pnlIlha.BackColor = System.Drawing.Color.Transparent;
-            this.pnlIlha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pnlIlha.Location = new System.Drawing.Point(0, 0);
-            this.pnlIlha.Name = "pnlIlha";
-            this.pnlIlha.Size = new System.Drawing.Size(482, 284);
-            this.pnlIlha.TabIndex = 24;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.lblStatusRodada);
-            this.groupBox1.Controls.Add(this.lblRodada);
-            this.groupBox1.Controls.Add(this.lblBodes);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Location = new System.Drawing.Point(647, 35);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(175, 97);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Status";
+            this.lblRodada.Text = "1";
             // 
             // txtStatus
             // 
@@ -198,23 +179,29 @@
             this.txtStatus.BackColor = System.Drawing.Color.Transparent;
             this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtStatus.ForeColor = System.Drawing.SystemColors.Control;
-            this.txtStatus.Location = new System.Drawing.Point(6, 16);
+            this.txtStatus.Location = new System.Drawing.Point(3, 0);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(0, 20);
+            this.txtStatus.Size = new System.Drawing.Size(18, 20);
             this.txtStatus.TabIndex = 26;
+            this.txtStatus.Text = "0";
             // 
-            // groupBox2
+            // pbxIlha
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.groupBox2.Controls.Add(this.txtStatus);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox2.Location = new System.Drawing.Point(12, 525);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(377, 210);
-            this.groupBox2.TabIndex = 27;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Narração";
+            this.pbxIlha.BackColor = System.Drawing.Color.Transparent;
+            this.pbxIlha.Location = new System.Drawing.Point(215, 72);
+            this.pbxIlha.Name = "pbxIlha";
+            this.pbxIlha.Size = new System.Drawing.Size(233, 210);
+            this.pbxIlha.TabIndex = 28;
+            this.pbxIlha.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.txtStatus);
+            this.panel1.Location = new System.Drawing.Point(49, 512);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(356, 249);
+            this.panel1.TabIndex = 29;
             // 
             // frmJogo
             // 
@@ -224,11 +211,13 @@
             this.AutoSize = true;
             this.BackgroundImage = global::piBodeWar.Properties.Resources.table_BOW;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(1364, 761);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lblStatusRodada);
+            this.Controls.Add(this.pbxIlha);
+            this.Controls.Add(this.lblBodes);
+            this.Controls.Add(this.lblRodada);
             this.Controls.Add(this.btnIniciarPartida);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pnlIlha);
             this.Controls.Add(this.lblJogador4);
             this.Controls.Add(this.lblJogador2);
             this.Controls.Add(this.lblJogador3);
@@ -239,10 +228,9 @@
             this.Name = "frmJogo";
             this.Text = "frmJogo";
             this.Load += new System.EventHandler(this.frmJogo_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxIlha)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,9 +248,8 @@
         private System.Windows.Forms.Label lblJogador2;
         private System.Windows.Forms.Label lblJogador4;
         private System.Windows.Forms.Label lblRodada;
-        private System.Windows.Forms.Panel pnlIlha;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label txtStatus;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.PictureBox pbxIlha;
+        private System.Windows.Forms.Panel panel1;
     }
 }

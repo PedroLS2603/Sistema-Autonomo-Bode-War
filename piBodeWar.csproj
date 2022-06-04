@@ -73,6 +73,7 @@
     <Compile Include="model\Partida.cs" />
     <Compile Include="model\Rodada.cs" />
     <Compile Include="model\Tabuleiro.cs" />
+    <Compile Include="model\Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\frmEscolherIlha.resx">
@@ -125,6 +126,7 @@
     <Content Include="assets\b9.PNG" />
     <Content Include="assets\criar2.png" />
     <Content Include="assets\entrar2.png" />
+    <None Include="assets\iniciar2.png" />
     <Content Include="assets\listar2.png" />
     <None Include="Resources\criar2.png" />
     <None Include="Resources\criar2.bmp" />

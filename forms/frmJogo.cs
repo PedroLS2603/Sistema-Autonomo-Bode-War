@@ -266,7 +266,7 @@ namespace piBodeWar.forms
                 this.jogador.verificarMesa(this.partida);
                 this.mostraMesa();
                 this.exibeIlha();
-                lblRodada.Text = $"Rodada - {this.partida.rodadaAtual.id}";
+                lblRodada.Text = $"{this.partida.rodadaAtual.id}";
             }
             this.exibirNarracao();
             tmrMinhaVez.Enabled = true;
@@ -279,16 +279,16 @@ namespace piBodeWar.forms
             switch(rodada)
             {
                 case 2:
-                    pnlIlha.BackgroundImage = Properties.Resources.ilha1;
+                    pbxIlha.Image = Properties.Resources.ilha1GIF;
                     break;
                 case 3:
-                    pnlIlha.BackgroundImage = Properties.Resources.ilha2;
+                    pbxIlha.Image = Properties.Resources.ilha2GIF;
                     break;
                 case 4:
-                    pnlIlha.BackgroundImage = Properties.Resources.ilha3;
+                    pbxIlha.Image = Properties.Resources.ilha3GIF;
                     break;
                 case 5:
-                    pnlIlha.BackgroundImage = Properties.Resources.ilha4;
+                    pbxIlha.Image = Properties.Resources.ilha4GIF;
                     break;
             }
            // lblIlha.Text = partida.tamanhoIlha.ToString();
@@ -303,11 +303,28 @@ namespace piBodeWar.forms
             Jogador bot = this.partida.buscarJogador(this.jogador.id);
             if(bot != null)
             {
-                lblBodes.Text = String.Format("Meus bodes - {0}", bot.numBodes.ToString());
+                lblBodes.Text = String.Format("{0}", bot.numBodes.ToString());
             }
         }
 
         private void frmJogo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIniciarPartida_MouseEnter(object sender, EventArgs e)
+        {
+            btnIniciarPartida.Image = Properties.Resources.iniciar2;
+            btnIniciarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnIniciarPartida_MouseLeave(object sender, EventArgs e)
+        {
+            btnIniciarPartida.Image = Properties.Resources.iniciar1;
+            btnIniciarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
