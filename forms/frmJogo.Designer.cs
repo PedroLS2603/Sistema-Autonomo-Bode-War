@@ -72,7 +72,7 @@
             this.lblStatusRodada.BackColor = System.Drawing.Color.Transparent;
             this.lblStatusRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblStatusRodada.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblStatusRodada.Location = new System.Drawing.Point(6, 34);
+            this.lblStatusRodada.Location = new System.Drawing.Point(6, 25);
             this.lblStatusRodada.Name = "lblStatusRodada";
             this.lblStatusRodada.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblStatusRodada.Size = new System.Drawing.Size(165, 20);
@@ -85,7 +85,7 @@
             this.lblBodes.BackColor = System.Drawing.Color.Transparent;
             this.lblBodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblBodes.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblBodes.Location = new System.Drawing.Point(1153, 655);
+            this.lblBodes.Location = new System.Drawing.Point(7, 47);
             this.lblBodes.Name = "lblBodes";
             this.lblBodes.Size = new System.Drawing.Size(125, 20);
             this.lblBodes.TabIndex = 12;
@@ -163,7 +163,7 @@
             this.lblRodada.BackColor = System.Drawing.Color.Transparent;
             this.lblRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F);
             this.lblRodada.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblRodada.Location = new System.Drawing.Point(6, 74);
+            this.lblRodada.Location = new System.Drawing.Point(6, 70);
             this.lblRodada.Name = "lblRodada";
             this.lblRodada.Size = new System.Drawing.Size(91, 20);
             this.lblRodada.TabIndex = 23;
@@ -183,6 +183,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.lblStatusRodada);
             this.groupBox1.Controls.Add(this.lblRodada);
+            this.groupBox1.Controls.Add(this.lblBodes);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Location = new System.Drawing.Point(647, 35);
             this.groupBox1.Name = "groupBox1";
@@ -199,9 +200,8 @@
             this.txtStatus.ForeColor = System.Drawing.SystemColors.Control;
             this.txtStatus.Location = new System.Drawing.Point(6, 16);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(18, 20);
+            this.txtStatus.Size = new System.Drawing.Size(0, 20);
             this.txtStatus.TabIndex = 26;
-            this.txtStatus.Text = "0";
             // 
             // groupBox2
             // 
@@ -209,9 +209,9 @@
             this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox2.Controls.Add(this.txtStatus);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox2.Location = new System.Drawing.Point(64, 525);
+            this.groupBox2.Location = new System.Drawing.Point(12, 525);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(256, 210);
+            this.groupBox2.Size = new System.Drawing.Size(377, 210);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Narração";
@@ -228,7 +228,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnIniciarPartida);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lblBodes);
             this.Controls.Add(this.pnlIlha);
             this.Controls.Add(this.lblJogador4);
             this.Controls.Add(this.lblJogador2);

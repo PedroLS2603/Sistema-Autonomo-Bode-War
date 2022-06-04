@@ -80,6 +80,10 @@ namespace piBodeWar.model
         {
             string narracao = Jogo.ExibirNarracao(Int32.Parse(this.id));
 
+            if(this.rodadaAtual != null && !this.rodadaAtual.distribuiuPremio) { 
+                this.distribuirBodes(narracao);
+            }
+
             return narracao;
         }
 
@@ -209,6 +213,27 @@ namespace piBodeWar.model
             }
 
             return retorno;
+        }
+
+        public void distribuirBodes(string narracao)
+        {
+            foreach(Jogador jogador in this.jogadores)
+            {
+                int soma = 0;
+                string linhasBodes = Util.substring(narracao, $"{jogador.nome} venceu a rodada e recebeu", "bodes");
+
+                string[] arrQtdBodes = linhasBodes.Split('\n');
+
+                foreach(string qtdBodes in arrQtdBodes)
+                {
+
+                    soma += Int32.Parse(qtdBodes);
+                }
+
+                jogador.adicionarBodes(soma);
+                Console.WriteLine(linhasBodes);
+            }
+            this.rodadaAtual.distribuiuPremio = true;
         }
     }
 }

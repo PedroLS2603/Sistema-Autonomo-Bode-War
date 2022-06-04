@@ -180,7 +180,6 @@ namespace piBodeWar.forms
                     flpMesa.Controls.Add(pnlCarta);
                 }
                 flpMesa.Visible = true;
-                lblBodes.Text = String.Format("Meus bodes - {0}", this.partida.buscarJogador(this.jogador.id).numBodes.ToString());
             }
         }
         /**Timer**/
@@ -301,6 +300,11 @@ namespace piBodeWar.forms
         private void exibirNarracao()
         {
             txtStatus.Text = this.partida.exibirNarracao();
+            Jogador bot = this.partida.buscarJogador(this.jogador.id);
+            if(bot != null)
+            {
+                lblBodes.Text = String.Format("Meus bodes - {0}", bot.numBodes.ToString());
+            }
         }
 
         private void frmJogo_Load(object sender, EventArgs e)

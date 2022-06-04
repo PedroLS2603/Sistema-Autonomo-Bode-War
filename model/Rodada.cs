@@ -21,7 +21,7 @@ namespace piBodeWar.model
         
         public int totalBodes { get; private set; }
 
-        public bool distribuiuPremio { get; private set; }
+        public bool distribuiuPremio { get; set; }
 
         public Rodada(string id, char status, int totalBodes, Partida partida)
         {

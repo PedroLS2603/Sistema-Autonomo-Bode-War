@@ -91,15 +91,10 @@ namespace piBodeWar.model
                 string idRodada = arrRetorno[2];   
                 char statusRodada = arrRetorno[3][0];
                 partida.status = statusPartida[0];
-                switch (idRodada)
+                if(idRodada == "8")
                 {
-                    case "1":
-                        partida.listarJogadores();
-                        break;
-                    case "8":
-                        this.partida.vencedor = this.partida.buscarJogador(idJogador);
-                        this.encerrarPartida(this.partida);
-                        break;
+                   this.partida.vencedor = this.partida.buscarJogador(idJogador);
+                   this.encerrarPartida(this.partida);
                 }
                 if (partida.rodadaAtual != null && statusRodada == 'B' && idRodada != partida.rodadaAtual.id)
                 {
@@ -217,10 +212,11 @@ namespace piBodeWar.model
                     }
                 }
             }
+            /*
             if (partida.rodadaAtual.cartasJogadas.Count == partida.jogadores.Count && partida.status != 'E' && !partida.rodadaAtual.distribuiuPremio)
             {
                 partida.rodadaAtual.distribuirPremios();
-            }
+            }*/
         }
         public void iniciarPartida(Partida partida)
         {
@@ -264,6 +260,14 @@ namespace piBodeWar.model
                     this.mao.Remove(c);
                     return;
                 }
+            }
+        }
+
+        public void setBodes(int numBodes)
+        {
+            if(numBodes > 0)
+            {
+                this.numBodes = numBodes;
             }
         }
     }
