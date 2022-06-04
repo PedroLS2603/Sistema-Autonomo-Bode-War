@@ -80,7 +80,18 @@ namespace piBodeWar.model
         {
             string narracao = Jogo.ExibirNarracao(Int32.Parse(this.id));
 
-            if(this.rodadaAtual != null && !this.rodadaAtual.distribuiuPremio) { 
+            foreach(Jogador jogador in this.jogadores)
+            {
+                narracao = narracao.Replace($", é a vez de {jogador.nome}", "");
+            }
+            narracao = narracao.Replace("vai colocar um pedaço da ", "definirá a ");
+            narracao = narracao.Replace("venceu a rodada e ", "");
+            narracao = narracao.Replace("perdeu a rodada e ", "");
+            narracao = narracao.Replace("Jogador ", "");
+            //Iniciou a partida nome, é a vez de nomequemjoga
+
+
+            if (this.rodadaAtual != null && !this.rodadaAtual.distribuiuPremio) { 
                 this.distribuirBodes(narracao);
             }
 
@@ -220,7 +231,7 @@ namespace piBodeWar.model
             foreach(Jogador jogador in this.jogadores)
             {
                 int soma = 0;
-                string linhasBodes = Util.substring(narracao, $"{jogador.nome} venceu a rodada e recebeu", "bodes");
+                string linhasBodes = Util.substring(narracao, $"{jogador.nome} recebeu", "bodes");
 
                 string[] arrQtdBodes = linhasBodes.Split('\n');
 
@@ -231,7 +242,6 @@ namespace piBodeWar.model
                 }
 
                 jogador.adicionarBodes(soma);
-                Console.WriteLine(linhasBodes);
             }
             this.rodadaAtual.distribuiuPremio = true;
         }

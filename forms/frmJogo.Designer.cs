@@ -42,9 +42,9 @@
             this.lblRodada = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.Label();
             this.pbxIlha = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlNarracao = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIlha)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlNarracao.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnIniciarPartida
@@ -194,14 +194,14 @@
             this.pbxIlha.TabIndex = 28;
             this.pbxIlha.TabStop = false;
             // 
-            // panel1
+            // pnlNarracao
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.txtStatus);
-            this.panel1.Location = new System.Drawing.Point(49, 512);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(356, 249);
-            this.panel1.TabIndex = 29;
+            this.pnlNarracao.BackColor = System.Drawing.Color.Transparent;
+            this.pnlNarracao.Controls.Add(this.txtStatus);
+            this.pnlNarracao.Location = new System.Drawing.Point(49, 512);
+            this.pnlNarracao.Name = "pnlNarracao";
+            this.pnlNarracao.Size = new System.Drawing.Size(356, 249);
+            this.pnlNarracao.TabIndex = 29;
             // 
             // frmJogo
             // 
@@ -211,8 +211,8 @@
             this.AutoSize = true;
             this.BackgroundImage = global::piBodeWar.Properties.Resources.table_BOW;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1364, 761);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1364, 749);
+            this.Controls.Add(this.pnlNarracao);
             this.Controls.Add(this.lblStatusRodada);
             this.Controls.Add(this.pbxIlha);
             this.Controls.Add(this.lblBodes);
@@ -229,8 +229,8 @@
             this.Text = "frmJogo";
             this.Load += new System.EventHandler(this.frmJogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIlha)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlNarracao.ResumeLayout(false);
+            this.pnlNarracao.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,6 +250,6 @@
         private System.Windows.Forms.Label lblRodada;
         private System.Windows.Forms.Label txtStatus;
         private System.Windows.Forms.PictureBox pbxIlha;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlNarracao;
     }
 }

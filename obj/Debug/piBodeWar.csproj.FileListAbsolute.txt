@@ -88,3 +88,5 @@ C:\Users\bruno\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.pdb
 C:\Users\bruno\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.dll
 C:\Users\bruno\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.xml
 C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CopyComplete
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.SuggestedBindingRedirects.cache
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmEscolherIlha.resources

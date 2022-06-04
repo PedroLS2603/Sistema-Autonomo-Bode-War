@@ -20,7 +20,7 @@ namespace piBodeWar
         public frmMenu()
         {
             InitializeComponent();
-            this.Text = "Animaniacs - Menu";
+            this.Text = "Animaniacs - Menu";    
         }
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
@@ -71,6 +71,7 @@ namespace piBodeWar
                 string[] arrPartida = idPartida.Split(',');
 
                 idPartida = arrPartida[0];
+                string nomePartida = arrPartida[1];
 
                 string nome = txtNomeJogador.Text;
                 string senha = txtSenhaa.Text;
@@ -82,7 +83,7 @@ namespace piBodeWar
                     this.idJogador = arrStatus[0];
                     this.senhaJogador = arrStatus[1];
 
-                    Partida partida = new Partida(idPartida, nome, senha);
+                    Partida partida = new Partida(idPartida, nomePartida, senha);
                     Jogador jogador = new Jogador(partida, this.idJogador, nome, senhaJogador, false);
 
                     jogador.marcador = Properties.Resources.agua;

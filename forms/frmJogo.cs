@@ -35,7 +35,14 @@ namespace piBodeWar.forms
             this.jogador = jogador;
             this.partida = partida;
             InitializeComponent();
-            this.Text = "Animaniacs";
+            this.Text = $"Animaniacs - {this.partida.nome}";
+
+            pnlNarracao.AutoScroll = false;
+            pnlNarracao.HorizontalScroll.Enabled = false;
+            pnlNarracao.HorizontalScroll.Visible = false;
+            pnlNarracao.HorizontalScroll.Maximum = 0;
+            pnlNarracao.AutoScroll = true;
+
             tmrMinhaVez.Enabled = true;
         }
 
@@ -266,6 +273,7 @@ namespace piBodeWar.forms
                 this.jogador.verificarMesa(this.partida);
                 this.mostraMesa();
                 this.exibeIlha();
+                
                 lblRodada.Text = $"{this.partida.rodadaAtual.id}";
             }
             this.exibirNarracao();
@@ -289,6 +297,9 @@ namespace piBodeWar.forms
                     break;
                 case 5:
                     pbxIlha.Image = Properties.Resources.ilha4GIF;
+                    break;
+                case 6:
+                    pbxIlha.Image = Properties.Resources.ilha4;
                     break;
             }
            // lblIlha.Text = partida.tamanhoIlha.ToString();
