@@ -61,7 +61,7 @@ namespace piBodeWar.forms
             {
                 this.jogador.iniciarPartida(this.partida);
                 Jogador quemJoga = this.jogador.verificaVez(this.partida);
-                lblStatusRodada.Text = String.Format("Status - Vez de {0}", quemJoga.nome);
+                lblStatusRodada.Text = String.Format("Vez de {0}", quemJoga.nome);
                 for (int i = 0; i < this.partida.jogadores.Count; i++)
                 {
                     Jogador jogador = this.partida.jogadores[i];
@@ -109,6 +109,7 @@ namespace piBodeWar.forms
 
                     Panel pnlCarta = new Panel();
                     pnlCarta.Dock = DockStyle.Top;
+                    pnlCarta.Anchor = AnchorStyles.None;
                     pnlCarta.Size = new Size(100, 206);
                     pnlCarta.BackgroundImage = c.imagem;
 
@@ -199,7 +200,7 @@ namespace piBodeWar.forms
 
             if(quemJoga != null)
             {
-                lblStatusRodada.Text = String.Format("Status - vez de {0}", quemJoga.nome);
+                lblStatusRodada.Text = String.Format("Vez de {0}", quemJoga.nome);
                 if (!this.partida.iniciou)
                 {
                     this.partida.listarJogadores();
@@ -302,8 +303,8 @@ namespace piBodeWar.forms
                     pbxIlha.Image = Properties.Resources.ilha4;
                     break;
             }
-           // lblIlha.Text = partida.tamanhoIlha.ToString();
-           // lblIlha.Visible = true;
+           lblIlha.Text = partida.tamanhoIlha.ToString();
+           lblIlha.Visible = true;
 
         }
         
@@ -336,6 +337,21 @@ namespace piBodeWar.forms
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblJogador1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblJogador2_Click(object sender, EventArgs e)
         {
 
         }
