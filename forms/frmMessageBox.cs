@@ -16,12 +16,30 @@ namespace piBodeWar.forms
         {
             InitializeComponent();
             lblMensagem.Text = mensagem;
+            lblTitulo.Text = titulo;
             this.Text = titulo;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnOk_MouseEnter(object sender, EventArgs e)
+        {
+            btnOk.Image = Properties.Resources.ok11;
+            btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnOk_MouseLeave(object sender, EventArgs e)
+        {
+            btnOk.Image = Properties.Resources.ok2;
+            btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

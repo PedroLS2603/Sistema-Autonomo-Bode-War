@@ -67,6 +67,12 @@
     <Compile Include="forms\frmJogo.Designer.cs">
       <DependentUpon>frmJogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmMessageBox.Designer.cs">
+      <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="model\Carta.cs" />
     <Compile Include="model\Estrategia.cs" />
     <Compile Include="model\Jogador.cs" />
@@ -85,20 +91,23 @@
     <EmbeddedResource Include="forms\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmMessageBox.resx">
+      <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -110,6 +119,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="assets\ok2.png" />
+    <None Include="assets\popUP.png" />
+    <None Include="assets\messageBox.png" />
+    <None Include="assets\ok1.png" />
     <None Include="assets\pedra.png" />
     <None Include="assets\fogo.png" />
     <None Include="assets\agua.png" />
@@ -124,6 +137,7 @@
     <Content Include="assets\b7.PNG" />
     <Content Include="assets\b8.PNG" />
     <Content Include="assets\b9.PNG" />
+    <None Include="assets\background.png" />
     <Content Include="assets\criar2.png" />
     <Content Include="assets\entrar2.png" />
     <None Include="assets\iniciar2.png" />
