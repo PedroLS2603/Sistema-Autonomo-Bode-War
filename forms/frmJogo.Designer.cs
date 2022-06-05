@@ -67,6 +67,7 @@
             this.btnIniciarPartida.BackColor = System.Drawing.Color.Transparent;
             this.btnIniciarPartida.BackgroundImage = global::piBodeWar.Properties.Resources.iniciar1;
             this.btnIniciarPartida.FlatAppearance.BorderSize = 0;
+            this.btnIniciarPartida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnIniciarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarPartida.Location = new System.Drawing.Point(1236, -2);
             this.btnIniciarPartida.Name = "btnIniciarPartida";
@@ -89,7 +90,7 @@
             // 
             this.lblStatusRodada.BackColor = System.Drawing.Color.Transparent;
             this.lblStatusRodada.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblStatusRodada.Font = new System.Drawing.Font("Acadian Runes", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatusRodada.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblStatusRodada.Location = new System.Drawing.Point(0, 0);
             this.lblStatusRodada.Name = "lblStatusRodada";
@@ -103,7 +104,7 @@
             // 
             this.lblBodes.BackColor = System.Drawing.Color.Transparent;
             this.lblBodes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBodes.Font = new System.Drawing.Font("Acadian Runes", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBodes.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblBodes.Location = new System.Drawing.Point(0, 0);
             this.lblBodes.Name = "lblBodes";
@@ -129,7 +130,7 @@
             // 
             this.lblJogador1.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblJogador1.Font = new System.Drawing.Font("Acadian Runes", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJogador1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblJogador1.Location = new System.Drawing.Point(0, 0);
             this.lblJogador1.Name = "lblJogador1";
@@ -143,7 +144,7 @@
             // 
             this.lblJogador3.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblJogador3.Font = new System.Drawing.Font("Acadian Runes", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJogador3.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblJogador3.Location = new System.Drawing.Point(0, 0);
             this.lblJogador3.Name = "lblJogador3";
@@ -156,7 +157,7 @@
             // 
             this.lblJogador2.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblJogador2.Font = new System.Drawing.Font("Acadian Runes", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJogador2.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblJogador2.Location = new System.Drawing.Point(0, 0);
             this.lblJogador2.Name = "lblJogador2";
@@ -170,7 +171,7 @@
             // 
             this.lblJogador4.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblJogador4.Font = new System.Drawing.Font("Acadian Runes", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJogador4.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblJogador4.Location = new System.Drawing.Point(0, 0);
             this.lblJogador4.Name = "lblJogador4";
@@ -183,11 +184,11 @@
             // 
             this.lblRodada.AutoSize = true;
             this.lblRodada.BackColor = System.Drawing.Color.Transparent;
-            this.lblRodada.Font = new System.Drawing.Font("Acadian Runes", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRodada.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblRodada.Location = new System.Drawing.Point(672, 39);
             this.lblRodada.Name = "lblRodada";
-            this.lblRodada.Size = new System.Drawing.Size(22, 32);
+            this.lblRodada.Size = new System.Drawing.Size(30, 31);
             this.lblRodada.TabIndex = 23;
             this.lblRodada.Text = "1";
             // 
@@ -195,11 +196,11 @@
             // 
             this.txtStatus.AutoSize = true;
             this.txtStatus.BackColor = System.Drawing.Color.Transparent;
-            this.txtStatus.Font = new System.Drawing.Font("Acadian Runes", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStatus.ForeColor = System.Drawing.SystemColors.Control;
             this.txtStatus.Location = new System.Drawing.Point(3, 0);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(17, 19);
+            this.txtStatus.Size = new System.Drawing.Size(18, 20);
             this.txtStatus.TabIndex = 26;
             this.txtStatus.Text = "0";
             // 
@@ -243,7 +244,7 @@
             // lblIlha
             // 
             this.lblIlha.BackColor = System.Drawing.Color.Transparent;
-            this.lblIlha.Font = new System.Drawing.Font("Acadian Runes", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIlha.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIlha.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblIlha.Location = new System.Drawing.Point(0, 0);
             this.lblIlha.Name = "lblIlha";
