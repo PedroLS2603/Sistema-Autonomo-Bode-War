@@ -26,7 +26,7 @@ namespace piBodeWar.model
             this.peso1 = new List<Carta>(); // Chance maior de garantir ilhas 
             this.peso2 = new List<Carta>(); //Descarte
             this.peso3 = new List<Carta>(); //Chance maior de garantir bodes
-            this.limiteProximidadeIlha = 60.0;
+            this.limiteProximidadeIlha = 65.0;
             this.ilhasDefinidas = 0;
 
             this.partida = partida;
@@ -286,7 +286,7 @@ namespace piBodeWar.model
 
             this.ilhasDefinidas++;
 
-            return !passouDoLimite() ? maior : menor;
+            return passouDoLimite() ? maior : menor;
         }
 
         private Carta escolheMaiorCarta()
