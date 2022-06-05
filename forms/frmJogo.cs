@@ -179,12 +179,12 @@ namespace piBodeWar.forms
             {
                 this.partida.listarJogadores();
             }
-            this.mostraMao();
             Jogador quemJoga = this.jogador.verificaVez(this.partida);
 
             if(quemJoga != null)
             {
-                lblStatusRodada.Text = String.Format("Vez de {0}", quemJoga.nome);
+                this.mostraMao();
+
                 if (!this.partida.iniciou)
                 {
                     this.jogador.verMao(this.partida);
@@ -196,7 +196,7 @@ namespace piBodeWar.forms
                         {
                             this.jogador.marcador = jogador.marcador;
                         }
-                        switch (i)
+                        switch(i)
                         {
                             case 0:
                                 lblJogador1.Text = jogador.nome;
@@ -212,10 +212,13 @@ namespace piBodeWar.forms
                                 break;
                         }
                     }
-                    this.partida.iniciou = true;
+                    this.partida.iniciar();
                 }
 
-                else if (this.partida.rodadaAtual.status == 'E' && this.partida.rodadaAtual.id == "8")
+                lblStatusRodada.Text = String.Format("Vez de {0}", quemJoga.nome);
+                
+
+                if (this.partida.rodadaAtual.status == 'E' && this.partida.rodadaAtual.id == "8")
                 {
                     this.jogador.verificarMesa(this.partida, 8);
                     this.mostraMesa();

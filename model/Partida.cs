@@ -214,6 +214,12 @@ namespace piBodeWar.model
             this.status = 'E';
         }
 
+        public void iniciar()
+        {
+            this.listarJogadores();
+            this.iniciou = true;
+        }
+
         public List<Carta> listarTodasAsCartas()
         {
             List<Carta> retorno = new List<Carta>();
@@ -244,7 +250,7 @@ namespace piBodeWar.model
                             int bodes = Int32.Parse(qtdBodes);
                             soma += bodes;
                         }
-                        catch (Exception e)
+                        catch
                         {
                             soma += 0;
                         }

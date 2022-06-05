@@ -20,7 +20,6 @@ namespace piBodeWar.model
 
         private int ilhasDefinidas { get; set; }
 
-        public Dictionary<string, double> cenarios;
         public Estrategia(Partida partida, Jogador jogador)
         {
             this.peso1 = new List<Carta>(); // Chance maior de garantir ilhas 
@@ -60,7 +59,7 @@ namespace piBodeWar.model
                 }
                 else
                 {
-                    if (!this.passouDoLimite())
+                    if (!this.passouDoLimite(this.jogador))
                     {
                         escolhida = this.tentaBodeOuDescarta();
                     }
@@ -229,19 +228,20 @@ namespace piBodeWar.model
             return escolhida;
         }
 
-        private bool passouDoLimite()
+        private bool passouDoLimite(Jogador jogador)
         {
-            double cap = 0.00;
+            jogador = this.partida.buscarJogador(jogador.id);
+            Double cap = 0.00;
             if (this.partida.tamanhoIlha > 0)
             {
-                cap = this.jogador.numBodes / this.partida.tamanhoIlha;
+                cap = (double)jogador.numBodes / (double)this.partida.tamanhoIlha;
             }
             return (cap * 100) > this.limiteProximidadeIlha;
         }
 
         public void removeCarta(Carta c)
         {
-            if(c != null)
+                if(c != null)
             {
                 if (c.id <= 16)
                 {
@@ -286,7 +286,7 @@ namespace piBodeWar.model
 
             this.ilhasDefinidas++;
 
-            return passouDoLimite() ? maior : menor;
+            return passouDoLimite(this.jogador) ? maior : menor;
         }
 
         private Carta escolheMaiorCarta()

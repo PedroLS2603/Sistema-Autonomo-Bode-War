@@ -50,10 +50,13 @@ namespace piBodeWar
 
             if (!(status.Contains("ERRO")))
             {
-                MessageBox.Show("Partida criada com sucesso!");
+                frmMessageBox popup = new frmMessageBox("Aviso", "Partida criada com sucesso!");
+                popup.ShowDialog();
             } else
             {
-                MessageBox.Show(status);
+                status.Replace("ERRO:", "");
+                frmMessageBox popup = new frmMessageBox("Erro", status);
+                popup.ShowDialog();
             }
 
             btnListarPartidas.PerformClick();
