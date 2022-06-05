@@ -14,7 +14,8 @@ namespace piBodeWar.model
             int inicio, fim;
             inicio = origem.IndexOf(strInicio, 0) + strInicio.Length;
             fim = origem.IndexOf(strFim, inicio);
-            return origem.Substring(inicio, fim - inicio);
+
+            return inicio < 0 || fim < 0 || inicio > origem.Length || fim > origem.Length ? null : origem.Substring(inicio, fim - inicio);
         }
     }
 }

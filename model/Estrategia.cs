@@ -241,35 +241,39 @@ namespace piBodeWar.model
 
         public void removeCarta(Carta c)
         {
-            if(c.id <= 16)
+            if(c != null)
             {
-                foreach (Carta carta in this.peso1)
+                if (c.id <= 16)
                 {
-                    if (carta.id == c.id)
+                    foreach (Carta carta in this.peso1)
                     {
-                        this.peso1.Remove(carta);
-                        return;
+                        if (carta.id == c.id)
+                        {
+                            this.peso1.Remove(carta);
+                            return;
+                        }
                     }
                 }
-            } else if(c.id <= 34)
-            {
-                foreach (Carta carta in this.peso2)
+                else if (c.id <= 34)
                 {
-                    if (carta.id == c.id)
+                    foreach (Carta carta in this.peso2)
                     {
-                        this.peso2.Remove(carta);
-                        return;
+                        if (carta.id == c.id)
+                        {
+                            this.peso2.Remove(carta);
+                            return;
+                        }
                     }
                 }
-            }
-            else
-            {
-                foreach (Carta carta in this.peso3)
+                else
                 {
-                    if (carta.id == c.id)
+                    foreach (Carta carta in this.peso3)
                     {
-                        this.peso3.Remove(carta);
-                        return;
+                        if (carta.id == c.id)
+                        {
+                            this.peso3.Remove(carta);
+                            return;
+                        }
                     }
                 }
             }

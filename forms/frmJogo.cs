@@ -65,31 +65,6 @@ namespace piBodeWar.forms
             if (this.jogador.id != null && this.jogador.senha != null)
             {
                 this.jogador.iniciarPartida(this.partida);
-                Jogador quemJoga = this.jogador.verificaVez(this.partida);
-                lblStatusRodada.Text = String.Format("Vez de {0}", quemJoga.nome);
-                for (int i = 0; i < this.partida.jogadores.Count; i++)
-                {
-                    Jogador jogador = this.partida.jogadores[i];
-                    if (jogador.id == this.jogador.id)
-                    {
-                        this.jogador.marcador = jogador.marcador;
-                    }
-                    switch (i)
-                    {
-                        case 0:
-                            lblJogador1.Text = jogador.nome;
-                            break;
-                        case 1:
-                            lblJogador2.Text = jogador.nome;
-                            break;
-                        case 2:
-                            lblJogador3.Text = jogador.nome;
-                            break;
-                        case 3:
-                            lblJogador4.Text = jogador.nome;
-                            break;
-                    }
-                }
             }
             else
             {
@@ -200,6 +175,10 @@ namespace piBodeWar.forms
         {
 
             tmrMinhaVez.Enabled = false;
+            if(!this.partida.iniciou)
+            {
+                this.partida.listarJogadores();
+            }
             this.mostraMao();
             Jogador quemJoga = this.jogador.verificaVez(this.partida);
 
@@ -208,9 +187,7 @@ namespace piBodeWar.forms
                 lblStatusRodada.Text = String.Format("Vez de {0}", quemJoga.nome);
                 if (!this.partida.iniciou)
                 {
-                    this.partida.listarJogadores();
                     this.jogador.verMao(this.partida);
-                    this.partida.setRodadaAtual(new Rodada("1", 'B', 0, this.partida));
 
                     for (int i = 0; i < this.partida.jogadores.Count; i++)
                     {

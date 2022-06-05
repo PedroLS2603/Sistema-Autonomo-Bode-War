@@ -233,17 +233,28 @@ namespace piBodeWar.model
                 int soma = 0;
                 string linhasBodes = Util.substring(narracao, $"{jogador.nome} recebeu", "bodes");
 
-                string[] arrQtdBodes = linhasBodes.Split('\n');
-
-                foreach(string qtdBodes in arrQtdBodes)
+                if(linhasBodes != null)
                 {
+                    string[] arrQtdBodes = linhasBodes.Split('\n');
 
-                    soma += Int32.Parse(qtdBodes);
+                    foreach (string qtdBodes in arrQtdBodes)
+                    {
+                        try
+                        {
+                            int bodes = Int32.Parse(qtdBodes);
+                            soma += bodes;
+                        }
+                        catch (Exception e)
+                        {
+                            soma += 0;
+                        }
+                    }
+
+                    jogador.adicionarBodes(soma);
+                    this.rodadaAtual.distribuiuPremio = true;
                 }
 
-                jogador.adicionarBodes(soma);
             }
-            this.rodadaAtual.distribuiuPremio = true;
         }
     }
 }

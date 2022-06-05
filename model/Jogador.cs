@@ -91,7 +91,12 @@ namespace piBodeWar.model
                 string idRodada = arrRetorno[2];   
                 char statusRodada = arrRetorno[3][0];
                 partida.status = statusPartida[0];
-                if(idRodada == "8")
+
+                if(partida.rodadaAtual == null)
+                {
+                    this.partida.setRodadaAtual(new Rodada("1", 'B', 0, this.partida));
+                }
+                if (idRodada == "8")
                 {
                    this.partida.vencedor = this.partida.buscarJogador(idJogador);
                    this.encerrarPartida(this.partida);
