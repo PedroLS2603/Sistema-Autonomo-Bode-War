@@ -29,6 +29,7 @@ namespace piBodeWar
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.btnListarPartidas = new System.Windows.Forms.Button();
             this.lstPartidas = new System.Windows.Forms.ListBox();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -45,15 +46,16 @@ namespace piBodeWar
             this.btnListarPartidas.AutoSize = true;
             this.btnListarPartidas.BackColor = System.Drawing.Color.Transparent;
             this.btnListarPartidas.FlatAppearance.BorderSize = 0;
+            this.btnListarPartidas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnListarPartidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListarPartidas.Image = global::piBodeWar.Properties.Resources.listar11;
+            this.btnListarPartidas.Image = ((System.Drawing.Image)(resources.GetObject("btnListarPartidas.Image")));
             this.btnListarPartidas.Location = new System.Drawing.Point(267, 27);
             this.btnListarPartidas.Name = "btnListarPartidas";
             this.btnListarPartidas.Size = new System.Drawing.Size(206, 56);
             this.btnListarPartidas.TabIndex = 3;
             this.btnListarPartidas.UseVisualStyleBackColor = false;
             this.btnListarPartidas.Click += new System.EventHandler(this.btnListarPartidas_Click);
-             this.btnListarPartidas.MouseEnter += new System.EventHandler(this.btnListar_MouseEnter);
+            this.btnListarPartidas.MouseEnter += new System.EventHandler(this.btnListar_MouseEnter);
             this.btnListarPartidas.MouseLeave += new System.EventHandler(this.btnListar_MouseLeave);
             // 
             // lstPartidas
@@ -61,6 +63,7 @@ namespace piBodeWar
             this.lstPartidas.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
             this.lstPartidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.lstPartidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstPartidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstPartidas.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lstPartidas.FormattingEnabled = true;
             this.lstPartidas.Location = new System.Drawing.Point(276, 113);
@@ -73,6 +76,7 @@ namespace piBodeWar
             // 
             this.txtNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtNome.Location = new System.Drawing.Point(71, 113);
             this.txtNome.Name = "txtNome";
@@ -83,6 +87,7 @@ namespace piBodeWar
             // 
             this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtSenha.Location = new System.Drawing.Point(71, 217);
             this.txtSenha.Name = "txtSenha";
@@ -93,6 +98,7 @@ namespace piBodeWar
             // 
             this.btnCriarPartida.BackColor = System.Drawing.Color.Transparent;
             this.btnCriarPartida.FlatAppearance.BorderSize = 0;
+            this.btnCriarPartida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnCriarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCriarPartida.Image = global::piBodeWar.Properties.Resources.criar1;
             this.btnCriarPartida.Location = new System.Drawing.Point(32, 268);
@@ -108,6 +114,7 @@ namespace piBodeWar
             // 
             this.btnEntrarPartida.BackColor = System.Drawing.Color.Transparent;
             this.btnEntrarPartida.FlatAppearance.BorderSize = 0;
+            this.btnEntrarPartida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnEntrarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrarPartida.Image = global::piBodeWar.Properties.Resources.entrar1;
             this.btnEntrarPartida.Location = new System.Drawing.Point(513, 263);
@@ -123,6 +130,7 @@ namespace piBodeWar
             // 
             this.txtNomeJogador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.txtNomeJogador.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeJogador.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtNomeJogador.Location = new System.Drawing.Point(551, 113);
             this.txtNomeJogador.Name = "txtNomeJogador";
@@ -133,6 +141,7 @@ namespace piBodeWar
             // 
             this.txtSenhaa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.txtSenhaa.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenhaa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenhaa.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtSenhaa.Location = new System.Drawing.Point(551, 214);
             this.txtSenhaa.Name = "txtSenhaa";
@@ -157,6 +166,7 @@ namespace piBodeWar
             this.Controls.Add(this.btnListarPartidas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

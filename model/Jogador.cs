@@ -91,15 +91,15 @@ namespace piBodeWar.model
                 string idRodada = arrRetorno[2];   
                 char statusRodada = arrRetorno[3][0];
                 partida.status = statusPartida[0];
-                switch (idRodada)
+
+                if(partida.rodadaAtual == null)
                 {
-                    case "1":
-                        partida.listarJogadores();
-                        break;
-                    case "8":
-                        this.partida.vencedor = this.partida.buscarJogador(idJogador);
-                        this.encerrarPartida(this.partida);
-                        break;
+                    this.partida.setRodadaAtual(new Rodada("1", 'B', 0, this.partida));
+                }
+                if (idRodada == "8")
+                {
+                   this.partida.vencedor = this.partida.buscarJogador(idJogador);
+                   this.encerrarPartida(this.partida);
                 }
                 if (partida.rodadaAtual != null && statusRodada == 'B' && idRodada != partida.rodadaAtual.id)
                 {
@@ -217,14 +217,14 @@ namespace piBodeWar.model
                     }
                 }
             }
+            /*
             if (partida.rodadaAtual.cartasJogadas.Count == partida.jogadores.Count && partida.status != 'E' && !partida.rodadaAtual.distribuiuPremio)
             {
                 partida.rodadaAtual.distribuirPremios();
-            }
+            }*/
         }
         public void iniciarPartida(Partida partida)
         {
-            partida.listarJogadores();
             string retorno = Jogo.IniciarPartida(Int32.Parse(this.id), this.senha);
 
             if(!(retorno.StartsWith("ERRO")))
@@ -232,7 +232,6 @@ namespace piBodeWar.model
                 partida.setRodadaAtual(new Rodada("1", 'B', 0, partida));
                 partida.status = 'J';
                 this.verMao(partida);
-                partida.iniciou = true;
             }
 
         }
@@ -264,6 +263,14 @@ namespace piBodeWar.model
                     this.mao.Remove(c);
                     return;
                 }
+            }
+        }
+
+        public void setBodes(int numBodes)
+        {
+            if(numBodes > 0)
+            {
+                this.numBodes = numBodes;
             }
         }
     }

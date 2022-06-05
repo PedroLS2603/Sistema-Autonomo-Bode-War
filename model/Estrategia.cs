@@ -20,13 +20,12 @@ namespace piBodeWar.model
 
         private int ilhasDefinidas { get; set; }
 
-        public Dictionary<string, double> cenarios;
         public Estrategia(Partida partida, Jogador jogador)
         {
             this.peso1 = new List<Carta>(); // Chance maior de garantir ilhas 
             this.peso2 = new List<Carta>(); //Descarte
             this.peso3 = new List<Carta>(); //Chance maior de garantir bodes
-            this.limiteProximidadeIlha = 60.0;
+            this.limiteProximidadeIlha = 65.0;
             this.ilhasDefinidas = 0;
 
             this.partida = partida;
@@ -60,7 +59,7 @@ namespace piBodeWar.model
                 }
                 else
                 {
-                    if (!this.passouDoLimite())
+                    if (!this.passouDoLimite(this.jogador))
                     {
                         escolhida = this.tentaBodeOuDescarta();
                     }
@@ -229,47 +228,52 @@ namespace piBodeWar.model
             return escolhida;
         }
 
-        private bool passouDoLimite()
+        private bool passouDoLimite(Jogador jogador)
         {
-            double cap = 0.00;
+            jogador = this.partida.buscarJogador(jogador.id);
+            Double cap = 0.00;
             if (this.partida.tamanhoIlha > 0)
             {
-                cap = this.jogador.numBodes / this.partida.tamanhoIlha;
+                cap = (double)jogador.numBodes / (double)this.partida.tamanhoIlha;
             }
             return (cap * 100) > this.limiteProximidadeIlha;
         }
 
         public void removeCarta(Carta c)
         {
-            if(c.id <= 16)
+                if(c != null)
             {
-                foreach (Carta carta in this.peso1)
+                if (c.id <= 16)
                 {
-                    if (carta.id == c.id)
+                    foreach (Carta carta in this.peso1)
                     {
-                        this.peso1.Remove(carta);
-                        return;
+                        if (carta.id == c.id)
+                        {
+                            this.peso1.Remove(carta);
+                            return;
+                        }
                     }
                 }
-            } else if(c.id <= 34)
-            {
-                foreach (Carta carta in this.peso2)
+                else if (c.id <= 34)
                 {
-                    if (carta.id == c.id)
+                    foreach (Carta carta in this.peso2)
                     {
-                        this.peso2.Remove(carta);
-                        return;
+                        if (carta.id == c.id)
+                        {
+                            this.peso2.Remove(carta);
+                            return;
+                        }
                     }
                 }
-            }
-            else
-            {
-                foreach (Carta carta in this.peso3)
+                else
                 {
-                    if (carta.id == c.id)
+                    foreach (Carta carta in this.peso3)
                     {
-                        this.peso3.Remove(carta);
-                        return;
+                        if (carta.id == c.id)
+                        {
+                            this.peso3.Remove(carta);
+                            return;
+                        }
                     }
                 }
             }
@@ -282,7 +286,7 @@ namespace piBodeWar.model
 
             this.ilhasDefinidas++;
 
-            return !passouDoLimite() ? maior : menor;
+            return passouDoLimite(this.jogador) ? maior : menor;
         }
 
         private Carta escolheMaiorCarta()

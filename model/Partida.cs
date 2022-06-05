@@ -80,6 +80,21 @@ namespace piBodeWar.model
         {
             string narracao = Jogo.ExibirNarracao(Int32.Parse(this.id));
 
+            foreach(Jogador jogador in this.jogadores)
+            {
+                narracao = narracao.Replace($", é a vez de {jogador.nome}", "");
+            }
+            narracao = narracao.Replace("vai colocar um pedaço da ", "definirá a ");
+            narracao = narracao.Replace("venceu a rodada e ", "");
+            narracao = narracao.Replace("perdeu a rodada e ", "");
+            narracao = narracao.Replace("Jogador ", "");
+            //Iniciou a partida nome, é a vez de nomequemjoga
+
+
+            if (this.rodadaAtual != null && !this.rodadaAtual.distribuiuPremio) { 
+                this.distribuirBodes(narracao);
+            }
+
             return narracao;
         }
 
@@ -199,6 +214,12 @@ namespace piBodeWar.model
             this.status = 'E';
         }
 
+        public void iniciar()
+        {
+            this.listarJogadores();
+            this.iniciou = true;
+        }
+
         public List<Carta> listarTodasAsCartas()
         {
             List<Carta> retorno = new List<Carta>();
@@ -209,6 +230,37 @@ namespace piBodeWar.model
             }
 
             return retorno;
+        }
+
+        public void distribuirBodes(string narracao)
+        {
+            foreach(Jogador jogador in this.jogadores)
+            {
+                int soma = 0;
+                string linhasBodes = Util.substring(narracao, $"{jogador.nome} recebeu", "bodes");
+
+                if(linhasBodes != null)
+                {
+                    string[] arrQtdBodes = linhasBodes.Split('\n');
+
+                    foreach (string qtdBodes in arrQtdBodes)
+                    {
+                        try
+                        {
+                            int bodes = Int32.Parse(qtdBodes);
+                            soma += bodes;
+                        }
+                        catch
+                        {
+                            soma += 0;
+                        }
+                    }
+
+                    jogador.adicionarBodes(soma);
+                    this.rodadaAtual.distribuiuPremio = true;
+                }
+
+            }
         }
     }
 }

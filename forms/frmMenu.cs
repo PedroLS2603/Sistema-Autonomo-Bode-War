@@ -20,7 +20,7 @@ namespace piBodeWar
         public frmMenu()
         {
             InitializeComponent();
-            this.Text = "Animaniacs - Menu";
+            this.Text = "Animaniacs - Menu";    
         }
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
@@ -50,10 +50,13 @@ namespace piBodeWar
 
             if (!(status.Contains("ERRO")))
             {
-                MessageBox.Show("Partida criada com sucesso!");
+                frmMessageBox popup = new frmMessageBox("Aviso", "Partida criada com sucesso!");
+                popup.ShowDialog();
             } else
             {
-                MessageBox.Show(status);
+                status.Replace("ERRO:", "");
+                frmMessageBox popup = new frmMessageBox("Erro", status);
+                popup.ShowDialog();
             }
 
             btnListarPartidas.PerformClick();
@@ -65,42 +68,47 @@ namespace piBodeWar
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
             
-            try
-            {
-                string idPartida = lstPartidas.SelectedItem.ToString();
-                string[] arrPartida = idPartida.Split(',');
 
-                idPartida = arrPartida[0];
-
-                string nome = txtNomeJogador.Text;
-                string senha = txtSenhaa.Text;
-                string status = Jogo.EntrarPartida(Int32.Parse(idPartida), nome, senha);
-
-                if (!(status.Contains("ERRO")))
+                if(lstPartidas.SelectedItem != null)
                 {
-                    string[] arrStatus = status.Split(',');
-                    this.idJogador = arrStatus[0];
-                    this.senhaJogador = arrStatus[1];
+                    string partidaSelecionada = lstPartidas.SelectedItem.ToString();
+                    string[] arrPartida = partidaSelecionada.Split(',');
 
-                    Partida partida = new Partida(idPartida, nome, senha);
-                    Jogador jogador = new Jogador(partida, this.idJogador, nome, senhaJogador, false);
+                    string idPartida = arrPartida[0];
+                    string nomePartida = arrPartida[1];
 
-                    jogador.marcador = Properties.Resources.agua;
+                    string nome = txtNomeJogador.Text;
+                    string senha = txtSenhaa.Text;
+                    string status = Jogo.EntrarPartida(Int32.Parse(idPartida), nome, senha);
 
+                    if (!(status.Contains("ERRO")))
+                    {
+                        string[] arrStatus = status.Split(',');
+                        this.idJogador = arrStatus[0];
+                        this.senhaJogador = arrStatus[1];
 
-                    frmJogo frmJogo = new frmJogo(jogador, partida);
+                        Partida partida = new Partida(idPartida, nomePartida, senha);
+                        Jogador jogador = new Jogador(partida, this.idJogador, nome, senhaJogador, false);
 
-                    frmJogo.Show();
+                        jogador.marcador = Properties.Resources.agua;
+
+                        frmJogo frmJogo = new frmJogo(jogador, partida);
+
+                        frmJogo.Show();
+                    }
+                    else
+                    {
+                        frmMessageBox popup = new frmMessageBox("Erro", status);
+                        popup.ShowDialog();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(status);
+                    frmMessageBox popup = new frmMessageBox("Erro", "Não há nenhuma partida selecionada!");
+                    popup.ShowDialog();
                 }
-            } catch (Exception error)
-            {
-                MessageBox.Show(error.Message); 
-            }
-
+ 
+            
         }
 
         private void txtSenhaa_TextChanged(object sender, EventArgs e)
