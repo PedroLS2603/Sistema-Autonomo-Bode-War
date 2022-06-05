@@ -1,93 +1,17 @@
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe.config
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.pdb
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.dll
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.xml
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.AssemblyReference.cache
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.SuggestedBindingRedirects.cache
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.Form1.resources
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.Properties.Resources.resources
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.GenerateResource.cache
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CoreCompileInputs.cache
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CopyComplete
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.exe
-C:\Users\pedro.lima\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.pdb
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.AssemblyReference.cache
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.SuggestedBindingRedirects.cache
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.Properties.Resources.resources
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.GenerateResource.cache
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CoreCompileInputs.cache
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.exe
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.pdb
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmJogo.resources
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.frmMenu.resources
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe.config
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.pdb
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.dll
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.xml
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CopyComplete
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe.config
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.pdb
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.dll
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.xml
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.AssemblyReference.cache
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmJogo.resources
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.frmMenu.resources
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.Properties.Resources.resources
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.GenerateResource.cache
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CoreCompileInputs.cache
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CopyComplete
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.exe
-C:\Users\pedro.lsilva12\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.pdb
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe.config
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.pdb
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.dll
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.xml
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.AssemblyReference.cache
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmJogo.resources
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.frmMenu.resources
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.Properties.Resources.resources
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.GenerateResource.cache
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CoreCompileInputs.cache
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CopyComplete
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.exe
-C:\Users\BK_St\Source\Repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.pdb
-C:\Users\pedro.lima\Desktop\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmEscolherIlha.resources
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.AssemblyReference.cache
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.SuggestedBindingRedirects.cache
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmEscolherIlha.resources
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmJogo.resources
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.frmMenu.resources
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.Properties.Resources.resources
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.GenerateResource.cache
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CoreCompileInputs.cache
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.exe
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.pdb
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe.config
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.pdb
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.dll
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.xml
-C:\Users\bruno\OneDrive\Área de Trabalho\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CopyComplete
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.AssemblyReference.cache
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.SuggestedBindingRedirects.cache
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmEscolherIlha.resources
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmJogo.resources
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.frmMenu.resources
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.Properties.Resources.resources
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.GenerateResource.cache
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CoreCompileInputs.cache
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.exe
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.pdb
-C:\Users\bruno\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe.config
-C:\Users\bruno\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe
-C:\Users\bruno\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.pdb
-C:\Users\bruno\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.dll
-C:\Users\bruno\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.xml
-C:\Users\bruno\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CopyComplete
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe.config
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.exe
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\piBodeWar.pdb
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.dll
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\bin\Debug\BodeOfWarServer.xml
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.AssemblyReference.cache
 C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.SuggestedBindingRedirects.cache
 C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmEscolherIlha.resources
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmJogo.resources
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.frmMenu.resources
 C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.forms.frmMessageBox.resources
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.Properties.Resources.resources
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.GenerateResource.cache
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CoreCompileInputs.cache
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.csproj.CopyComplete
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.exe
+C:\Users\BK_St\source\repos\Sistema-Autonomo-Bode-War\obj\Debug\piBodeWar.pdb

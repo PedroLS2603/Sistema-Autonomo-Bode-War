@@ -29,6 +29,7 @@ namespace piBodeWar
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.btnListarPartidas = new System.Windows.Forms.Button();
             this.lstPartidas = new System.Windows.Forms.ListBox();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -47,7 +48,7 @@ namespace piBodeWar
             this.btnListarPartidas.FlatAppearance.BorderSize = 0;
             this.btnListarPartidas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnListarPartidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListarPartidas.Image = global::piBodeWar.Properties.Resources.listar11;
+            this.btnListarPartidas.Image = ((System.Drawing.Image)(resources.GetObject("btnListarPartidas.Image")));
             this.btnListarPartidas.Location = new System.Drawing.Point(267, 27);
             this.btnListarPartidas.Name = "btnListarPartidas";
             this.btnListarPartidas.Size = new System.Drawing.Size(206, 56);
@@ -165,6 +166,7 @@ namespace piBodeWar
             this.Controls.Add(this.btnListarPartidas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

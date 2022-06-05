@@ -186,7 +186,7 @@
             this.lblRodada.BackColor = System.Drawing.Color.Transparent;
             this.lblRodada.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRodada.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblRodada.Location = new System.Drawing.Point(672, 39);
+            this.lblRodada.Location = new System.Drawing.Point(669, 40);
             this.lblRodada.Name = "lblRodada";
             this.lblRodada.Size = new System.Drawing.Size(30, 31);
             this.lblRodada.TabIndex = 23;
@@ -322,6 +322,7 @@
             this.Controls.Add(this.flpMao);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmJogo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmJogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIlha)).EndInit();
