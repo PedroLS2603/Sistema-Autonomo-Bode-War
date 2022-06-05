@@ -18,7 +18,7 @@ namespace piBodeWar.forms
         public Jogador jogador { get; }
         public Partida partida { get; }
 
-        private bool mostrarIlha { get; set; }
+        private bool[] mostrarIlha { get; set; }
         
         protected override CreateParams CreateParams
         {
@@ -34,6 +34,11 @@ namespace piBodeWar.forms
         {
             this.jogador = jogador;
             this.partida = partida;
+            this.mostrarIlha = new bool[4];
+            for(int i  = 0; i < this.mostrarIlha.Length; i++)
+            {
+                this.mostrarIlha[i] = true;
+            }
             InitializeComponent();
             this.Text = $"Animaniacs - {this.partida.nome}";
 
@@ -285,27 +290,59 @@ namespace piBodeWar.forms
         private void exibeIlha()
         {
             int rodada = Int32.Parse(this.partida.rodadaAtual.id);
-            switch(rodada)
-            {
-                case 2:
-                    pbxIlha.Image = Properties.Resources.ilha1GIF;
-                    break;
-                case 3:
-                    pbxIlha.Image = Properties.Resources.ilha2GIF;
-                    break;
-                case 4:
-                    pbxIlha.Image = Properties.Resources.ilha3GIF;
-                    break;
-                case 5:
-                    pbxIlha.Image = Properties.Resources.ilha4GIF;
-                    break;
-                case 6:
-                    pbxIlha.Image = Properties.Resources.ilha4;
-                    break;
-            }
-           lblIlha.Text = partida.tamanhoIlha.ToString();
-           lblIlha.Visible = true;
-
+         
+                switch (rodada)
+                {
+                    case 2:
+                        if (this.mostrarIlha[0])
+                        {
+                            pbxIlha.Image = Properties.Resources.ilha1GIF;
+                            this.mostrarIlha[0] = false;
+                        }
+                        else
+                        {
+                            pbxIlha.Image = Properties.Resources.ilha1;
+                        }
+                        break;
+                    case 3:
+                        if (this.mostrarIlha[1])
+                        {
+                            pbxIlha.Image = Properties.Resources.ilha2GIF;
+                            this.mostrarIlha[1] = false;
+                        }
+                        else
+                        {
+                            pbxIlha.Image = Properties.Resources.ilha2;
+                        }
+                        break;
+                    case 4:
+                        if (this.mostrarIlha[2])
+                        {
+                            pbxIlha.Image = Properties.Resources.ilha3GIF;
+                            this.mostrarIlha[2] = false;
+                        }
+                        else
+                        {
+                            pbxIlha.Image = Properties.Resources.ilha3;
+                        }
+                        break;
+                    case 5:
+                        if (this.mostrarIlha[3])
+                        {
+                            pbxIlha.Image = Properties.Resources.ilha4GIF;
+                            this.mostrarIlha[3] = false;
+                        }
+                        else
+                        {
+                            pbxIlha.Image = Properties.Resources.ilha4;
+                        }
+                        break;
+                    case 6:
+                        pbxIlha.Image = Properties.Resources.ilha4;
+                        break;
+                }
+                lblIlha.Text = partida.tamanhoIlha.ToString();
+                lblIlha.Visible = true;
         }
         
 
