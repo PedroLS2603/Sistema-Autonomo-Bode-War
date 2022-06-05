@@ -225,7 +225,6 @@ namespace piBodeWar.model
         }
         public void iniciarPartida(Partida partida)
         {
-            partida.listarJogadores();
             string retorno = Jogo.IniciarPartida(Int32.Parse(this.id), this.senha);
 
             if(!(retorno.StartsWith("ERRO")))
@@ -233,7 +232,6 @@ namespace piBodeWar.model
                 partida.setRodadaAtual(new Rodada("1", 'B', 0, partida));
                 partida.status = 'J';
                 this.verMao(partida);
-                partida.iniciou = true;
             }
 
         }
