@@ -53,7 +53,7 @@ namespace piBodeWar
             this.btnListarPartidas.TabIndex = 3;
             this.btnListarPartidas.UseVisualStyleBackColor = false;
             this.btnListarPartidas.Click += new System.EventHandler(this.btnListarPartidas_Click);
-             this.btnListarPartidas.MouseEnter += new System.EventHandler(this.btnListar_MouseEnter);
+            this.btnListarPartidas.MouseEnter += new System.EventHandler(this.btnListar_MouseEnter);
             this.btnListarPartidas.MouseLeave += new System.EventHandler(this.btnListar_MouseLeave);
             // 
             // lstPartidas
@@ -61,6 +61,7 @@ namespace piBodeWar
             this.lstPartidas.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
             this.lstPartidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.lstPartidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstPartidas.Font = new System.Drawing.Font("Acadian Runes", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstPartidas.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lstPartidas.FormattingEnabled = true;
             this.lstPartidas.Location = new System.Drawing.Point(276, 113);
@@ -73,20 +74,22 @@ namespace piBodeWar
             // 
             this.txtNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNome.Font = new System.Drawing.Font("Acadian Runes", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtNome.Location = new System.Drawing.Point(71, 113);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(121, 13);
+            this.txtNome.Size = new System.Drawing.Size(121, 14);
             this.txtNome.TabIndex = 4;
             // 
             // txtSenha
             // 
             this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenha.Font = new System.Drawing.Font("Acadian Runes", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtSenha.Location = new System.Drawing.Point(71, 217);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(121, 13);
+            this.txtSenha.Size = new System.Drawing.Size(121, 14);
             this.txtSenha.TabIndex = 5;
             // 
             // btnCriarPartida
@@ -123,20 +126,22 @@ namespace piBodeWar
             // 
             this.txtNomeJogador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.txtNomeJogador.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNomeJogador.Font = new System.Drawing.Font("Acadian Runes", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeJogador.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtNomeJogador.Location = new System.Drawing.Point(551, 113);
             this.txtNomeJogador.Name = "txtNomeJogador";
-            this.txtNomeJogador.Size = new System.Drawing.Size(115, 13);
+            this.txtNomeJogador.Size = new System.Drawing.Size(115, 14);
             this.txtNomeJogador.TabIndex = 14;
             // 
             // txtSenhaa
             // 
             this.txtSenhaa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.txtSenhaa.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenhaa.Font = new System.Drawing.Font("Acadian Runes", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenhaa.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtSenhaa.Location = new System.Drawing.Point(551, 214);
             this.txtSenhaa.Name = "txtSenhaa";
-            this.txtSenhaa.Size = new System.Drawing.Size(115, 13);
+            this.txtSenhaa.Size = new System.Drawing.Size(115, 14);
             this.txtSenhaa.TabIndex = 17;
             this.txtSenhaa.TextChanged += new System.EventHandler(this.txtSenhaa_TextChanged);
             // 
