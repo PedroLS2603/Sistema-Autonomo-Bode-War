@@ -97,6 +97,8 @@ namespace piBodeWar.model
             {
                 narracao = narracao.Replace($", é a vez de {jogador.nome}", "");
             }
+
+            narracao = narracao.Replace(",", "\n");
             narracao = narracao.Replace("vai colocar um pedaço da ", "definirá a ");
             narracao = narracao.Replace("venceu a rodada e ", "");
             narracao = narracao.Replace("perdeu a rodada e ", "");
