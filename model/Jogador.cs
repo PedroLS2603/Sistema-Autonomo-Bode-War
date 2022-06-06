@@ -203,11 +203,8 @@ namespace piBodeWar.model
                     Carta carta = partida.buscarCarta(Int32.Parse(idCarta));
 
                     carta.setDono(partida.buscarJogador(idJogador));
-                    if (!(arrStatus.Length - 1 == partida.rodadaAtual.cartasJogadas.Count))
-                    {
-                        partida.rodadaAtual.cartasJogadas.Add(carta);
-                        partida.rodadaAtual.adicionarBodes(carta.numBodes);
-                    }
+
+                    partida.rodadaAtual.cartasJogadas.Add(carta);
                 }
             }
         }
