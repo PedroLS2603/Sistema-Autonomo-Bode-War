@@ -346,6 +346,11 @@ namespace piBodeWar.forms
             btnIniciarPartida.Image = Properties.Resources.iniciar1;
             btnIniciarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
         }
+
+        private void frmJogo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            tmrMinhaVez.Enabled = false;
+        }
     }
 }
 

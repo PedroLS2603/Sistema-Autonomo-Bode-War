@@ -322,6 +322,7 @@
             this.Name = "frmJogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmJogo_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIlha)).EndInit();
             this.pnlNarracao.ResumeLayout(false);
             this.pnlNarracao.PerformLayout();
