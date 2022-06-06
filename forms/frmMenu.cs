@@ -80,9 +80,11 @@ namespace piBodeWar
 
                     jogador.marcador = Properties.Resources.agua;
 
+                    this.Visible = false;
                     frmJogo frmJogo = new frmJogo(jogador, partida);
-
-                    frmJogo.Show();
+                    frmJogo.ShowDialog();
+                    this.Visible = true;
+                
                 }
                 else
                 {

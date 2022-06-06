@@ -75,6 +75,7 @@ namespace piBodeWar.model
             retorno = retorno.Replace('\r'.ToString(), "");
             retorno = retorno.Replace('\n'.ToString(), "");
 
+            Console.WriteLine(retorno);
             Jogador quemJoga;
 
             if (retorno.StartsWith("ERRO"))
@@ -94,7 +95,7 @@ namespace piBodeWar.model
                 {
                     this.partida.setRodadaAtual(new Rodada("1", 'B', 0, this.partida));
                 }
-                if (idRodada == "8")
+                if (idRodada == "8" && statusPartida == "E")
                 {
                     this.partida.vencedor = this.partida.buscarJogador(idJogador);
                     this.encerrarPartida(this.partida);
@@ -167,7 +168,7 @@ namespace piBodeWar.model
 
             if (idRodada == 0)
             {
-                if (Int32.Parse(partida.rodadaAtual.id) >= 4 && Int32.Parse(partida.rodadaAtual.id) < 9)
+                if (Int32.Parse(partida.rodadaAtual.id) >= 5 && Int32.Parse(partida.rodadaAtual.id) < 9)
                 {
                     status = Jogo.VerificarMesa(Int32.Parse(partida.id), Int32.Parse(partida.rodadaAtual.id) - 1);
                 }

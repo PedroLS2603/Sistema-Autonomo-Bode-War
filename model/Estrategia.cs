@@ -228,11 +228,12 @@ namespace piBodeWar.model
         private Carta descartaMaiorBode(Carta maiorNaMesa)
         {
             Carta escolhida = null;
+            Carta maiorNaMao = this.jogador.mao[this.jogador.mao.Count - 1];
             List<Carta> cincoBodes;
             List<Carta> tresBodes;
             List<Carta> doisBodes;
             List<Carta> umBode;
-            if (maiorNaMesa != null)
+            if (maiorNaMesa != null && maiorNaMao.id < maiorNaMesa.id)
             {
                 cincoBodes = this.jogador.mao.Where(c => c.numBodes == 5 && c.id < maiorNaMesa.id).ToList();
                 tresBodes = this.jogador.mao.Where(c => c.numBodes == 3 && c.id < maiorNaMesa.id).ToList();
