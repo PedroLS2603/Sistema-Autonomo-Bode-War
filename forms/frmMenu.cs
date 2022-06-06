@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BodeOfWarServer;
 using piBodeWar.forms;
@@ -33,13 +26,11 @@ namespace piBodeWar
 
             foreach (string partida in arrPartidas)
             {
-                if(partida != "")
+                if (partida != "")
                 {
                     lstPartidas.Items.Add(partida);
                 }
-
             }
-
         }
 
         private void btnCriarPartida_Click(object sender, EventArgs e)
@@ -50,27 +41,29 @@ namespace piBodeWar
 
             if (!(status.Contains("ERRO")))
             {
-                MessageBox.Show("Partida criada com sucesso!");
-            } else
+                frmMessageBox popup = new frmMessageBox("Aviso", "Partida criada com sucesso!");
+                popup.ShowDialog();
+            }
+            else
             {
-                MessageBox.Show(status);
+                status.Replace("ERRO:", "");
+                frmMessageBox popup = new frmMessageBox("Erro", status);
+                popup.ShowDialog();
             }
 
             btnListarPartidas.PerformClick();
             lstPartidas.SelectedIndex = 0;
-
-
         }
 
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
-            
-            try
+            if (lstPartidas.SelectedItem != null)
             {
-                string idPartida = lstPartidas.SelectedItem.ToString();
-                string[] arrPartida = idPartida.Split(',');
+                string partidaSelecionada = lstPartidas.SelectedItem.ToString();
+                string[] arrPartida = partidaSelecionada.Split(',');
 
-                idPartida = arrPartida[0];
+                string idPartida = arrPartida[0];
+                string nomePartida = arrPartida[1];
 
                 string nome = txtNomeJogador.Text;
                 string senha = txtSenhaa.Text;
@@ -82,10 +75,10 @@ namespace piBodeWar
                     this.idJogador = arrStatus[0];
                     this.senhaJogador = arrStatus[1];
 
-                    Partida partida = new Partida(idPartida, nome, senha);
+                    Partida partida = new Partida(idPartida, nomePartida, senha);
                     Jogador jogador = new Jogador(partida, this.idJogador, nome, senhaJogador, false);
 
-
+                    jogador.marcador = Properties.Resources.agua;
 
                     frmJogo frmJogo = new frmJogo(jogador, partida);
 
@@ -93,13 +86,51 @@ namespace piBodeWar
                 }
                 else
                 {
-                    MessageBox.Show(status);
+                    frmMessageBox popup = new frmMessageBox("Erro", status);
+                    popup.ShowDialog();
                 }
-            } catch (Exception error)
-            {
-                MessageBox.Show(error.Message); 
             }
+            else
+            {
+                frmMessageBox popup = new frmMessageBox("Erro", "Não há nenhuma partida selecionada!");
+                popup.ShowDialog();
+            }
+        }
 
+        private void btnCriarPartida_MouseEnter(object sender, EventArgs e)
+        {
+            btnCriarPartida.Image = Properties.Resources.criar2;
+            btnCriarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnCriarPartida_MouseLeave(object sender, EventArgs e)
+        {
+            btnCriarPartida.Image = Properties.Resources.criar1;
+            btnCriarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnListar_MouseEnter(object sender, EventArgs e)
+        {
+            btnListarPartidas.Image = Properties.Resources.listar2;
+            btnListarPartidas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnListar_MouseLeave(object sender, EventArgs e)
+        {
+            btnListarPartidas.Image = Properties.Resources.listar1;
+            btnListarPartidas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnEntrar_MouseEnter(object sender, EventArgs e)
+        {
+            btnEntrarPartida.Image = Properties.Resources.entrar2;
+            btnEntrarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnEntrar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEntrarPartida.Image = Properties.Resources.entrar1;
+            btnEntrarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
         }
     }
 }

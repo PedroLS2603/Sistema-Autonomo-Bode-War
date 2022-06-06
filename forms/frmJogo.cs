@@ -1,20 +1,17 @@
 ﻿using piBodeWar.model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BodeOfWarServer;
 
 namespace piBodeWar.forms
 {
     public partial class frmJogo : Form
     {
 
+        public Jogador jogador { get; }
+        public Partida partida { get; }
+
+        private bool[] mostrarIlha { get; set; }
 
         protected override CreateParams CreateParams
         {
@@ -25,24 +22,32 @@ namespace piBodeWar.forms
                 return handleParam;
             }
         }
-        public Jogador jogador { get; }
-        public Partida partida { get; }
 
         public frmJogo(Jogador jogador, Partida partida)
         {
             this.jogador = jogador;
             this.partida = partida;
+            this.mostrarIlha = new bool[4];
+            for (int i = 0; i < this.mostrarIlha.Length; i++)
+            {
+                this.mostrarIlha[i] = true;
+            }
             InitializeComponent();
-            this.Text = "Animaniacs";
-            tmrMinhaVez.Enabled = true;
+            this.Text = $"Animaniacs - {this.partida.nome}";
 
+            pnlNarracao.AutoScroll = false;
+            pnlNarracao.HorizontalScroll.Enabled = false;
+            pnlNarracao.HorizontalScroll.Visible = false;
+            pnlNarracao.HorizontalScroll.Maximum = 0;
+            pnlNarracao.AutoScroll = true;
+
+            tmrMinhaVez.Enabled = true;
         }
 
         private void btnVerMao_Click(object sender, EventArgs e)
         {
             flpMao.Controls.Clear();
             this.jogador.verMao(this.partida);
-
 
             this.mostraMao();
         }
@@ -53,8 +58,6 @@ namespace piBodeWar.forms
             if (this.jogador.id != null && this.jogador.senha != null)
             {
                 this.jogador.iniciarPartida(this.partida);
-                Jogador quemJoga = this.jogador.verificaVez(this.partida);
-                lblStatusRodada.Text = String.Format("Status - Vez de {0}", quemJoga.nome);
             }
             else
             {
@@ -62,42 +65,9 @@ namespace piBodeWar.forms
             }
         }
 
-        private void btnVerificarVez_Click(object sender, EventArgs e)
-        {
-            Jogador quemJoga = this.jogador.verificaVez(this.partida);
-            if (quemJoga != null)
-            {
-                lblStatusRodada.Text = String.Format("Status - Vez de {0}", quemJoga.nome);
-                if (quemJoga.id == this.jogador.id && this.partida.rodadaAtual.status == 'I')
-                {
-                    frmEscolherIlha formEscolherIlha = new frmEscolherIlha(this.jogador);
-
-                    formEscolherIlha.ShowDialog();
-                }
-            }
-        }
-
-
         private void btnNarracao_Click(object sender, EventArgs e)
         {
             txtStatus.Text = this.partida.exibirNarracao();
-        }
-
-
-        private void btnJogarCarta_Click(object sender, EventArgs e)
-        {
-            this.jogador.jogarCarta();
-        }
-
-        private void btnVerificarIlha_Click(object sender, EventArgs e)
-        {
-            string status = Jogo.VerificarIlha(Int32.Parse(this.jogador.id), this.jogador.senha);
-
-        }
-
-        private void btnVerificarMesa_Click(object sender, EventArgs e)
-        {
-            this.jogador.verificarMesa(partida);
         }
 
         private void mostraMao()
@@ -108,10 +78,12 @@ namespace piBodeWar.forms
                 foreach (Carta c in this.jogador.mao)
                 {
                     int xBode = 3;
-                    int yBode = 140;
+                    int yBode = 160;
 
                     Panel pnlCarta = new Panel();
-                    pnlCarta.Size = new Size(112, 172);
+                    pnlCarta.Dock = DockStyle.Top;
+                    pnlCarta.Anchor = AnchorStyles.None;
+                    pnlCarta.Size = new Size(100, 206);
                     pnlCarta.BackgroundImage = c.imagem;
 
                     Label label = new Label();
@@ -120,13 +92,13 @@ namespace piBodeWar.forms
                     label.ForeColor = Color.White;
                     label.Font = new Font("Microsoft Sans Serif", 15);
                     label.Size = new Size(55, 40);
-                    label.Location = new Point(8, 10);
+                    label.Location = new Point(3, 35);
                     pnlCarta.Controls.Add(label);
 
                     Panel indicadorCor = new Panel();
-                    indicadorCor.Size = new Size(15, 15);
-                    indicadorCor.Location = new Point(84, 10);
-                    indicadorCor.BackColor = c.detentor.cor;
+                    indicadorCor.Size = new Size(25, 25);
+                    indicadorCor.Location = new Point(35, 8);
+                    indicadorCor.BackgroundImage = c.detentor.marcador;
                     pnlCarta.Controls.Add(indicadorCor);
 
                     for (int i = 0; i < c.numBodes; i++)
@@ -148,18 +120,16 @@ namespace piBodeWar.forms
 
         public void mostraMesa()
         {
-            lblIlha.Text = String.Format("Ilha - {0}", partida.tamanhoIlha.ToString());
-
             if (this.partida.rodadaAtual.cartasJogadas.Count > 0)
             {
                 flpMesa.Controls.Clear();
                 foreach (Carta c in this.partida.rodadaAtual.cartasJogadas)
                 {
                     int xBode = 3;
-                    int yBode = 140;
+                    int yBode = 160;
 
                     Panel pnlCarta = new Panel();
-                    pnlCarta.Size = new Size(112, 172);
+                    pnlCarta.Size = new Size(100, 206);
                     pnlCarta.BackgroundImage = c.imagem;
 
                     Label label = new Label();
@@ -168,13 +138,13 @@ namespace piBodeWar.forms
                     label.ForeColor = Color.White;
                     label.Font = new Font("Microsoft Sans Serif", 15);
                     label.Size = new Size(55, 40);
-                    label.Location = new Point(8, 10);
+                    label.Location = new Point(3, 35);
                     pnlCarta.Controls.Add(label);
 
                     Panel indicadorCor = new Panel();
-                    indicadorCor.Size = new Size(15, 15);
-                    indicadorCor.Location = new Point(84, 10);
-                    indicadorCor.BackColor = c.detentor.cor;
+                    indicadorCor.Size = new Size(25, 25);
+                    indicadorCor.Location = new Point(35, 8);
+                    indicadorCor.BackgroundImage = c.detentor.marcador;
                     pnlCarta.Controls.Add(indicadorCor);
 
                     for (int i = 0; i < c.numBodes; i++)
@@ -191,8 +161,6 @@ namespace piBodeWar.forms
                     flpMesa.Controls.Add(pnlCarta);
                 }
                 flpMesa.Visible = true;
-                lblBodes.Text = String.Format("Meus bodes - {0}", this.partida.buscarJogador(this.jogador.id).numBodes.ToString());
-                lblBodesRodada.Text = $"Bodes rodada - {partida.rodadaAtual.totalBodes}";
             }
         }
         /**Timer**/
@@ -200,24 +168,26 @@ namespace piBodeWar.forms
         {
 
             tmrMinhaVez.Enabled = false;
-            this.mostraMao();
+            if (!this.partida.iniciou)
+            {
+                this.partida.listarJogadores();
+            }
             Jogador quemJoga = this.jogador.verificaVez(this.partida);
 
-            if(quemJoga != null)
+            if (quemJoga != null)
             {
-                lblStatusRodada.Text = String.Format("Status - vez de {0}", quemJoga.nome);
+                this.mostraMao();
+
                 if (!this.partida.iniciou)
                 {
-                    this.partida.listarJogadores();
                     this.jogador.verMao(this.partida);
-                    this.partida.setRodadaAtual(new Rodada("1", 'B', 0, this.partida));
 
                     for (int i = 0; i < this.partida.jogadores.Count; i++)
                     {
                         Jogador jogador = this.partida.jogadores[i];
                         if (jogador.id == this.jogador.id)
                         {
-                            this.jogador.cor = jogador.cor;
+                            this.jogador.marcador = jogador.marcador;
                         }
                         switch (i)
                         {
@@ -235,9 +205,11 @@ namespace piBodeWar.forms
                                 break;
                         }
                     }
-                    tmrMinhaVez.Enabled = true;
-                    this.partida.iniciou = true;
+                    this.partida.iniciar();
                 }
+
+                lblStatusRodada.Text = String.Format("Vez de {0}", quemJoga.nome);
+
 
                 if (this.partida.rodadaAtual.status == 'E' && this.partida.rodadaAtual.id == "8")
                 {
@@ -254,15 +226,20 @@ namespace piBodeWar.forms
                         mensagem += String.Format("\n{0} venceu!", vencedor.nome);
                     }
 
-                    DialogResult resultado = MessageBox.Show(mensagem, "Resultado");
-                    if (resultado == DialogResult.OK)
+                    frmMessageBox popup = new frmMessageBox("Resultado", mensagem);
+                    popup.ShowDialog();
+
+                    Console.WriteLine($"Ilha - {this.partida.tamanhoIlha}");
+                    foreach (Jogador jogador in this.partida.jogadores)
                     {
-                        this.Close();
-                        return;
+
+                        Console.WriteLine($"{jogador.nome} - {jogador.numBodes} bodes");
                     }
+                    this.exibirNarracao();
+
+                    return;
                 }
-                this.jogador.verificarMesa(this.partida);
-                this.mostraMesa();
+
                 if (quemJoga.id == this.jogador.id)
                 {
 
@@ -278,12 +255,96 @@ namespace piBodeWar.forms
                             return;
                     }
                 }
-                
-                lblRodada.Text = $"Rodada - {this.partida.rodadaAtual.id}";
+                this.jogador.verificarMesa(this.partida);
+                this.mostraMesa();
+                this.exibeIlha();
+
+                lblRodada.Text = $"{this.partida.rodadaAtual.id}";
             }
-            
+            this.exibirNarracao();
             tmrMinhaVez.Enabled = true;
 
+        }
+
+        private void exibeIlha()
+        {
+            int rodada = Int32.Parse(this.partida.rodadaAtual.id);
+
+            switch (rodada)
+            {
+                case 2:
+                    if (this.mostrarIlha[0])
+                    {
+                        pbxIlha.Image = Properties.Resources.ilha1GIF;
+                        this.mostrarIlha[0] = false;
+                    }
+                    else
+                    {
+                        pbxIlha.Image = Properties.Resources.ilha1;
+                    }
+                    break;
+                case 3:
+                    if (this.mostrarIlha[1])
+                    {
+                        pbxIlha.Image = Properties.Resources.ilha2GIF;
+                        this.mostrarIlha[1] = false;
+                    }
+                    else
+                    {
+                        pbxIlha.Image = Properties.Resources.ilha2;
+                    }
+                    break;
+                case 4:
+                    if (this.mostrarIlha[2])
+                    {
+                        pbxIlha.Image = Properties.Resources.ilha3GIF;
+                        this.mostrarIlha[2] = false;
+                    }
+                    else
+                    {
+                        pbxIlha.Image = Properties.Resources.ilha3;
+                    }
+                    break;
+                case 5:
+                    if (this.mostrarIlha[3])
+                    {
+                        pbxIlha.Image = Properties.Resources.ilha4GIF;
+                        this.mostrarIlha[3] = false;
+                    }
+                    else
+                    {
+                        pbxIlha.Image = Properties.Resources.ilha4;
+                    }
+                    break;
+                case 6:
+                    pbxIlha.Image = Properties.Resources.ilha4;
+                    break;
+            }
+            lblIlha.Text = partida.tamanhoIlha.ToString();
+            lblIlha.Visible = true;
+        }
+
+
+        private void exibirNarracao()
+        {
+            txtStatus.Text = this.partida.exibirNarracao();
+            Jogador bot = this.partida.buscarJogador(this.jogador.id);
+            if (bot != null)
+            {
+                lblBodes.Text = String.Format("{0}", bot.numBodes.ToString());
+            }
+        }
+
+        private void btnIniciarPartida_MouseEnter(object sender, EventArgs e)
+        {
+            btnIniciarPartida.Image = Properties.Resources.iniciar2;
+            btnIniciarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void btnIniciarPartida_MouseLeave(object sender, EventArgs e)
+        {
+            btnIniciarPartida.Image = Properties.Resources.iniciar1;
+            btnIniciarPartida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
         }
     }
 }

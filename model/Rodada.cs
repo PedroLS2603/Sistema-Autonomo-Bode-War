@@ -21,6 +21,8 @@ namespace piBodeWar.model
         
         public int totalBodes { get; private set; }
 
+        public bool distribuiuPremio { get; set; }
+
         public Rodada(string id, char status, int totalBodes, Partida partida)
         {
             this.id = id;
@@ -28,6 +30,7 @@ namespace piBodeWar.model
             this.totalBodes = totalBodes;
             this.cartasJogadas = new List<Carta>();
             this.partida = partida;
+            this.distribuiuPremio = false;
         }
 
         public void adicionarBodes(int valor)
@@ -40,6 +43,8 @@ namespace piBodeWar.model
 
         public void distribuirPremios()
         {
+            this.distribuiuPremio = true;
+            this.verificaPerdedor();
             this.verificaVencedor();
             if(this.vencedor != null)
             {
@@ -60,14 +65,11 @@ namespace piBodeWar.model
         {
             int maiorNum = 0;
             Carta vencedora = null;
-            if(this.vencedor != null)
-            {
-                this.vencedor = null;
-            }
             foreach(Carta carta in this.cartasJogadas)
             {
                 if(carta.id > maiorNum)
                 {
+                    maiorNum = carta.id;
                     vencedora = carta;
                 }
             }
@@ -77,6 +79,29 @@ namespace piBodeWar.model
             }
 
             return this.vencedor;
-        } 
+        }
+
+        private Jogador verificaPerdedor()
+        {
+            int menor = 0;
+            Carta perdedora = null;
+
+            for(int i = 0; i < this.cartasJogadas.Count; i++)
+            {
+                Carta carta = this.cartasJogadas[i];
+                if(carta.id < menor || i == 0)
+                {
+                    menor = carta.id;
+                    perdedora = carta;
+                }
+            }
+
+            if(perdedora != null)
+            {
+                this.perdedor = perdedora.detentor;
+            }
+
+            return this.perdedor;
+        }
     }
 }

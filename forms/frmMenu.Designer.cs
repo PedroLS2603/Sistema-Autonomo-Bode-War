@@ -29,141 +29,142 @@ namespace piBodeWar
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.btnListarPartidas = new System.Windows.Forms.Button();
             this.lstPartidas = new System.Windows.Forms.ListBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.lblSenha = new System.Windows.Forms.Label();
             this.btnCriarPartida = new System.Windows.Forms.Button();
             this.btnEntrarPartida = new System.Windows.Forms.Button();
             this.txtNomeJogador = new System.Windows.Forms.TextBox();
-            this.lblNomeJogador = new System.Windows.Forms.Label();
-            this.lblSenhaa = new System.Windows.Forms.Label();
             this.txtSenhaa = new System.Windows.Forms.TextBox();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.SuspendLayout();
             // 
             // btnListarPartidas
             // 
-            this.btnListarPartidas.Location = new System.Drawing.Point(269, 36);
+            this.btnListarPartidas.AutoSize = true;
+            this.btnListarPartidas.BackColor = System.Drawing.Color.Transparent;
+            this.btnListarPartidas.FlatAppearance.BorderSize = 0;
+            this.btnListarPartidas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnListarPartidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListarPartidas.Image = ((System.Drawing.Image)(resources.GetObject("btnListarPartidas.Image")));
+            this.btnListarPartidas.Location = new System.Drawing.Point(267, 27);
             this.btnListarPartidas.Name = "btnListarPartidas";
-            this.btnListarPartidas.Size = new System.Drawing.Size(202, 23);
-            this.btnListarPartidas.TabIndex = 0;
-            this.btnListarPartidas.Text = "Listar partidas";
-            this.btnListarPartidas.UseVisualStyleBackColor = true;
+            this.btnListarPartidas.Size = new System.Drawing.Size(206, 56);
+            this.btnListarPartidas.TabIndex = 3;
+            this.btnListarPartidas.UseVisualStyleBackColor = false;
             this.btnListarPartidas.Click += new System.EventHandler(this.btnListarPartidas_Click);
+            this.btnListarPartidas.MouseEnter += new System.EventHandler(this.btnListar_MouseEnter);
+            this.btnListarPartidas.MouseLeave += new System.EventHandler(this.btnListar_MouseLeave);
             // 
             // lstPartidas
             // 
+            this.lstPartidas.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.lstPartidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.lstPartidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstPartidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstPartidas.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lstPartidas.FormattingEnabled = true;
-            this.lstPartidas.Location = new System.Drawing.Point(269, 70);
+            this.lstPartidas.Location = new System.Drawing.Point(276, 113);
             this.lstPartidas.Name = "lstPartidas";
-            this.lstPartidas.Size = new System.Drawing.Size(202, 225);
+            this.lstPartidas.Size = new System.Drawing.Size(179, 195);
             this.lstPartidas.TabIndex = 1;
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(28, 39);
+            this.txtNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNome.Location = new System.Drawing.Point(71, 113);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(202, 20);
+            this.txtNome.Size = new System.Drawing.Size(121, 13);
             this.txtNome.TabIndex = 4;
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(28, 80);
+            this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSenha.Location = new System.Drawing.Point(71, 217);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(202, 20);
+            this.txtSenha.Size = new System.Drawing.Size(121, 13);
             this.txtSenha.TabIndex = 5;
-            // 
-            // lblNome
-            // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(25, 23);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(35, 13);
-            this.lblNome.TabIndex = 6;
-            this.lblNome.Text = "Nome";
-            // 
-            // lblSenha
-            // 
-            this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(25, 64);
-            this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(38, 13);
-            this.lblSenha.TabIndex = 7;
-            this.lblSenha.Text = "Senha";
             // 
             // btnCriarPartida
             // 
-            this.btnCriarPartida.Location = new System.Drawing.Point(28, 116);
+            this.btnCriarPartida.BackColor = System.Drawing.Color.Transparent;
+            this.btnCriarPartida.FlatAppearance.BorderSize = 0;
+            this.btnCriarPartida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCriarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCriarPartida.Image = global::piBodeWar.Properties.Resources.criar1;
+            this.btnCriarPartida.Location = new System.Drawing.Point(32, 268);
             this.btnCriarPartida.Name = "btnCriarPartida";
-            this.btnCriarPartida.Size = new System.Drawing.Size(202, 27);
+            this.btnCriarPartida.Size = new System.Drawing.Size(200, 40);
             this.btnCriarPartida.TabIndex = 8;
-            this.btnCriarPartida.Text = "Criar partida";
-            this.btnCriarPartida.UseVisualStyleBackColor = true;
+            this.btnCriarPartida.UseVisualStyleBackColor = false;
             this.btnCriarPartida.Click += new System.EventHandler(this.btnCriarPartida_Click);
+            this.btnCriarPartida.MouseEnter += new System.EventHandler(this.btnCriarPartida_MouseEnter);
+            this.btnCriarPartida.MouseLeave += new System.EventHandler(this.btnCriarPartida_MouseLeave);
             // 
             // btnEntrarPartida
             // 
-            this.btnEntrarPartida.Location = new System.Drawing.Point(28, 258);
+            this.btnEntrarPartida.BackColor = System.Drawing.Color.Transparent;
+            this.btnEntrarPartida.FlatAppearance.BorderSize = 0;
+            this.btnEntrarPartida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEntrarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrarPartida.Image = global::piBodeWar.Properties.Resources.entrar1;
+            this.btnEntrarPartida.Location = new System.Drawing.Point(513, 263);
             this.btnEntrarPartida.Name = "btnEntrarPartida";
-            this.btnEntrarPartida.Size = new System.Drawing.Size(202, 37);
+            this.btnEntrarPartida.Size = new System.Drawing.Size(200, 50);
             this.btnEntrarPartida.TabIndex = 13;
-            this.btnEntrarPartida.Text = "Entrar na Partida";
-            this.btnEntrarPartida.UseVisualStyleBackColor = true;
+            this.btnEntrarPartida.UseVisualStyleBackColor = false;
             this.btnEntrarPartida.Click += new System.EventHandler(this.btnEntrarPartida_Click);
+            this.btnEntrarPartida.MouseEnter += new System.EventHandler(this.btnEntrar_MouseEnter);
+            this.btnEntrarPartida.MouseLeave += new System.EventHandler(this.btnEntrar_MouseLeave);
             // 
             // txtNomeJogador
             // 
-            this.txtNomeJogador.Location = new System.Drawing.Point(28, 176);
+            this.txtNomeJogador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.txtNomeJogador.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeJogador.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNomeJogador.Location = new System.Drawing.Point(551, 113);
             this.txtNomeJogador.Name = "txtNomeJogador";
-            this.txtNomeJogador.Size = new System.Drawing.Size(202, 20);
+            this.txtNomeJogador.Size = new System.Drawing.Size(115, 13);
             this.txtNomeJogador.TabIndex = 14;
-            // 
-            // lblNomeJogador
-            // 
-            this.lblNomeJogador.AutoSize = true;
-            this.lblNomeJogador.Location = new System.Drawing.Point(25, 160);
-            this.lblNomeJogador.Name = "lblNomeJogador";
-            this.lblNomeJogador.Size = new System.Drawing.Size(91, 13);
-            this.lblNomeJogador.TabIndex = 15;
-            this.lblNomeJogador.Text = "Nome do Jogador";
-            // 
-            // lblSenhaa
-            // 
-            this.lblSenhaa.AutoSize = true;
-            this.lblSenhaa.Location = new System.Drawing.Point(25, 201);
-            this.lblSenhaa.Name = "lblSenhaa";
-            this.lblSenhaa.Size = new System.Drawing.Size(38, 13);
-            this.lblSenhaa.TabIndex = 16;
-            this.lblSenhaa.Text = "Senha";
             // 
             // txtSenhaa
             // 
-            this.txtSenhaa.Location = new System.Drawing.Point(28, 217);
+            this.txtSenhaa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.txtSenhaa.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenhaa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenhaa.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSenhaa.Location = new System.Drawing.Point(551, 214);
             this.txtSenhaa.Name = "txtSenhaa";
-            this.txtSenhaa.Size = new System.Drawing.Size(202, 20);
+            this.txtSenhaa.Size = new System.Drawing.Size(115, 13);
             this.txtSenhaa.TabIndex = 17;
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 316);
+            this.BackgroundImage = global::piBodeWar.Properties.Resources.menu1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(750, 350);
             this.Controls.Add(this.txtSenhaa);
-            this.Controls.Add(this.lblSenhaa);
-            this.Controls.Add(this.lblNomeJogador);
             this.Controls.Add(this.txtNomeJogador);
             this.Controls.Add(this.btnEntrarPartida);
             this.Controls.Add(this.btnCriarPartida);
-            this.Controls.Add(this.lblSenha);
-            this.Controls.Add(this.lblNome);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lstPartidas);
             this.Controls.Add(this.btnListarPartidas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,13 +177,9 @@ namespace piBodeWar
         private System.Windows.Forms.ListBox lstPartidas;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtSenha;
-        private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Button btnCriarPartida;
         private System.Windows.Forms.Button btnEntrarPartida;
         private System.Windows.Forms.TextBox txtNomeJogador;
-        private System.Windows.Forms.Label lblNomeJogador;
-        private System.Windows.Forms.Label lblSenhaa;
         private System.Windows.Forms.TextBox txtSenhaa;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
