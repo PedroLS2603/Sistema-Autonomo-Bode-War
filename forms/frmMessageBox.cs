@@ -12,7 +12,6 @@ namespace piBodeWar.forms
 {
     public partial class frmMessageBox : Form
     {
-        private bool ok = false;
         public frmMessageBox(string titulo, string mensagem)
         {
             InitializeComponent();
@@ -23,7 +22,6 @@ namespace piBodeWar.forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            this.ok = true;
             this.Close();
         }
 
@@ -37,11 +35,6 @@ namespace piBodeWar.forms
         {
             btnOk.Image = Properties.Resources.ok2;
             btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

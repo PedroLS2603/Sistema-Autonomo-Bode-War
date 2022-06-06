@@ -70,7 +70,6 @@ namespace piBodeWar
             this.lstPartidas.Name = "lstPartidas";
             this.lstPartidas.Size = new System.Drawing.Size(179, 195);
             this.lstPartidas.TabIndex = 1;
-            this.lstPartidas.SelectedIndexChanged += new System.EventHandler(this.lstPartidas_SelectedIndexChanged);
             // 
             // txtNome
             // 
@@ -147,7 +146,6 @@ namespace piBodeWar
             this.txtSenhaa.Name = "txtSenhaa";
             this.txtSenhaa.Size = new System.Drawing.Size(115, 13);
             this.txtSenhaa.TabIndex = 17;
-            this.txtSenhaa.TextChanged += new System.EventHandler(this.txtSenhaa_TextChanged);
             // 
             // frmMenu
             // 

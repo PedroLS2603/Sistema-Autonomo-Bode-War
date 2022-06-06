@@ -22,10 +22,10 @@ namespace piBodeWar.model
 
         public Estrategia(Partida partida, Jogador jogador)
         {
-            this.peso1 = new List<Carta>(); // Chance maior de garantir ilhas 
-            this.peso2 = new List<Carta>(); //Descarte
-            this.peso3 = new List<Carta>(); //Chance maior de garantir bodes
-            this.limiteProximidadeIlha = 65.0;
+            this.peso1 = new List<Carta>(); 
+            this.peso2 = new List<Carta>(); 
+            this.peso3 = new List<Carta>(); 
+            this.limiteProximidadeIlha = 70.0;
             this.ilhasDefinidas = 0;
 
             this.partida = partida;
@@ -41,10 +41,18 @@ namespace piBodeWar.model
         }
         public Carta escolherCarta()
         {
-            
+            Carta maiorNaMesa = null;
             Rodada rodada = this.partida.rodadaAtual;
             Carta escolhida = null;
-            int idRodada = Int32.Parse(rodada.id);
+
+            foreach (Carta c in rodada.cartasJogadas)
+            {
+                if (maiorNaMesa == null || c.id > maiorNaMesa.id)
+                {
+                    maiorNaMesa = c;
+                }
+            }
+
             if (this.jogador.mao.Count > 0)
             {
                 if (Int32.Parse(rodada.id) <= 4)
@@ -54,7 +62,13 @@ namespace piBodeWar.model
                         escolhida = this.tentaIlhaOuDescarta();
                     }
                     else {
-                        escolhida = this.descarta();
+                        if(maiorNaMesa != null)
+                        {
+                            escolhida = this.descartaMaiorBode(maiorNaMesa);
+                        }
+                        else { 
+                            escolhida = this.descarta();
+                        }
                     }
                 }
                 else
@@ -65,7 +79,7 @@ namespace piBodeWar.model
                     }
                     else
                     {
-                        escolhida = this.descartaMaiorBode();
+                        escolhida = this.descartaMaiorBode(maiorNaMesa);
                     }
                 }
             }
@@ -117,22 +131,29 @@ namespace piBodeWar.model
             }
             else
             {
-                escolhida = this.descarta();
+                if(menorNaMao.id <= 5)
+                {
+                    escolhida = menorNaMao;
+                }
+                else
+                {
+                    escolhida = this.descarta();
+                }
             }
 
-            this.removeCarta(escolhida);
             return escolhida;
         }
 
         private Carta descarta()
         {
             Carta escolhida = null;
-            
+
             if (this.peso1.Count > 0)
             {
                 escolhida = this.peso1[this.peso1.Count - 1];
 
             }
+            
             else if (this.peso2.Count > 0)
             {
                 escolhida = this.peso2[0];
@@ -143,23 +164,28 @@ namespace piBodeWar.model
                 escolhida = this.peso3[this.peso3.Count / 2];
             }
 
-            this.removeCarta(escolhida);
             return escolhida;
         }
 
         private Carta descarta(Carta maiorNaMesa)
         {
             List<Carta> menoresQueMaiorDaMesa;
+            List<Carta> maioresQueMaiorDaMesa;
 
             menoresQueMaiorDaMesa = this.jogador.mao.Where(c => c.id < maiorNaMesa.id).ToList();
+            maioresQueMaiorDaMesa = this.jogador.mao.Where(c => c.id > maiorNaMesa.id).ToList();
 
-            if(menoresQueMaiorDaMesa.Count > 0)
+
+            if (menoresQueMaiorDaMesa.Count > 0)
             {
                 this.removeCarta(menoresQueMaiorDaMesa[menoresQueMaiorDaMesa.Count - 1]);
                 return menoresQueMaiorDaMesa[menoresQueMaiorDaMesa.Count - 1];
             }
-
-            return null;
+            else
+            {
+                this.removeCarta(maioresQueMaiorDaMesa[maioresQueMaiorDaMesa.Count / 2]);
+                return maioresQueMaiorDaMesa[maioresQueMaiorDaMesa.Count / 2];
+            }
         }
 
         private Carta tentaBodeOuDescarta()
@@ -188,7 +214,7 @@ namespace piBodeWar.model
                 }
                 else
                 {
-                    escolhida = this.descartaMaiorBode();
+                    escolhida = this.descartaMaiorBode(maiorNaMesa);
                 }
             }
             else
@@ -196,18 +222,31 @@ namespace piBodeWar.model
                 escolhida = this.escolheMaiorCarta();
             }
 
-            this.removeCarta(escolhida);
             return escolhida;
         }
 
-        private Carta descartaMaiorBode()
+        private Carta descartaMaiorBode(Carta maiorNaMesa)
         {
             Carta escolhida = null;
-            List<Carta> cincoBodes = this.jogador.mao.Where(c => c.numBodes == 5).ToList();
-            List<Carta> tresBodes = this.jogador.mao.Where(c => c.numBodes == 3).ToList();
-            List<Carta> doisBodes = this.jogador.mao.Where(c => c.numBodes == 2).ToList();
-            List<Carta> umBode = this.jogador.mao.Where(c => c.numBodes == 1).ToList();
-
+            List<Carta> cincoBodes;
+            List<Carta> tresBodes;
+            List<Carta> doisBodes;
+            List<Carta> umBode;
+            if (maiorNaMesa != null)
+            {
+                cincoBodes = this.jogador.mao.Where(c => c.numBodes == 5 && c.id < maiorNaMesa.id).ToList();
+                tresBodes = this.jogador.mao.Where(c => c.numBodes == 3 && c.id < maiorNaMesa.id).ToList();
+                doisBodes = this.jogador.mao.Where(c => c.numBodes == 2 && c.id < maiorNaMesa.id).ToList();
+                umBode = this.jogador.mao.Where(c => c.numBodes == 1 && c.id < maiorNaMesa.id).ToList();
+            }
+            
+            else
+            {
+                cincoBodes = this.jogador.mao.Where(c => c.numBodes == 5).ToList();
+                tresBodes = this.jogador.mao.Where(c => c.numBodes == 3).ToList();
+                doisBodes = this.jogador.mao.Where(c => c.numBodes == 2).ToList();
+                umBode = this.jogador.mao.Where(c => c.numBodes == 1).ToList();
+            }
             if(cincoBodes.Count > 0)
             {
                 escolhida =  cincoBodes[0];
@@ -224,7 +263,6 @@ namespace piBodeWar.model
                 escolhida = umBode[0];
             }
 
-            this.removeCarta(escolhida);
             return escolhida;
         }
 
@@ -281,12 +319,13 @@ namespace piBodeWar.model
 
         public int escolheIlha(int opcao1, int opcao2)
         {
+            int idRodada = Int32.Parse(this.partida.rodadaAtual.id);
             int maior = opcao1 > opcao2 ? opcao1 : opcao2;
             int menor = opcao1 < opcao2 ? opcao1 : opcao2;
 
             this.ilhasDefinidas++;
 
-            return passouDoLimite(this.jogador) ? maior : menor;
+            return passouDoLimite(this.jogador) && idRodada > 2 ? maior : menor;
         }
 
         private Carta escolheMaiorCarta()

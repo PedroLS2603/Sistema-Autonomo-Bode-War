@@ -9,16 +9,16 @@ namespace piBodeWar.model
 {
     public class Partida
     {
-        public string id {get; private set;}
-        public string nome {get; private set;}
-        public string senha { get; private set;}
-        public List<Jogador> jogadores { get; private set;}
-        public Jogador vencedor { get; set;}
-        public char status { get; set;}
+        public string id { get; private set; }
+        public string nome { get; private set; }
+        public string senha { get; private set; }
+        public List<Jogador> jogadores { get; private set; }
+        public Jogador vencedor { get; set; }
+        public char status { get; set; }
         public Rodada rodadaAtual { get; private set; }
 
         public List<Rodada> rodadas { get; private set; }
-        public bool iniciou { get;  set; }
+        public bool iniciou { get; set; }
         public int tamanhoIlha { get; private set; }
         public List<Carta> cartas { get; }
         public Partida(string id, string nome, string senha)
@@ -70,7 +70,7 @@ namespace piBodeWar.model
 
         public void setRodadaAtual(Rodada rodada)
         {
-            if(rodada != null)
+            if (rodada != null)
             {
                 this.rodadaAtual = rodada;
             }
@@ -80,7 +80,20 @@ namespace piBodeWar.model
         {
             string narracao = Jogo.ExibirNarracao(Int32.Parse(this.id));
 
-            foreach(Jogador jogador in this.jogadores)
+
+            narracao = this.formatarNarracao(narracao);
+
+            if (this.rodadaAtual != null)
+            {
+                this.distribuirBodes(narracao);
+            }
+
+            return narracao;
+        }
+
+        private string formatarNarracao(string narracao)
+        {
+            foreach (Jogador jogador in this.jogadores)
             {
                 narracao = narracao.Replace($", é a vez de {jogador.nome}", "");
             }
@@ -88,12 +101,6 @@ namespace piBodeWar.model
             narracao = narracao.Replace("venceu a rodada e ", "");
             narracao = narracao.Replace("perdeu a rodada e ", "");
             narracao = narracao.Replace("Jogador ", "");
-            //Iniciou a partida nome, é a vez de nomequemjoga
-
-
-            if (this.rodadaAtual != null && !this.rodadaAtual.distribuiuPremio) { 
-                this.distribuirBodes(narracao);
-            }
 
             return narracao;
         }
@@ -108,7 +115,7 @@ namespace piBodeWar.model
             for (int i = 0; i < arrRetorno.Length; i++)
             {
                 string strJogador = arrRetorno[i];
-                if(strJogador != "")
+                if (strJogador != "")
                 {
                     string[] infoJogador = strJogador.Split(',');
                     string id = infoJogador[0];
@@ -127,7 +134,7 @@ namespace piBodeWar.model
         {
             foreach (Jogador jogador in this.jogadores)
             {
-                if(jogador.id == id)
+                if (jogador.id == id)
                 {
                     return jogador;
                 }
@@ -150,46 +157,49 @@ namespace piBodeWar.model
 
         public void setTamanhoIlha(int valor)
         {
-            if(valor > 0)
+            if (valor > 0)
             {
                 this.tamanhoIlha = valor;
             }
         }
         public void aumentarIlha(int valor)
         {
-            if(valor > 0)
+            if (valor > 0)
             {
                 this.tamanhoIlha += valor;
             }
         }
 
-        public Jogador verificaVencedor() {
+        public Jogador verificaVencedor()
+        {
             int maiorQtdBodes = 0;
 
-            foreach(Jogador jogador in this.jogadores)
+            foreach (Jogador jogador in this.jogadores)
             {
-                if(jogador.numBodes > maiorQtdBodes && this.tamanhoIlha >= jogador.numBodes)
+                if (jogador.numBodes > maiorQtdBodes && this.tamanhoIlha >= jogador.numBodes)
                 {
                     maiorQtdBodes = jogador.numBodes;
                 }
             }
 
-            if(maiorQtdBodes == 0)
+            if (maiorQtdBodes == 0)
             {
                 int menorQtdBodesAposEstourar = 0;
-                foreach(Jogador jogador in this.jogadores) {
-                    if(menorQtdBodesAposEstourar == 0)
+                foreach (Jogador jogador in this.jogadores)
+                {
+                    if (menorQtdBodesAposEstourar == 0)
                     {
                         menorQtdBodesAposEstourar = jogador.numBodes;
                     }
 
-                    if(menorQtdBodesAposEstourar < jogador.numBodes)
+                    if (menorQtdBodesAposEstourar < jogador.numBodes)
                     {
                         menorQtdBodesAposEstourar = jogador.numBodes;
                     }
                 }
                 this.vencedor = this.buscarJogador(menorQtdBodesAposEstourar);
-            } else
+            }
+            else
             {
                 this.vencedor = this.buscarJogador(maiorQtdBodes);
             }
@@ -201,7 +211,7 @@ namespace piBodeWar.model
         {
             foreach (Rodada rodada in this.rodadas)
             {
-                if(rodada.id == id)
+                if (rodada.id == id)
                 {
                     return rodada;
                 }
@@ -224,7 +234,7 @@ namespace piBodeWar.model
         {
             List<Carta> retorno = new List<Carta>();
 
-            foreach(Carta c in this.cartas)
+            foreach (Carta c in this.cartas)
             {
                 retorno.Add(c);
             }
@@ -234,32 +244,18 @@ namespace piBodeWar.model
 
         public void distribuirBodes(string narracao)
         {
-            foreach(Jogador jogador in this.jogadores)
+            try
             {
-                int soma = 0;
-                string linhasBodes = Util.substring(narracao, $"{jogador.nome} recebeu", "bodes");
-
-                if(linhasBodes != null)
+                foreach (Jogador jogador in this.jogadores)
                 {
-                    string[] arrQtdBodes = linhasBodes.Split('\n');
+                    int qtdBodes = Util.obterQtdDeBodesPorNarracao(narracao, jogador.nome);
 
-                    foreach (string qtdBodes in arrQtdBodes)
-                    {
-                        try
-                        {
-                            int bodes = Int32.Parse(qtdBodes);
-                            soma += bodes;
-                        }
-                        catch
-                        {
-                            soma += 0;
-                        }
-                    }
-
-                    jogador.adicionarBodes(soma);
-                    this.rodadaAtual.distribuiuPremio = true;
+                    jogador.setBodes(qtdBodes);
                 }
-
+            }
+            catch
+            {
+                return;
             }
         }
     }

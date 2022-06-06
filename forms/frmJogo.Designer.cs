@@ -123,7 +123,7 @@
             // 
             // tmrMinhaVez
             // 
-            this.tmrMinhaVez.Interval = 666;
+            this.tmrMinhaVez.Interval = 1200;
             this.tmrMinhaVez.Tick += new System.EventHandler(this.tmrMinhaVez_Tick);
             // 
             // lblJogador1
@@ -138,7 +138,6 @@
             this.lblJogador1.TabIndex = 19;
             this.lblJogador1.Text = "Player1";
             this.lblJogador1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblJogador1.Click += new System.EventHandler(this.lblJogador1_Click);
             // 
             // lblJogador3
             // 
@@ -165,7 +164,6 @@
             this.lblJogador2.TabIndex = 21;
             this.lblJogador2.Text = "Player2";
             this.lblJogador2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblJogador2.Click += new System.EventHandler(this.lblJogador2_Click);
             // 
             // lblJogador4
             // 
@@ -324,7 +322,6 @@
             this.Name = "frmJogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
-            this.Load += new System.EventHandler(this.frmJogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIlha)).EndInit();
             this.pnlNarracao.ResumeLayout(false);
             this.pnlNarracao.PerformLayout();
