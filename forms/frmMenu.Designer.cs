@@ -162,7 +162,8 @@ namespace piBodeWar
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lstPartidas);
             this.Controls.Add(this.btnListarPartidas);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

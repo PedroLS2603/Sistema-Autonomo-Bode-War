@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJogo));
             this.btnIniciarPartida = new System.Windows.Forms.Button();
             this.flpMao = new System.Windows.Forms.FlowLayoutPanel();
             this.lblStatusRodada = new System.Windows.Forms.Label();
@@ -318,7 +319,8 @@
             this.Controls.Add(this.btnIniciarPartida);
             this.Controls.Add(this.flpMesa);
             this.Controls.Add(this.flpMao);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmJogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
