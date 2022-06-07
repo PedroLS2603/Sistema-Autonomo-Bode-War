@@ -12,6 +12,16 @@ namespace piBodeWar.forms
 {
     public partial class frmMessageBox : Form
     {
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                return handleParam;
+            }
+        }
         public frmMessageBox(string titulo, string mensagem)
         {
             InitializeComponent();
