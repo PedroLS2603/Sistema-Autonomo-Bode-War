@@ -95,7 +95,7 @@ namespace piBodeWar.model
                 {
                     this.partida.setRodadaAtual(new Rodada("1", 'B', 0, this.partida));
                 }
-                if (idRodada == "8" && statusPartida == "E")
+                if ((idRodada == "8" && statusRodada == 'E') || (idRodada == "8" && statusPartida == "E" && statusRodada == 'E'))
                 {
                     this.partida.vencedor = this.partida.buscarJogador(idJogador);
                     this.encerrarPartida(this.partida);

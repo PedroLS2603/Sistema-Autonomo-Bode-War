@@ -178,8 +178,8 @@ namespace piBodeWar.model
 
             if (menoresQueMaiorDaMesa.Count > 0)
             {
-                this.removeCarta(menoresQueMaiorDaMesa[menoresQueMaiorDaMesa.Count - 1]);
-                return menoresQueMaiorDaMesa[menoresQueMaiorDaMesa.Count - 1];
+                this.removeCarta(menoresQueMaiorDaMesa[menoresQueMaiorDaMesa.Count/2 ]);;
+                return menoresQueMaiorDaMesa[menoresQueMaiorDaMesa.Count / 2];
             }
             else
             {
