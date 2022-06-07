@@ -96,7 +96,7 @@
             this.lblStatusRodada.Location = new System.Drawing.Point(0, 0);
             this.lblStatusRodada.Name = "lblStatusRodada";
             this.lblStatusRodada.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblStatusRodada.Size = new System.Drawing.Size(297, 55);
+            this.lblStatusRodada.Size = new System.Drawing.Size(296, 55);
             this.lblStatusRodada.TabIndex = 10;
             this.lblStatusRodada.Text = "Não iniciado";
             this.lblStatusRodada.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,7 +124,7 @@
             // 
             // tmrMinhaVez
             // 
-            this.tmrMinhaVez.Interval = 1200;
+            this.tmrMinhaVez.Interval = 999;
             this.tmrMinhaVez.Tick += new System.EventHandler(this.tmrMinhaVez_Tick);
             // 
             // lblJogador1
@@ -132,7 +132,7 @@
             this.lblJogador1.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblJogador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJogador1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblJogador1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblJogador1.Location = new System.Drawing.Point(0, 0);
             this.lblJogador1.Name = "lblJogador1";
             this.lblJogador1.Size = new System.Drawing.Size(82, 60);
@@ -145,7 +145,7 @@
             this.lblJogador3.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblJogador3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJogador3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblJogador3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblJogador3.Location = new System.Drawing.Point(0, 0);
             this.lblJogador3.Name = "lblJogador3";
             this.lblJogador3.Size = new System.Drawing.Size(82, 60);
@@ -158,7 +158,7 @@
             this.lblJogador2.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblJogador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJogador2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblJogador2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblJogador2.Location = new System.Drawing.Point(0, 0);
             this.lblJogador2.Name = "lblJogador2";
             this.lblJogador2.Size = new System.Drawing.Size(82, 60);
@@ -171,7 +171,7 @@
             this.lblJogador4.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblJogador4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJogador4.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblJogador4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblJogador4.Location = new System.Drawing.Point(0, 0);
             this.lblJogador4.Name = "lblJogador4";
             this.lblJogador4.Size = new System.Drawing.Size(82, 60);
@@ -227,7 +227,7 @@
             this.panel1.Controls.Add(this.lblStatusRodada);
             this.panel1.Location = new System.Drawing.Point(833, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(297, 55);
+            this.panel1.Size = new System.Drawing.Size(296, 55);
             this.panel1.TabIndex = 30;
             // 
             // panel2
@@ -304,7 +304,7 @@
             this.AutoSize = true;
             this.BackgroundImage = global::piBodeWar.Properties.Resources.table_BOW;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1364, 749);
+            this.ClientSize = new System.Drawing.Size(1364, 747);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel5);
