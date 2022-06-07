@@ -97,17 +97,11 @@ namespace piBodeWar.model
             Carta maiorNaMesa = null;
             List<Carta> menoresQueNaMesa = new List<Carta>();
             Carta menorNaMao = this.jogador.mao[0];
-            bool temCartaMenorNaMesa = false;
 
             if (rodada.cartasJogadas.Count > 0)
             {
                 foreach (Carta c in rodada.cartasJogadas)
                 {
-                    if (c.id < menorNaMao.id)
-                    {
-                        temCartaMenorNaMesa = true;
-                    }
-
                     if(menorNaMesa == null || c.id < menorNaMesa.id)
                     {
                         menorNaMesa = c;
@@ -122,12 +116,14 @@ namespace piBodeWar.model
 
                 menoresQueNaMesa = this.jogador.mao.Where(c => c.id < menorNaMesa.id).ToList();
 
-                if (!temCartaMenorNaMesa && menoresQueNaMesa.Count > 0)
+                if (menoresQueNaMesa.Count > 0)
                 {
                     escolhida = menoresQueNaMesa[menoresQueNaMesa.Count - 1];
                 }
-
-                escolhida = this.descarta(maiorNaMesa);
+                else
+                {
+                    escolhida = this.descarta(maiorNaMesa);
+                }
             }
             else
             {
