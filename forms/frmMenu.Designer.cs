@@ -38,7 +38,6 @@ namespace piBodeWar
             this.btnEntrarPartida = new System.Windows.Forms.Button();
             this.txtNomeJogador = new System.Windows.Forms.TextBox();
             this.txtSenhaa = new System.Windows.Forms.TextBox();
-            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.SuspendLayout();
             // 
             // btnListarPartidas
@@ -49,9 +48,9 @@ namespace piBodeWar
             this.btnListarPartidas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnListarPartidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarPartidas.Image = ((System.Drawing.Image)(resources.GetObject("btnListarPartidas.Image")));
-            this.btnListarPartidas.Location = new System.Drawing.Point(267, 27);
+            this.btnListarPartidas.Location = new System.Drawing.Point(287, 27);
             this.btnListarPartidas.Name = "btnListarPartidas";
-            this.btnListarPartidas.Size = new System.Drawing.Size(206, 56);
+            this.btnListarPartidas.Size = new System.Drawing.Size(170, 56);
             this.btnListarPartidas.TabIndex = 3;
             this.btnListarPartidas.UseVisualStyleBackColor = false;
             this.btnListarPartidas.Click += new System.EventHandler(this.btnListarPartidas_Click);
@@ -66,9 +65,9 @@ namespace piBodeWar
             this.lstPartidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstPartidas.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lstPartidas.FormattingEnabled = true;
-            this.lstPartidas.Location = new System.Drawing.Point(276, 113);
+            this.lstPartidas.Location = new System.Drawing.Point(271, 118);
             this.lstPartidas.Name = "lstPartidas";
-            this.lstPartidas.Size = new System.Drawing.Size(179, 195);
+            this.lstPartidas.Size = new System.Drawing.Size(186, 195);
             this.lstPartidas.TabIndex = 1;
             // 
             // txtNome
@@ -166,7 +165,7 @@ namespace piBodeWar
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Animaniacs - Menu";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +181,6 @@ namespace piBodeWar
         private System.Windows.Forms.Button btnEntrarPartida;
         private System.Windows.Forms.TextBox txtNomeJogador;
         private System.Windows.Forms.TextBox txtSenhaa;
-        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }
 

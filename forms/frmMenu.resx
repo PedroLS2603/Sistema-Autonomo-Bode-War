@@ -121,7 +121,7 @@
   <data name="btnListarPartidas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHcAAAAyCAYAAABmrERVAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxEAAAsRAX9kX5EAACnESURBVHhe7XxplGVVlWZGZCYI
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw8AAAsPAZL5A6UAACnESURBVHhe7XxplGVVlWZGZCYI
         JJmggopdFtVOiJJkxjy8ePN077vDm8d4ES/miIzMBDJBBrEAJ9BuraJKy6patrVahIVld5VdgzNlIa5W
         u1ttcjl2FaYgCiQkSTLmEPFuf98597y470VkgXb16j/9Y8e99wz77P195+wz3Hdjk+M4/1cllLO6QvlM
         V6hAsbrCBbMrUrS7Nip7JhnUE13Dpt41bKW6fbaxJZDRtwTT+la/mdrit4zNASu1OZTWuyFdoaz5G+n+
@@ -303,9 +303,6 @@
         0UkAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="pageSetupDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIAD6DgEAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAAAFv

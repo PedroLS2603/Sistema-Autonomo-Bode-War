@@ -13,7 +13,7 @@ namespace piBodeWar
         public frmMenu()
         {
             InitializeComponent();
-            this.Text = "Animaniacs - Menu";
+            this.MaximizeBox = false;
         }
 
         private void btnListarPartidas_Click(object sender, EventArgs e)

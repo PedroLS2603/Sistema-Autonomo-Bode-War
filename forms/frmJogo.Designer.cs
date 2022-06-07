@@ -96,7 +96,7 @@
             this.lblStatusRodada.Location = new System.Drawing.Point(0, 0);
             this.lblStatusRodada.Name = "lblStatusRodada";
             this.lblStatusRodada.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblStatusRodada.Size = new System.Drawing.Size(297, 55);
+            this.lblStatusRodada.Size = new System.Drawing.Size(296, 55);
             this.lblStatusRodada.TabIndex = 10;
             this.lblStatusRodada.Text = "Não iniciado";
             this.lblStatusRodada.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,18 +124,18 @@
             // 
             // tmrMinhaVez
             // 
-            this.tmrMinhaVez.Interval = 1200;
+            this.tmrMinhaVez.Interval = 999;
             this.tmrMinhaVez.Tick += new System.EventHandler(this.tmrMinhaVez_Tick);
             // 
             // lblJogador1
             // 
             this.lblJogador1.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblJogador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJogador1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblJogador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblJogador1.Location = new System.Drawing.Point(0, 0);
             this.lblJogador1.Name = "lblJogador1";
-            this.lblJogador1.Size = new System.Drawing.Size(70, 60);
+            this.lblJogador1.Size = new System.Drawing.Size(82, 60);
             this.lblJogador1.TabIndex = 19;
             this.lblJogador1.Text = "Player1";
             this.lblJogador1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,11 +144,11 @@
             // 
             this.lblJogador3.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblJogador3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJogador3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblJogador3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblJogador3.Location = new System.Drawing.Point(0, 0);
             this.lblJogador3.Name = "lblJogador3";
-            this.lblJogador3.Size = new System.Drawing.Size(80, 60);
+            this.lblJogador3.Size = new System.Drawing.Size(82, 60);
             this.lblJogador3.TabIndex = 20;
             this.lblJogador3.Text = "Player3";
             this.lblJogador3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -157,11 +157,11 @@
             // 
             this.lblJogador2.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblJogador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJogador2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblJogador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblJogador2.Location = new System.Drawing.Point(0, 0);
             this.lblJogador2.Name = "lblJogador2";
-            this.lblJogador2.Size = new System.Drawing.Size(80, 60);
+            this.lblJogador2.Size = new System.Drawing.Size(82, 60);
             this.lblJogador2.TabIndex = 21;
             this.lblJogador2.Text = "Player2";
             this.lblJogador2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -170,11 +170,11 @@
             // 
             this.lblJogador4.BackColor = System.Drawing.Color.Transparent;
             this.lblJogador4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblJogador4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJogador4.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblJogador4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblJogador4.Location = new System.Drawing.Point(0, 0);
             this.lblJogador4.Name = "lblJogador4";
-            this.lblJogador4.Size = new System.Drawing.Size(80, 60);
+            this.lblJogador4.Size = new System.Drawing.Size(82, 60);
             this.lblJogador4.TabIndex = 22;
             this.lblJogador4.Text = "Player4";
             this.lblJogador4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -199,9 +199,8 @@
             this.txtStatus.ForeColor = System.Drawing.SystemColors.Control;
             this.txtStatus.Location = new System.Drawing.Point(3, 0);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(18, 20);
+            this.txtStatus.Size = new System.Drawing.Size(0, 20);
             this.txtStatus.TabIndex = 26;
-            this.txtStatus.Text = "0";
             // 
             // pbxIlha
             // 
@@ -228,7 +227,7 @@
             this.panel1.Controls.Add(this.lblStatusRodada);
             this.panel1.Location = new System.Drawing.Point(833, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(297, 55);
+            this.panel1.Size = new System.Drawing.Size(296, 55);
             this.panel1.TabIndex = 30;
             // 
             // panel2
@@ -267,34 +266,34 @@
             this.panel4.Controls.Add(this.lblJogador1);
             this.panel4.Location = new System.Drawing.Point(980, 84);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(70, 60);
+            this.panel4.Size = new System.Drawing.Size(82, 60);
             this.panel4.TabIndex = 34;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.Controls.Add(this.lblJogador2);
-            this.panel5.Location = new System.Drawing.Point(1059, 84);
+            this.panel5.Location = new System.Drawing.Point(1064, 84);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(80, 60);
+            this.panel5.Size = new System.Drawing.Size(82, 60);
             this.panel5.TabIndex = 35;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Controls.Add(this.lblJogador3);
-            this.panel7.Location = new System.Drawing.Point(1145, 84);
+            this.panel7.Location = new System.Drawing.Point(1146, 84);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(80, 60);
+            this.panel7.Size = new System.Drawing.Size(82, 60);
             this.panel7.TabIndex = 37;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.Transparent;
             this.panel10.Controls.Add(this.lblJogador4);
-            this.panel10.Location = new System.Drawing.Point(1231, 84);
+            this.panel10.Location = new System.Drawing.Point(1230, 84);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(80, 60);
+            this.panel10.Size = new System.Drawing.Size(82, 60);
             this.panel10.TabIndex = 40;
             // 
             // frmJogo
@@ -305,7 +304,7 @@
             this.AutoSize = true;
             this.BackgroundImage = global::piBodeWar.Properties.Resources.table_BOW;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1364, 749);
+            this.ClientSize = new System.Drawing.Size(1364, 747);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel5);

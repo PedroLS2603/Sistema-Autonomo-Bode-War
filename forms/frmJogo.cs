@@ -33,6 +33,7 @@ namespace piBodeWar.forms
                 this.mostrarIlha[i] = true;
             }
             InitializeComponent();
+            this.MaximizeBox = false;
             this.Text = $"Animaniacs - {this.partida.nome}";
 
             pnlNarracao.AutoScroll = false;
